@@ -1,0 +1,187 @@
+/* GutenStyle panels inside the block editor sidebar. */
+
+/* The GutenStyle block panel uses the GutenStyle design system (tokens in style.css). */
+.gs-block-panel {
+  --gs-section-x: 16px;
+}
+
+.gs-block-panel.components-panel__body {
+  background: var(--gs-surface);
+  border-top-color: var(--gs-line);
+}
+
+.gs-block-panel .components-panel__body-title,
+.gs-block-panel .components-panel__body-title:hover {
+  background: var(--gs-surface);
+}
+
+.gs-block-panel .components-panel__body-toggle.components-button,
+.gs-block-panel .components-panel__body-toggle.components-button:hover,
+.gs-block-panel .components-panel__body-toggle.components-button:focus {
+  background: var(--gs-surface);
+  color: var(--gs-ink);
+  font-family: var(--gs-font);
+  font-weight: 800;
+}
+
+.gs-block-panel .components-panel__arrow {
+  color: var(--gs-muted);
+}
+
+/* Sections run edge to edge, separated by a line, like an inspector. */
+.gs-block-panel .gs-collapsible,
+.gs-block-panel .gs-style-panel__intro,
+.gs-panel-section {
+  margin: 0 -16px;
+}
+
+.gs-panel-section {
+  border-bottom: 1px solid var(--gs-line);
+  display: grid;
+  gap: 8px;
+  padding: 12px 16px 14px;
+}
+
+.gs-block-panel > .gs-panel-section:first-of-type,
+.gs-block-panel .components-panel__body-title + .gs-panel-section {
+  margin-top: -16px;
+}
+
+.gs-panel-section__head {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gs-panel-section__head .gs-theme-toggle {
+  height: 26px;
+  width: 26px;
+}
+
+.gs-panel-section__title {
+  font-size: 13px;
+  font-weight: 800;
+  /* Pushes the theme toggle and the ⋯ menu together to the end of the header. */
+  margin-inline-end: auto;
+}
+
+/* Style source: which level edits are saved to, with a count of settings per level. */
+.gs-source-bar {
+  background: var(--gs-field-bg);
+  border-radius: 8px;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 3px;
+}
+
+.gs-source-bar__item {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--gs-label);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font: inherit;
+  font-size: 12px;
+  gap: 2px;
+  min-width: 0;
+  padding: 6px 4px;
+}
+
+.gs-source-bar__item:hover {
+  color: var(--gs-ink);
+}
+
+.gs-source-bar__item.is-active {
+  background: var(--gs-accent);
+  color: #fff;
+}
+
+.gs-source-bar__label {
+  font-weight: 600;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gs-source-bar__count {
+  font-size: 10px;
+  opacity: 0.85;
+}
+
+.gs-source-help {
+  color: var(--gs-muted-2);
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.gs-block-panel .components-notice {
+  margin: 0 0 12px;
+}
+
+.gs-document-panel__heading {
+  font-size: 11px;
+  font-weight: 500;
+  margin: 16px 0 8px;
+  text-transform: uppercase;
+}
+
+.gs-document-panel__empty {
+  color: #757575;
+  font-size: 12px;
+  margin: 0;
+}
+
+.gs-document-panel__overrides ul {
+  margin: 0;
+}
+
+.gs-document-panel__overrides li {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.gs-document-panel__count {
+  color: #757575;
+}
+
+.gs-block-panel__notice.components-notice {
+  margin: 0 0 16px;
+}
+
+.gs-block-panel__notice p {
+  margin: 0 0 8px;
+}
+
+.gs-block-panel__notice p:last-child {
+  margin-bottom: 0;
+}
+
+/* The ⋯ menu sits after the theme toggle, at the end of the "Style source" header. */
+.gs-panel-section__head .gs-style-menu {
+  margin-inline-start: 2px;
+}
+
+/* Buttons at the bottom of a GutenStyle dialog (e.g. Save as preset). */
+.gs-modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* "Describe a style with AI": the suggested style as a thumbnail. */
+.gs-ai-suggestion__preview {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  height: 140px;
+  overflow: hidden;
+  position: relative;
+}

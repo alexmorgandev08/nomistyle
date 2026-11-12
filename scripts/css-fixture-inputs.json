@@ -1,0 +1,207 @@
+[
+  {
+    "name": "empty values produce no CSS",
+    "type": "table",
+    "values": {},
+    "root": ".gs.gs-table",
+    "important": false
+  },
+  {
+    "name": "table clean preset",
+    "type": "table",
+    "values": {
+      "gridLines": "rows",
+      "gridColor": "#e5e7eb",
+      "headerBackground": "#f9fafb",
+      "headerTextColor": "#111827",
+      "headerFontWeight": "600",
+      "headerDividerWidth": "2px",
+      "headerDividerColor": "#d1d5db",
+      "cellPaddingY": "12px",
+      "cellPaddingX": "16px",
+      "hoverColor": "#f9fafb"
+    },
+    "root": ".gs.gs-table",
+    "important": false
+  },
+  {
+    "name": "table radius extra and responsive padding with force style",
+    "type": "table",
+    "values": {
+      "radius": "12px",
+      "cellPaddingY": "12px",
+      "cellPaddingY@tablet": "10px",
+      "cellPaddingY@mobile": "8px",
+      "fontSize@mobile": "14px"
+    },
+    "root": ".gs.gs-table.gs-p-12",
+    "important": true
+  },
+  {
+    "name": "list check marker uses marker color",
+    "type": "list",
+    "values": {
+      "markerStyle": "check",
+      "markerColor": "#16a34a",
+      "itemSpacing": "0.5em"
+    },
+    "root": ".gs.gs-list",
+    "important": false
+  },
+  {
+    "name": "list number badge",
+    "type": "list",
+    "values": {
+      "orderedMarkerStyle": "badge"
+    },
+    "root": ".gs.gs-list.gs-b-abc",
+    "important": false
+  },
+  {
+    "name": "quote left border falls back to defaults",
+    "type": "quote",
+    "values": {
+      "borderPosition": "left",
+      "quoteIcon": "show",
+      "iconColor": "#3b82f6",
+      "citePrefix": "dash"
+    },
+    "root": ".gs.gs-quote",
+    "important": false
+  },
+  {
+    "name": "details plus icon and radius",
+    "type": "details",
+    "values": {
+      "iconStyle": "plus",
+      "iconColor": "#2563eb",
+      "radius": "8px",
+      "openSummaryBackground": "#2563eb",
+      "contentPadding": "1em",
+      "contentPadding@mobile": "0.75em"
+    },
+    "root": ".gs.gs-details",
+    "important": false
+  },
+  {
+    "name": "heading underlined preset with responsive h2",
+    "type": "heading",
+    "values": {
+      "fontWeight": "700",
+      "decoration": "border",
+      "accentColor": "#2563eb",
+      "borderWidth": "3px",
+      "paddingBottom": "0.25em",
+      "h2FontSize": "30px",
+      "h2FontSize@mobile": "24px"
+    },
+    "root": ".gs.gs-heading",
+    "important": false
+  },
+  {
+    "name": "button pill with lift hover and full width",
+    "type": "button",
+    "values": {
+      "background": "#111827",
+      "textColor": "#ffffff",
+      "radius": "999px",
+      "hoverEffect": "lift",
+      "width": "full"
+    },
+    "root": ".gs.gs-button",
+    "important": false
+  },
+  {
+    "name": "image polaroid",
+    "type": "image",
+    "values": {
+      "background": "#ffffff",
+      "padding": "12px",
+      "borderWidth": "1px",
+      "borderColor": "#e5e7eb",
+      "shadow": "hard",
+      "captionStyle": "italic"
+    },
+    "root": ".gs.gs-image.gs-b-x",
+    "important": false
+  },
+  {
+    "name": "table stacked on mobile only",
+    "type": "table",
+    "values": {
+      "gridColor": "#dddddd",
+      "radius": "8px",
+      "mobileLayout@mobile": "stack"
+    },
+    "root": ".gs.gs-table",
+    "important": false
+  },
+  {
+    "name": "list nested controls",
+    "type": "list",
+    "values": {
+      "nestedMarkerStyle": "circle",
+      "nestedIndent": "1.2em",
+      "nestedFontSize": "0.9em"
+    },
+    "root": ".gs.gs-list",
+    "important": false
+  },
+  {
+    "name": "hover values use the root :hover state and skip non-hover controls",
+    "type": "button",
+    "values": {
+      "background": "#111827",
+      "background@hover": "#2563eb",
+      "radius@hover": "4px",
+      "hoverEffect@hover": "lift"
+    },
+    "root": ".gs.gs-button",
+    "important": false
+  },
+  {
+    "name": "hover values come before media queries",
+    "type": "heading",
+    "values": {
+      "color": "#111827",
+      "color@hover": "#dc2626",
+      "h2FontSize@mobile": "24px"
+    },
+    "root": ".gs.gs-heading.gs-p-3",
+    "important": true
+  },
+  {
+    "name": "list icon marker prints the chosen glyph",
+    "type": "list",
+    "values": {
+      "markerStyle": "icon",
+      "markerIcon": "♥",
+      "markerColor": "#dc2626"
+    },
+    "root": ".gs.gs-list",
+    "important": false
+  },
+  {
+    "name": "details left icon with divider, card shadow on hover",
+    "type": "details",
+    "values": {
+      "iconStyle": "plus",
+      "iconPosition": "left",
+      "contentDivider": "line",
+      "dividerColor": "#cbd5e1",
+      "shadow@hover": "medium"
+    },
+    "root": ".gs.gs-details",
+    "important": false
+  },
+  {
+    "name": "button focus outline",
+    "type": "button",
+    "values": {
+      "focusColor": "#2563eb",
+      "background": "#111827"
+    },
+    "root": ".gs.gs-button",
+    "important": false
+  }
+]

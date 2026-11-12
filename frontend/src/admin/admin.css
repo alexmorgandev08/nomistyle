@@ -1,0 +1,890 @@
+/* GutenStyle admin screen: a full-height app in the GutenStyle design system (tokens in style.css). */
+
+#guten-style-root.wrap {
+  margin: 0 0 0 -20px;
+}
+
+/* The app fills the screen, so the WordPress footer would only sit under it. */
+body:has(.gs-admin) #wpfooter {
+  display: none;
+}
+
+body:has(.gs-admin) #wpbody-content {
+  padding-bottom: 0;
+}
+
+.gs-admin {
+  --gs-top-h: 60px;
+  --gs-app-h: calc(100vh - 32px - var(--gs-top-h));
+  background: var(--gs-surface);
+  min-height: calc(100vh - 32px);
+}
+
+/* wp-admin colors headings dark; the app's own headings follow the theme. Thumbnails keep their block styles. */
+.gs-admin :is(h1, h2, h3):not(.gs-thumb *) {
+  color: var(--gs-ink);
+  font-family: var(--gs-font);
+}
+
+/*
+ * wp-admin form CSS sets properties antd leaves unset (WP 7 gives text inputs min-height: 40px),
+ * which stretches antd fields. Reset them for antd controls only.
+ */
+.gs-admin :is(.ant-input, .ant-input-number-input, .ant-select-selection-search-input) {
+  min-height: 0;
+}
+
+/* Top bar */
+.gs-admin__header {
+  align-items: center;
+  background: var(--gs-topbar);
+  border-bottom: 1px solid var(--gs-line);
+  box-sizing: border-box;
+  color: var(--gs-label);
+  display: flex;
+  gap: 24px;
+  height: var(--gs-top-h);
+  padding: 0 20px;
+  position: sticky;
+  top: 32px;
+  z-index: 10;
+}
+
+.gs-admin__brand {
+  align-items: baseline;
+  display: flex;
+  gap: 6px;
+}
+
+.gs-admin__brand h1 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+}
+
+.gs-admin__tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.gs-admin__tabs a {
+  border-radius: 6px;
+  color: var(--gs-label);
+  font-size: 13px;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+
+.gs-admin__tabs a:hover {
+  color: var(--gs-ink);
+}
+
+.gs-admin__tabs a:focus {
+  box-shadow: none;
+}
+
+.gs-admin__tabs a.is-active {
+  background: var(--gs-selected);
+  color: var(--gs-ink);
+}
+
+.gs-admin__actions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-inline-start: auto;
+}
+
+.gs-admin__saved {
+  color: var(--gs-ok-fg);
+}
+
+.gs-admin__unsaved {
+  color: var(--gs-muted-2);
+}
+
+.gs-admin__header .gs-theme-toggle {
+  height: 36px;
+  width: 36px;
+}
+
+.gs-admin__saved,
+.gs-admin__unsaved {
+  font-size: 13px;
+}
+
+.gs-admin__notice {
+  margin: 12px;
+}
+
+/* Global Styles: block list | canvas | inspector */
+.gs-global {
+  display: grid;
+  grid-template-areas: "rail canvas inspector";
+  /* Side columns grow with the screen; the canvas keeps at least 360px. */
+  grid-template-columns: clamp(240px, 16vw, 300px) minmax(360px, 1fr) clamp(340px, 24vw, 420px);
+  height: var(--gs-app-h);
+}
+
+.gs-global__rail,
+.gs-global__inspector,
+.gs-preview {
+  min-height: 0;
+  overflow: auto;
+}
+
+/* Block list */
+.gs-global__rail {
+  background: var(--gs-surface);
+  border-right: 1px solid var(--gs-line);
+  grid-area: rail;
+}
+
+.gs-rail__top {
+  background: var(--gs-surface);
+  border-bottom: 1px solid var(--gs-line);
+  display: grid;
+  gap: 10px;
+  padding: 12px 12px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.gs-rail__head {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gs-rail__title {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.gs-rail__total,
+.gs-rail__empty {
+  color: var(--gs-muted);
+  font-size: 11px;
+}
+
+.gs-rail__empty {
+  margin: 0;
+  padding: 8px;
+}
+
+.gs-rail__search {
+  position: relative;
+}
+
+.gs-rail__search svg {
+  color: var(--gs-muted);
+  height: 14px;
+  left: 9px;
+  pointer-events: none;
+  position: absolute;
+  top: 8px;
+  width: 14px;
+}
+
+.gs-rail__search input {
+  background: var(--gs-field-bg);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: var(--gs-ink);
+  font: inherit;
+  font-size: 12px;
+  height: 30px;
+  min-height: 30px;
+  padding: 0 8px 0 30px;
+  width: 100%;
+}
+
+.gs-rail__search input::placeholder {
+  color: var(--gs-muted);
+}
+
+.gs-rail__search input:focus {
+  box-shadow: 0 0 0 1px var(--gs-accent);
+  outline: 0;
+}
+
+.gs-rail__groups {
+  display: grid;
+  gap: 10px;
+  padding: 6px 6px 16px;
+}
+
+.gs-rail__group {
+  display: grid;
+  gap: 1px;
+}
+
+.gs-rail__group-title {
+  color: var(--gs-muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  margin: 0;
+  padding: 6px 8px 4px;
+  text-transform: uppercase;
+}
+
+.gs-block-item {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  color: var(--gs-ink);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  gap: 10px;
+  min-height: 52px;
+  padding: 6px 10px 6px 6px;
+  text-align: start;
+  width: 100%;
+}
+
+.gs-block-item:hover {
+  background: var(--gs-field-bg);
+}
+
+.gs-block-item.is-active {
+  background: var(--gs-selected);
+  color: var(--gs-ink);
+}
+
+.gs-block-item__icon {
+  align-items: center;
+  background: var(--gs-field-bg);
+  border-radius: 8px;
+  color: var(--gs-ink);
+  display: flex;
+  flex: none;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+.gs-block-item:hover .gs-block-item__icon {
+  background: var(--gs-surface);
+}
+
+.gs-block-item.is-active .gs-block-item__icon {
+  background: var(--gs-accent);
+  color: #fff;
+}
+
+.gs-block-item__icon svg {
+  height: 24px;
+  width: 24px;
+}
+
+.gs-block-item__text {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+.gs-block-item__name,
+.gs-block-item__meta {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gs-block-item__name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gs-block-item__meta {
+  color: var(--gs-muted);
+  font-size: 11px;
+}
+
+.gs-block-item.is-active .gs-block-item__meta {
+  color: var(--gs-accent-text);
+}
+
+.gs-global__scope {
+  border-top: 1px solid var(--gs-line);
+  color: var(--gs-muted);
+  display: grid;
+  font-size: 11px;
+  gap: 2px;
+  margin: 0;
+  padding: 12px 14px;
+}
+
+.gs-global__scope strong {
+  color: var(--gs-ink);
+  font-weight: 400;
+}
+
+/* Inspector */
+.gs-global__inspector {
+  --gs-label-w: 112px;
+  --gs-section-x: 16px;
+  background: var(--gs-surface);
+  border-left: 1px solid var(--gs-line);
+  grid-area: inspector;
+  overflow-x: hidden;
+}
+
+.gs-inspector__element {
+  align-items: center;
+  border-bottom: 1px solid var(--gs-line);
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  padding: 12px var(--gs-section-x);
+}
+
+.gs-inspector__element code {
+  background: none;
+  color: var(--gs-ink);
+  font-family: var(--gs-mono);
+  font-size: 12px;
+  padding: 0;
+}
+
+.gs-inspector__element .gs-inspector__label {
+  color: var(--gs-muted);
+}
+
+.gs-inspector__element .gs-inspector__class {
+  color: var(--gs-muted);
+  font-family: var(--gs-font);
+  font-size: 11px;
+}
+
+.gs-inspector__section {
+  border-bottom: 1px solid var(--gs-line);
+  display: grid;
+  gap: 8px;
+  padding: 12px var(--gs-section-x) 14px;
+}
+
+.gs-global__header {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.gs-global__header h2 {
+  font-size: 13px;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+
+.gs-global__header p {
+  color: var(--gs-muted-2);
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Canvas */
+.gs-preview {
+  background: var(--gs-canvas);
+  display: flex;
+  flex-direction: column;
+  grid-area: canvas;
+  min-width: 0;
+}
+
+.gs-preview__toolbar {
+  align-items: center;
+  border-bottom: 1px solid var(--gs-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+}
+
+.gs-preview__crumb {
+  color: var(--gs-muted-2);
+  flex: 1 1 200px;
+  font-size: 12px;
+  margin: 0;
+}
+
+.gs-preview__crumb-sep {
+  color: var(--gs-muted);
+}
+
+.gs-preview__crumb strong {
+  color: var(--gs-ink);
+  font-weight: 400;
+}
+
+.gs-preview__css-toggle {
+  align-items: center;
+  background: var(--gs-field-bg);
+  border: 0;
+  border-radius: 8px;
+  color: var(--gs-ink);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 12px;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+}
+
+.gs-preview__css-toggle:hover {
+  background: var(--gs-field-bg-hover);
+}
+
+.gs-preview__css-toggle[aria-pressed='true'] {
+  background: var(--gs-accent);
+  color: #fff;
+}
+
+.gs-preview__css-toggle svg {
+  height: 14px;
+  width: 14px;
+}
+
+.gs-preview__stage {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 0;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.gs-preview__frame {
+  background: #fff;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: var(--gs-page-shadow);
+  height: 100%;
+  max-width: 100%;
+  transition: width 0.25s ease;
+}
+
+.gs-preview__loading {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+}
+
+/* Generated CSS, docked under the canvas */
+.gs-preview__css {
+  background: var(--gs-code-bg);
+  border-top: 1px solid var(--gs-line);
+  display: grid;
+  gap: 8px;
+  max-height: 240px;
+  overflow: auto;
+  padding: 12px 16px;
+}
+
+.gs-preview__css-head {
+  color: var(--gs-muted-2);
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+}
+
+.gs-preview__code {
+  color: var(--gs-code-fg);
+  font-family: var(--gs-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Settings: title, icon tabs, then one card of setting rows per tab */
+.gs-settings {
+  max-width: 1120px;
+  padding: 24px;
+}
+
+/* Section list on the left, the open section's card on the right */
+.gs-settings__layout {
+  align-items: start;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 220px minmax(0, 1fr);
+}
+
+.gs-settings__section-title {
+  border-bottom: 1px solid var(--gs-line);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  padding: 16px 0;
+}
+
+.gs-settings__value {
+  color: var(--gs-label);
+  margin: 0;
+}
+
+.gs-settings__value.is-ok {
+  color: var(--gs-ok-fg);
+  font-weight: 500;
+}
+
+.gs-settings__field-label {
+  color: var(--gs-muted);
+  font-size: 12px;
+}
+
+.gs-settings__error {
+  color: #cc1818;
+  font-size: 12px;
+  margin: 0;
+}
+
+.gs-settings__saved {
+  color: var(--gs-ok-fg);
+  font-size: 12px;
+  margin: 6px 0 0;
+}
+
+.gs-coming-soon {
+  background: var(--gs-field-bg);
+  border-radius: 4px;
+  color: var(--gs-muted);
+  font-size: 11px;
+  padding: 1px 6px;
+}
+
+/* GutenStyle Pro in the free plugin: PRO tag, dimmed setting rows, upgrade cards */
+.gs-pro-badge {
+  background: var(--gs-accent-soft);
+  border-radius: 4px;
+  color: var(--gs-accent-text);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 16px;
+  padding: 0 5px;
+  text-transform: uppercase;
+}
+
+.gs-setting-row.is-muted .gs-setting-row__title,
+.gs-setting-row.is-muted .gs-setting-row__icon {
+  opacity: 0.6;
+}
+
+.gs-upgrade-card {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  padding: 20px 0;
+}
+
+.gs-admin .gs-upgrade-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.gs-upgrade-card__description {
+  color: var(--gs-muted-2);
+  margin: 0;
+  max-width: 560px;
+}
+
+.gs-upgrade-card__features {
+  color: var(--gs-label);
+  display: grid;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gs-upgrade-card__features li {
+  padding-inline-start: 18px;
+  position: relative;
+}
+
+.gs-upgrade-card__features li::before {
+  color: var(--gs-accent);
+  content: '✓';
+  inset-inline-start: 0;
+  position: absolute;
+}
+
+/* Light theme: grey page, white card. Dark theme: the card is one step lighter than the page. */
+.gs-ui.is-light:has(.gs-settings) {
+  background: var(--gs-surface-2);
+}
+
+.gs-settings__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.gs-settings__card {
+  background: var(--gs-surface-2);
+  border: 1px solid var(--gs-line);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgb(16 24 40 / 4%);
+  padding: 0 20px;
+}
+
+.gs-ui.is-light .gs-settings__card {
+  background: var(--gs-surface);
+}
+
+.gs-setting-row {
+  align-items: center;
+  border-bottom: 1px solid var(--gs-line);
+  display: grid;
+  gap: 12px 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 256px);
+  padding: 20px 0;
+}
+
+.gs-setting-row:last-child {
+  border-bottom: 0;
+}
+
+.gs-setting-row.is-stacked {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.gs-setting-row__text {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.gs-setting-row__icon {
+  color: var(--gs-muted);
+  flex: 0 0 18px;
+  height: 18px;
+}
+
+.gs-setting-row__icon svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.gs-admin .gs-setting-row__title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+}
+
+/* Info icon that shows the help text in a tooltip */
+.gs-setting-row__info {
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  color: var(--gs-muted);
+  cursor: help;
+  display: flex;
+  height: 16px;
+  margin-inline-start: -4px;
+  padding: 0;
+  width: 16px;
+}
+
+.gs-setting-row__info:hover {
+  color: var(--gs-ink);
+}
+
+.gs-setting-row__info:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+.gs-setting-row__info svg {
+  height: 100%;
+  width: 100%;
+}
+
+/* Stacked rows line the control up with the title, past the icon. */
+.gs-setting-row.is-stacked .gs-setting-row__control {
+  padding-inline-start: 30px;
+}
+
+.gs-settings__list {
+  border: 1px solid var(--gs-line);
+  border-radius: 8px;
+  margin: 0;
+}
+
+.gs-settings__list li {
+  align-items: center;
+  border-bottom: 1px solid var(--gs-line);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin: 0;
+  padding: 8px 12px;
+}
+
+.gs-settings__list li:last-child {
+  border-bottom: 0;
+}
+
+.gs-settings__list small,
+.gs-settings__empty {
+  color: var(--gs-muted);
+}
+
+.gs-settings__list small {
+  margin-inline-start: 6px;
+}
+
+.gs-settings__list--results {
+  background: var(--gs-surface-2);
+  margin-top: 8px;
+}
+
+.gs-settings__empty {
+  margin: 0;
+}
+
+@media (width <= 782px) {
+  .gs-settings__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gs-setting-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gs-setting-row__control {
+    padding-inline-start: 30px;
+  }
+}
+
+.gs-card {
+  background: var(--gs-surface-2);
+  border: 1px solid var(--gs-line);
+  border-radius: 8px;
+}
+
+/* Preset browser dialog, opened from the inspector's Presets row */
+.gs-preset-modal__grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  margin-top: 12px;
+}
+
+.gs-preset-card {
+  background: var(--gs-field-bg);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gs-preset-card.is-current {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: -2px;
+}
+
+.gs-preset-card__thumb {
+  aspect-ratio: 16 / 10;
+  background: #fff;
+  margin: 6px 6px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Thumbnails use fixed px sizes (shared with the editor's small picker), so scale them up as a whole. */
+.gs-preset-card__thumb .gs-thumb {
+  font-size: 9px;
+  padding: 12px;
+  zoom: 1.6;
+}
+
+.gs-preset-card__thumb .gs-thumb--image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* Narrower image, so the frame and caption fit the 16:10 box. */
+.gs-preset-card__thumb .gs-thumb--image .gs {
+  width: 78%;
+}
+
+.gs-preset-card__foot {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  padding: 8px 10px;
+}
+
+.gs-preset-card__name {
+  font-size: 13px;
+}
+
+/* Narrow screens: the inspector moves next to the list, the canvas goes below. */
+@media (width <= 1100px) {
+  .gs-global {
+    grid-template-areas:
+      "rail inspector"
+      "canvas canvas";
+    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 60vh) minmax(480px, 1fr);
+    height: auto;
+  }
+}
+
+@media (width <= 782px) {
+  #guten-style-root.wrap {
+    margin-left: -10px;
+  }
+
+  .gs-admin {
+    --gs-app-h: auto;
+  }
+
+  .gs-admin__header {
+    flex-wrap: wrap;
+    gap: 8px;
+    height: auto;
+    padding: 12px 16px;
+    position: static;
+  }
+
+  .gs-admin__actions {
+    margin-inline-start: 0;
+    width: 100%;
+  }
+
+  .gs-global {
+    grid-template-areas:
+      "rail"
+      "inspector"
+      "canvas";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(480px, 70vh);
+  }
+
+  .gs-global__rail {
+    max-height: 40vh;
+  }
+
+  .gs-settings {
+    padding: 16px;
+  }
+}

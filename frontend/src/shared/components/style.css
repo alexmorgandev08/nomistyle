@@ -1,0 +1,1374 @@
+/* Shared GutenStyle controls (admin screen + editor sidebar). */
+
+/*
+ * Archivo (SIL Open Font License, see fonts/OFL.txt), the type of the GutenStyle design system.
+ * scripts/build.mjs copies the files to assets/fonts/; the URLs resolve next to the built CSS.
+ */
+@font-face {
+  font-display: swap;
+  font-family: 'GS Archivo';
+  font-stretch: 100%;
+  font-style: normal;
+  font-weight: 400 800;
+  src: url('/__gs_runtime__/fonts/archivo-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'GS Archivo';
+  font-stretch: 100%;
+  font-style: normal;
+  font-weight: 400 800;
+  src: url('/__gs_runtime__/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*
+ * Light fallback, used by popovers that WordPress renders outside the GutenStyle panel.
+ * Everything inside .gs-ui uses the dark design-system tokens below.
+ */
+:root {
+  --gs-accent: #ec3013;
+  --gs-accent-soft: #fff2ef;
+  --gs-accent-text: #c2310f;
+  --gs-ink: #201e1d;
+  --gs-label: #605d5d;
+  --gs-muted: #7d7979;
+  --gs-muted-2: #7d7979;
+  --gs-line: #eae7e7;
+  --gs-line-2: #eae7e7;
+  --gs-surface: #fff;
+  --gs-surface-2: #f8f4f4;
+  --gs-canvas: #f3f2f2;
+  --gs-track: #eae7e7;
+  --gs-field-bg: #eae7e7;
+  --gs-field-bg-hover: #d7d3d3;
+  --gs-active: #fff;
+  --gs-active-fg: #201e1d;
+  --gs-set-bg: #ffe0d9;
+  --gs-set-fg: #ae1800;
+  --gs-inherited-bg: #e5edfc;
+  --gs-inherited-fg: #1d4ed8;
+  --gs-ok-bg: #dcf5e9;
+  --gs-ok-fg: #00684a;
+  --gs-bad-line: #ffc4b8;
+  --gs-font: 'GS Archivo', system-ui, sans-serif;
+  --gs-mono: ui-monospace, Menlo, Consolas, monospace;
+  --gs-radius: 8px;
+  --gs-field-h: 30px;
+  --gs-label-w: 96px;
+  --gs-section-x: 14px;
+}
+
+/* GutenStyle design system: dark surfaces, 8px corners, 30px controls, 12px text. */
+.gs-ui {
+  --gs-accent: #ec3013;
+  --gs-accent-soft: rgb(236 48 19 / 20%);
+  --gs-accent-text: #ff9b84;
+  --gs-ink: #ecebea;
+  --gs-label: #b7b2b1;
+  --gs-muted: #8a8584;
+  --gs-muted-2: #9a9594;
+  --gs-line: #2e2c2b;
+  --gs-line-2: #2a2827;
+  --gs-surface: #161515;
+  --gs-surface-2: #201e1d;
+  --gs-canvas: #1d1c1b;
+  --gs-track: #2a2827;
+  --gs-field-bg: #2a2827;
+  --gs-field-bg-hover: #3a3736;
+  --gs-active: #3a3736;
+  --gs-active-fg: #fff;
+  --gs-set-bg: rgb(236 48 19 / 20%);
+  --gs-set-fg: #ff9b84;
+  --gs-inherited-bg: rgb(59 130 246 / 22%);
+  --gs-inherited-fg: #a6c8ff;
+  --gs-ok-bg: rgb(22 163 74 / 20%);
+  --gs-ok-fg: #86efac;
+  --gs-bad-line: rgb(236 48 19 / 50%);
+  --gs-selected: #3a3736;
+  --gs-active-shadow: none;
+  --gs-accent-hover: #dd2b0f;
+  --gs-link-hover: #ffb8a6;
+  --gs-swatch-line: #4a4746;
+  --gs-topbar: #0f0e0e;
+  --gs-page-shadow: 0 20px 50px rgb(0 0 0 / 45%);
+  --gs-pro-bg: #3b2a6b;
+  --gs-pro-fg: #d6c8ff;
+  --gs-code-bg: #121111;
+  --gs-code-fg: #e6e1df;
+  background: var(--gs-surface);
+  color: var(--gs-ink);
+  font-family: var(--gs-font);
+  font-size: 12px;
+}
+
+/* Light theme: the same design system on light surfaces. */
+.gs-ui.is-light {
+  --gs-accent-soft: #fff2ef;
+  --gs-accent-text: #c2310f;
+  --gs-ink: #201e1d;
+  --gs-label: #444141;
+  --gs-muted: #6f6a6a;
+  --gs-muted-2: #605d5d;
+  --gs-line: #e3dfdf;
+  --gs-line-2: #eae7e7;
+  --gs-surface: #fff;
+  --gs-surface-2: #f8f4f4;
+  --gs-canvas: #eae7e7;
+  --gs-track: #f3f2f2;
+  --gs-field-bg: #f3f2f2;
+  --gs-field-bg-hover: #eae7e7;
+  --gs-active: #fff;
+  --gs-active-fg: #201e1d;
+  --gs-active-shadow: 0 1px 2px rgb(45 43 43 / 18%);
+  --gs-selected: #f3f2f2;
+  --gs-set-bg: #ffe0d9;
+  --gs-set-fg: #ae1800;
+  --gs-inherited-bg: #e5edfc;
+  --gs-inherited-fg: #1d4ed8;
+  --gs-ok-bg: #dcf5e9;
+  --gs-ok-fg: #00684a;
+  --gs-bad-line: #ffc4b8;
+  --gs-link-hover: #ae1800;
+  --gs-swatch-line: #bab6b6;
+  --gs-topbar: #fff;
+  --gs-page-shadow: 0 12px 32px rgb(45 43 43 / 16%);
+  --gs-pro-bg: #ede7ff;
+  --gs-pro-fg: #4c2a9e;
+  --gs-code-bg: #201e1d;
+  --gs-code-fg: #f3f2f2;
+}
+
+/* Light / dark switch */
+.gs-theme-toggle {
+  align-items: center;
+  background: var(--gs-field-bg);
+  border: 0;
+  border-radius: 8px;
+  color: var(--gs-label);
+  cursor: pointer;
+  display: inline-flex;
+  flex: none;
+  height: 30px;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+}
+
+.gs-theme-toggle:hover {
+  background: var(--gs-field-bg-hover);
+  color: var(--gs-ink);
+}
+
+.gs-theme-toggle svg {
+  height: 16px;
+  width: 16px;
+}
+
+/* WordPress components inside GutenStyle follow the design system: red accent, Archivo, dark fields. */
+.gs-ui {
+  --wp-admin-theme-color: #ec3013;
+  --wp-admin-theme-color-darker-10: #dd2b0f;
+  --wp-admin-theme-color-darker-20: #ae1800;
+  --wp-components-color-accent: #ec3013;
+  --wp-components-color-accent-darker-10: #dd2b0f;
+  --wp-components-color-accent-darker-20: #ae1800;
+}
+
+.gs-ui :where([class*='components-']) {
+  font-family: var(--gs-font);
+}
+
+.gs-ui .components-input-control__container {
+  background: var(--gs-field-bg);
+  border-radius: 8px;
+}
+
+.gs-ui .components-input-control__input {
+  color: var(--gs-ink);
+}
+
+.gs-ui .components-input-control__input::placeholder {
+  color: var(--gs-muted-2);
+  opacity: 1;
+}
+
+.gs-ui .components-input-control__backdrop {
+  border-color: transparent;
+  border-radius: 8px;
+}
+
+.gs-ui .components-input-control__container svg {
+  fill: var(--gs-muted);
+}
+
+.gs-ui .components-form-toggle:not(.is-checked) .components-form-toggle__track {
+  background: var(--gs-field-bg);
+  border-color: var(--gs-muted);
+}
+
+.gs-ui .components-form-toggle:not(.is-checked) .components-form-toggle__thumb {
+  background: var(--gs-label);
+  border-color: var(--gs-label);
+}
+
+.gs-ui .components-checkbox-control__input[type='checkbox']:not(:checked) {
+  background: var(--gs-field-bg);
+  border-color: var(--gs-muted);
+}
+
+.gs-ui a {
+  color: var(--gs-accent-text);
+}
+
+.gs-ui a:hover {
+  color: var(--gs-link-hover);
+}
+
+.gs-ui select option {
+  background: var(--gs-field-bg);
+  color: var(--gs-ink);
+}
+
+.gs-ui :focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+/* Fields: one row per setting, label on the left, compact control on the right */
+.gs-fields {
+  display: grid;
+  gap: 8px;
+}
+
+.gs-field {
+  align-items: center;
+  display: grid;
+  gap: 8px;
+  /* label | control | reset icon (the last column stays empty when nothing is set) */
+  grid-template-columns: var(--gs-label-w) minmax(0, 1fr) 20px;
+  min-height: var(--gs-field-h);
+}
+
+.gs-field__label {
+  color: var(--gs-label);
+  font: 400 12px/1.35 var(--gs-font);
+  overflow-wrap: anywhere;
+}
+
+.gs-field__control {
+  min-width: 0;
+}
+
+/* Reset icon: shown only when this level sets the value */
+.gs-field__reset {
+  align-items: center;
+  background: none;
+  border: 0;
+  border-radius: 5px;
+  color: var(--gs-muted);
+  cursor: pointer;
+  display: flex;
+  grid-column: 3;
+  height: 20px;
+  justify-content: center;
+  padding: 0;
+  width: 20px;
+}
+
+.gs-field__reset:hover {
+  background: var(--gs-field-bg);
+  color: var(--gs-ink);
+}
+
+.gs-field__reset:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 1px;
+}
+
+.gs-field__reset svg {
+  height: 13px;
+  width: 13px;
+}
+
+/* Filled input box: number + unit, color code, dropdown */
+.gs-input {
+  align-items: center;
+  background: var(--gs-field-bg);
+  border: 1px solid transparent;
+  font-family: var(--gs-font);
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 6px;
+  height: var(--gs-field-h);
+  min-width: 0;
+  padding: 0 8px;
+  position: relative;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.gs-input:focus-within {
+  border-color: var(--gs-accent);
+}
+
+.gs-input.is-invalid {
+  border-color: #cc1818;
+}
+
+.gs-input input,
+.gs-input select {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--gs-ink);
+  flex: 1;
+  font: inherit;
+  font-size: 12px;
+  height: 100%;
+  line-height: normal;
+  min-height: 0;
+  min-width: 0;
+  outline: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.gs-input input:focus,
+.gs-input select:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
+.gs-input input::placeholder {
+  color: var(--gs-muted-2);
+  opacity: 1;
+}
+
+.gs-input .gs-input__unit {
+  color: var(--gs-muted);
+  flex: 0 0 auto;
+  font-size: 11px;
+  width: auto;
+}
+
+.gs-input select.gs-input__unit {
+  cursor: pointer;
+  text-align: end;
+}
+
+.gs-input--select {
+  padding: 0;
+}
+
+.gs-input--select select {
+  appearance: none;
+  cursor: pointer;
+  padding: 0 26px 0 8px;
+}
+
+.gs-input--select select.is-placeholder {
+  color: var(--gs-muted-2);
+}
+
+.gs-input__chevron {
+  color: var(--gs-muted);
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  right: 9px;
+  width: 12px;
+}
+
+.gs-input__swatch {
+  background: #fff;
+  border: 1px solid var(--gs-swatch-line);
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  height: 16px;
+  padding: 0;
+  width: 16px;
+}
+
+.gs-input__swatch.is-empty {
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1px), #cc1818 calc(50% - 1px), #cc1818 calc(50% + 1px), transparent calc(50% + 1px)),
+    #fff;
+}
+
+.gs-input__swatch:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+/* Color popover: theme palette, picker, transparent/clear */
+.gs-colors {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(8, 22px);
+}
+
+.gs-swatch {
+  border: 1px solid rgb(0 0 0 / 12%);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 22px;
+  padding: 0;
+  transition: transform 0.1s ease;
+  width: 22px;
+}
+
+.gs-swatch:hover {
+  transform: scale(1.1);
+}
+
+.gs-swatch:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+.gs-swatch.is-selected {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--gs-ink);
+}
+
+/* Color picker popover (rendered outside .gs-ui, so it carries the theme class itself) */
+.gs-floating {
+  z-index: 1000000;
+}
+
+.gs-colors__popover,
+.gs-color-list {
+  background: var(--gs-surface);
+  border: 1px solid var(--gs-line);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 35%);
+  color: var(--gs-ink);
+  font-family: var(--gs-font);
+  outline: 0;
+}
+
+.gs-picker {
+  --gs-checker: repeating-conic-gradient(#c8c8c8 0 25%, #fff 0 50%) 0 0 / 8px 8px;
+  display: grid;
+  gap: 14px;
+  padding: 12px;
+  width: 248px;
+}
+
+.gs-picker .gs-colors {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.gs-picker .gs-swatch {
+  aspect-ratio: 1;
+  border-color: var(--gs-swatch-line);
+  height: auto;
+  width: 100%;
+}
+
+.gs-picker .gs-swatch.is-selected {
+  box-shadow: 0 0 0 2px var(--gs-surface), 0 0 0 4px var(--gs-ink);
+}
+
+.gs-picker__area {
+  border-radius: 8px;
+  cursor: crosshair;
+  height: 150px;
+  position: relative;
+  touch-action: none;
+}
+
+.gs-picker__area:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+.gs-picker__handle {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 35%), 0 2px 4px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  height: 16px;
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 16px;
+}
+
+.gs-picker__channels {
+  display: grid;
+  gap: 12px;
+}
+
+.gs-picker__channel {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 12px 1fr 46px;
+}
+
+.gs-picker__channel-label {
+  color: var(--gs-label);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gs-picker__channel-value {
+  color: var(--gs-ink);
+  font-family: var(--gs-mono);
+  font-size: 11px;
+  text-align: right;
+}
+
+.gs-picker__channel-value small {
+  color: var(--gs-muted);
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+.gs-picker__slider {
+  appearance: none;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 15%);
+  cursor: pointer;
+  height: 12px;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.gs-picker__slider::-webkit-slider-thumb {
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 30%), 0 1px 3px rgb(0 0 0 / 40%);
+  height: 14px;
+  width: 14px;
+}
+
+.gs-picker__slider::-moz-range-thumb {
+  background: #fff;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 30%), 0 1px 3px rgb(0 0 0 / 40%);
+  height: 14px;
+  width: 14px;
+}
+
+.gs-picker__slider:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 3px;
+}
+
+.gs-picker__value {
+  border-top: 1px solid var(--gs-line);
+  display: grid;
+  gap: 4px;
+  margin: 0 -12px;
+  padding: 12px 12px 0;
+}
+
+.gs-picker__format {
+  align-items: center;
+  display: inline-flex;
+  gap: 2px;
+  justify-self: start;
+  position: relative;
+}
+
+.gs-picker__format select {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--gs-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin: 0;
+  min-height: 0;
+  padding: 0 16px 0 0;
+}
+
+.gs-picker__format select:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+.gs-picker__format svg {
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 12px;
+}
+
+.gs-picker__text {
+  color: var(--gs-ink);
+  font-family: var(--gs-mono);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.gs-picker__footer {
+  align-items: center;
+  border-top: 1px solid var(--gs-line);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -12px -4px;
+  padding: 8px 8px 0 12px;
+}
+
+.gs-picker__contrast {
+  display: flex;
+  gap: 10px;
+}
+
+.gs-picker__ratio {
+  align-items: center;
+  color: var(--gs-muted-2);
+  display: inline-flex;
+  font-family: var(--gs-mono);
+  font-size: 11px;
+  gap: 5px;
+}
+
+.gs-picker__ratio-chip {
+  border: 1px solid var(--gs-swatch-line);
+  border-radius: 2px;
+  height: 8px;
+  width: 8px;
+}
+
+.gs-picker__actions {
+  display: flex;
+}
+
+.gs-picker__actions .gs-text-btn:not(.is-destructive) {
+  color: var(--gs-label);
+}
+
+/* Color names suggested while typing in a color box */
+.gs-color-list {
+  border-radius: 10px;
+  width: 220px;
+}
+
+.gs-color-list__items {
+  max-height: 264px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.gs-color-list__item {
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  font-size: 13px;
+  gap: 8px;
+  height: 28px;
+  justify-content: space-between;
+  padding: 0 8px 0 26px;
+  position: relative;
+}
+
+.gs-color-list__item.is-active {
+  background: var(--gs-field-bg);
+}
+
+.gs-color-list__item.is-current::before {
+  border: solid var(--gs-ink);
+  border-width: 0 0 2px 2px;
+  content: "";
+  height: 4px;
+  left: 9px;
+  position: absolute;
+  top: 10px;
+  transform: rotate(-45deg);
+  width: 8px;
+}
+
+.gs-color-list__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gs-color-list__chip {
+  border: 1px solid var(--gs-swatch-line);
+  border-radius: 3px;
+  flex: none;
+  height: 14px;
+  width: 14px;
+}
+
+/* Segmented control: a filled track with the selected option raised */
+.gs-segmented {
+  background: var(--gs-field-bg);
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+}
+
+.gs-segmented--block {
+  display: flex;
+  width: 100%;
+}
+
+.gs-segmented__option {
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--gs-muted-2);
+  cursor: pointer;
+  font: inherit;
+  font-family: var(--gs-font);
+  font-size: 12px;
+  height: 26px;
+  padding: 0 10px;
+  transition: background 0.12s ease, color 0.12s ease;
+  white-space: nowrap;
+}
+
+.gs-segmented--block .gs-segmented__option {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0 4px;
+  text-overflow: ellipsis;
+}
+
+.gs-segmented__option:hover {
+  color: var(--gs-ink);
+}
+
+.gs-segmented__option:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: -2px;
+}
+
+.gs-segmented__option[aria-checked='true'] {
+  background: var(--gs-active);
+  box-shadow: var(--gs-active-shadow);
+  color: var(--gs-active-fg);
+}
+
+/* A value that comes from a lower level is a hint, not a choice the user made here. */
+.gs-segmented.is-inherited .gs-segmented__option[aria-checked='true'] {
+  background: var(--gs-inherited-bg);
+  box-shadow: none;
+  color: var(--gs-inherited-fg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gs-segmented__option,
+  .gs-input {
+    transition: none;
+  }
+}
+
+/* Inspector rows outside the setting list (State, Screen size) */
+.gs-row {
+  align-items: center;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 56px minmax(0, 1fr);
+}
+
+.gs-row__label {
+  color: var(--gs-label);
+  font-size: 12px;
+}
+
+/* Small uppercase sub-heading between groups of rows */
+.gs-subhead {
+  border-top: 1px solid var(--gs-line-2);
+  color: var(--gs-muted);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin: 4px 0 0;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+
+.gs-fields > .gs-subhead:first-child {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Style panel */
+.gs-style-panel__intro {
+  display: grid;
+  gap: 8px;
+  padding: 12px var(--gs-section-x);
+}
+
+.gs-style-panel__intro:empty {
+  display: none;
+}
+
+.gs-style-panel__device-note {
+  color: var(--gs-inherited-fg);
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.gs-style-panel__empty {
+  color: var(--gs-muted);
+  font-size: 12px;
+  margin: 0;
+  padding: 12px var(--gs-section-x);
+}
+
+.gs-style-panel__count {
+  background: var(--gs-set-fg);
+  border-radius: 50%;
+  height: 6px;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: 6px;
+}
+
+.gs-style-panel__reset-section.gs-text-btn {
+  font-size: 11px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+/* A section that opens and closes: full-width header, bottom border, like an inspector */
+.gs-collapsible {
+  border-bottom: 1px solid var(--gs-line);
+}
+
+.gs-collapsible__head {
+  align-items: center;
+  background: none;
+  border: 0;
+  color: var(--gs-ink);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-family: var(--gs-font);
+  gap: 8px;
+  padding: 12px var(--gs-section-x);
+  text-align: start;
+  width: 100%;
+}
+
+.gs-collapsible__head:hover {
+  background: var(--gs-surface-2);
+}
+
+.gs-collapsible__head > :not(.gs-collapsible__title) {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.gs-collapsible__head:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: -2px;
+}
+
+.gs-collapsible__title {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.gs-collapsible__chevron {
+  color: var(--gs-muted);
+  flex-shrink: 0;
+  height: 18px;
+  margin-inline-start: auto;
+  transform: rotate(180deg);
+  transition: transform 0.15s ease;
+  width: 18px;
+}
+
+.gs-collapsible:not(.is-open) .gs-collapsible__chevron {
+  transform: none;
+}
+
+.gs-collapsible__body {
+  display: grid;
+  gap: 10px;
+  padding: 0 var(--gs-section-x) 14px;
+}
+
+.gs-collapsible__body[hidden] {
+  display: none;
+}
+
+.gs-presets__help {
+  color: var(--gs-muted);
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.gs-presets__all {
+  justify-self: start;
+  margin-top: 8px;
+  padding: 0;
+}
+
+.gs-presets__grid {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gs-preset {
+  background: var(--gs-surface-2);
+  border: 0;
+  border-radius: var(--gs-radius);
+  color: var(--gs-ink);
+  cursor: pointer;
+  display: grid;
+  font-family: var(--gs-font);
+  gap: 5px;
+  padding: 5px;
+  text-align: start;
+  transition: background 0.12s ease;
+}
+
+.gs-preset:hover {
+  background: var(--gs-field-bg);
+}
+
+.gs-preset:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+.gs-preset.is-active {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: -2px;
+}
+
+.gs-preset__thumb {
+  height: 52px;
+  background: #fff;
+  border-radius: 6px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.gs-preset__label {
+  color: var(--gs-ink);
+  font-size: 11px;
+  overflow: hidden;
+  padding: 0 2px 1px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gs-presets__confirm {
+  background: var(--gs-surface-2);
+  border-radius: 8px;
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 12px;
+}
+
+.gs-presets__confirm p {
+  margin: 0 0 8px;
+}
+
+.gs-presets__confirm-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.gs-btn {
+  background: var(--gs-field-bg);
+  border: 0;
+  border-radius: 8px;
+  color: var(--gs-ink);
+  cursor: pointer;
+  font: 400 11px/1 var(--gs-font);
+  height: 28px;
+  padding: 0 12px;
+}
+
+.gs-btn:hover {
+  background: var(--gs-field-bg-hover);
+}
+
+.gs-btn--primary,
+.gs-btn--primary:hover {
+  background: var(--gs-accent);
+  color: #fff;
+}
+
+/* Text-only button: secondary actions such as "Clear" or "Reset" */
+.gs-text-btn {
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  color: var(--gs-accent);
+  cursor: pointer;
+  font: 500 12px/1.6 var(--gs-font);
+  padding: 0 6px;
+}
+
+.gs-text-btn:hover {
+  text-decoration: underline;
+}
+
+.gs-text-btn:focus-visible {
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+.gs-text-btn.is-destructive {
+  color: #cc1818;
+}
+
+/* Thumbnails: a tiny, non-interactive block rendered with the real CSS generator */
+.gs-thumb {
+  color: #1f2430;
+  font: 7px/1.4 system-ui, sans-serif;
+  inset: 0;
+  padding: 8px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.gs-thumb .gs {
+  margin: 0;
+}
+
+.gs-thumb table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.gs-thumb th,
+.gs-thumb td {
+  border: 1px solid #c9ced6;
+  padding: 3px 4px;
+  text-align: left;
+}
+
+.gs-thumb thead {
+  border-bottom: 2px solid #1f2430;
+}
+
+.gs-thumb ul {
+  padding-left: 1.4em;
+}
+
+.gs-thumb li + li {
+  margin-top: 0.3em;
+}
+
+.gs-thumb blockquote {
+  border-left: 0.25em solid currentcolor;
+  padding-left: 0.8em;
+}
+
+.gs-thumb blockquote p {
+  margin: 0 0 0.3em;
+}
+
+.gs-thumb cite {
+  font-size: 0.85em;
+  font-style: normal;
+}
+
+.gs-thumb details + details {
+  margin-top: 0.5em;
+}
+
+.gs-thumb summary {
+  font-weight: 600;
+}
+
+.gs-thumb details p {
+  margin: 0.3em 0;
+}
+
+/* Thumbnails and sizes need overrides because the generated CSS uses px values meant for real content. */
+.gs-thumb--table .gs th,
+.gs-thumb--table .gs td {
+  padding: 3px 4px !important;
+  font-size: 7px !important;
+}
+
+.gs-thumb--details .gs > summary,
+.gs-thumb--details .gs > :not(summary) {
+  padding: 4px 6px !important;
+  font-size: 7px !important;
+}
+
+.gs-thumb--quote .gs {
+  padding: 6px 8px !important;
+  font-size: 7px !important;
+}
+
+.gs-thumb--quote .gs::before {
+  font-size: 14px !important;
+  height: 0.5em !important;
+}
+
+.gs-thumb--list .gs {
+  font-size: 7px !important;
+  padding-block: 4px !important;
+  padding-inline-end: 6px !important;
+}
+
+/* Thumbnails for heading, button and image */
+.gs-thumb--heading h2,
+.gs-thumb--heading h3 {
+  font-size: 11px !important;
+  margin: 0 0 3px !important;
+}
+
+.gs-thumb--heading h3 {
+  font-size: 9px !important;
+}
+
+.gs-thumb--heading p {
+  color: #6b7280;
+  margin: 0;
+}
+
+.gs-thumb--button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.gs-thumb--button .wp-block-button__link {
+  background: #32373c;
+  color: #fff;
+  display: inline-block;
+  font-size: 8px !important;
+  padding: 5px 10px !important;
+  text-decoration: none;
+}
+
+.gs-thumb--image .gs {
+  margin: 0;
+  padding: 0;
+}
+
+.gs-thumb--image img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.gs-thumb--image figcaption {
+  font-size: 6px !important;
+  margin-top: 3px !important;
+}
+
+/* Preset status: which preset these settings come from */
+.gs-presets__status {
+  color: var(--gs-muted);
+}
+
+.gs-presets__status.is-exact {
+  color: var(--gs-set-fg);
+}
+
+.gs-presets__status.is-modified {
+  color: var(--gs-inherited-fg);
+}
+
+.gs-preset.is-base {
+  outline: 1px dashed var(--gs-inherited-fg);
+  outline-offset: -1px;
+}
+
+/* Readability check */
+.gs-readability__summary {
+  color: var(--gs-ok-fg);
+}
+
+.gs-readability__summary.has-issues {
+  color: var(--gs-set-fg);
+}
+
+.gs-readability__list {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+
+.gs-readability__item {
+  align-items: center;
+  background: var(--gs-surface-2);
+  border: 1px solid var(--gs-line);
+  border-radius: 8px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  margin: 0;
+  padding: 6px 8px;
+}
+
+/* A problem with a Fix button gets a fourth column. */
+.gs-readability__item:has(.gs-readability__fix) {
+  grid-template-columns: 34px minmax(0, 1fr) auto auto;
+}
+
+.gs-readability__fix {
+  height: 24px;
+  padding: 0 10px;
+}
+
+.gs-readability__item.is-bad {
+  border-color: var(--gs-bad-line);
+}
+
+.gs-readability__sample {
+  align-items: center;
+  border: 1px solid var(--gs-field-bg-hover);
+  border-radius: 6px;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 700;
+  height: 24px;
+  justify-content: center;
+}
+
+.gs-readability__sample.is-size {
+  background: var(--gs-field-bg);
+  color: var(--gs-ink);
+  font-size: 11px;
+}
+
+.gs-readability__text {
+  display: grid;
+  min-width: 0;
+}
+
+.gs-readability__label {
+  font-size: 12px;
+}
+
+.gs-readability__detail {
+  color: var(--gs-muted-2);
+  font-size: 11px;
+}
+
+.gs-readability__badge {
+  background: var(--gs-ok-bg);
+  border-radius: 6px;
+  color: var(--gs-ok-fg);
+  font-size: 11px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.gs-readability__item.is-bad .gs-readability__badge {
+  background: var(--gs-set-bg);
+  color: var(--gs-set-fg);
+}
+
+.gs-readability__note {
+  color: var(--gs-muted);
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Tabs with icons and an underline on the active tab (TabNav) */
+.gs-tab-nav {
+  border-bottom: 1px solid var(--gs-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+}
+
+.gs-tab-nav__tab {
+  align-items: center;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--gs-muted);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 14px;
+  gap: 8px;
+  margin-bottom: -1px;
+  padding: 10px 0 12px;
+}
+
+.gs-tab-nav__tab:hover {
+  color: var(--gs-ink);
+}
+
+.gs-tab-nav__tab:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--gs-accent);
+  outline-offset: 2px;
+}
+
+.gs-tab-nav__tab.is-active {
+  border-bottom-color: var(--gs-ink);
+  color: var(--gs-ink);
+  font-weight: 500;
+}
+
+.gs-tab-nav__icon {
+  display: flex;
+  height: 17px;
+  width: 17px;
+}
+
+.gs-tab-nav__icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.gs-tab-nav__label {
+  flex: 1;
+  text-align: start;
+}
+
+/* Vertical list, e.g. the Settings sections: full-width rows, active row filled */
+.gs-tab-nav--vertical {
+  border-bottom: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gs-tab-nav--vertical .gs-tab-nav__tab {
+  border-bottom: 0;
+  border-radius: 8px;
+  font-size: 13px;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+.gs-tab-nav--vertical .gs-tab-nav__tab:hover {
+  background: var(--gs-field-bg);
+}
+
+.gs-tab-nav--vertical .gs-tab-nav__tab.is-active {
+  background: var(--gs-field-bg);
+  font-weight: 500;
+}

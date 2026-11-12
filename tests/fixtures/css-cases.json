@@ -1,0 +1,292 @@
+[
+    {
+        "name": "empty values produce no CSS",
+        "type": "table",
+        "values": [],
+        "root": ".gs.gs-table",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ""
+    },
+    {
+        "name": "table clean preset",
+        "type": "table",
+        "values": {
+            "gridLines": "rows",
+            "gridColor": "#e5e7eb",
+            "headerBackground": "#f9fafb",
+            "headerTextColor": "#111827",
+            "headerFontWeight": "600",
+            "headerDividerWidth": "2px",
+            "headerDividerColor": "#d1d5db",
+            "cellPaddingY": "12px",
+            "cellPaddingX": "16px",
+            "hoverColor": "#f9fafb"
+        },
+        "root": ".gs.gs-table",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-table thead th{background-color:#f9fafb;color:#111827;font-weight:600;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#d1d5db}\n.gs.gs-table thead{border-bottom:none}\n.gs.gs-table th,.gs.gs-table td{padding-block:12px;padding-inline:16px;border:none;border-bottom:1px solid #e5e7eb}\n.gs.gs-table thead,.gs.gs-table tbody,.gs.gs-table tfoot,.gs.gs-table tr{border:none}\n.gs.gs-table tbody tr:last-child > *{border-bottom:none}\n.gs.gs-table tbody tr:hover > *{background-color:#f9fafb}"
+    },
+    {
+        "name": "table radius extra and responsive padding with force style",
+        "type": "table",
+        "values": {
+            "radius": "12px",
+            "cellPaddingY": "12px",
+            "cellPaddingY@tablet": "10px",
+            "cellPaddingY@mobile": "8px",
+            "fontSize@mobile": "14px"
+        },
+        "root": ".gs.gs-table.gs-p-12",
+        "important": true,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-table.gs-p-12 table{border-radius:12px!important;border-collapse:separate!important;border-spacing:0!important;overflow:hidden!important}\n.gs.gs-table.gs-p-12 th,.gs.gs-table.gs-p-12 td{padding-block:12px!important}\n@media (480px < width <= 782px){.gs.gs-table.gs-p-12 th,.gs.gs-table.gs-p-12 td{padding-block:10px!important}}\n@media (width <= 480px){.gs.gs-table.gs-p-12 table{font-size:14px!important}\n.gs.gs-table.gs-p-12 th,.gs.gs-table.gs-p-12 td{padding-block:8px!important}}"
+    },
+    {
+        "name": "list check marker uses marker color",
+        "type": "list",
+        "values": {
+            "markerStyle": "check",
+            "markerColor": "#16a34a",
+            "itemSpacing": "0.5em"
+        },
+        "root": ".gs.gs-list",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-list:is(ul){list-style:none}\n.gs.gs-list:is(ul) ul{list-style:none}\n.gs.gs-list:is(ul) li{position:relative}\n.gs.gs-list:is(ul) li::before{content:\"\\2713\";position:absolute;inset-inline-start:-1.4em;color:#16a34a;font-size:1em;font-weight:700}\n.gs.gs-list li::marker{color:#16a34a}\n.gs.gs-list li + li{margin-top:0.5em}"
+    },
+    {
+        "name": "list number badge",
+        "type": "list",
+        "values": {
+            "orderedMarkerStyle": "badge"
+        },
+        "root": ".gs.gs-list.gs-b-abc",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-list.gs-b-abc:is(ol){list-style:none;counter-reset:gs-counter}\n.gs.gs-list.gs-b-abc:is(ol) > li{counter-increment:gs-counter;position:relative}\n.gs.gs-list.gs-b-abc:is(ol) > li::before{content:counter(gs-counter);position:absolute;inset-inline-start:-2.2em;top:0.1em;width:1.6em;height:1.6em;border-radius:50%;background:#2563eb;color:#ffffff;font-size:0.85em;font-weight:700;line-height:1.6em;text-align:center}"
+    },
+    {
+        "name": "quote left border falls back to defaults",
+        "type": "quote",
+        "values": {
+            "borderPosition": "left",
+            "quoteIcon": "show",
+            "iconColor": "#3b82f6",
+            "citePrefix": "dash"
+        },
+        "root": ".gs.gs-quote",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-quote{border:none;border-inline-start:4px solid currentColor}\n.gs.gs-quote::before{content:\"\\201C\";display:block;font-family:Georgia, 'Times New Roman', serif;font-size:3em;font-style:normal;line-height:1;height:0.45em;margin-bottom:0.15em;color:#3b82f6}\n.gs.gs-quote cite::before{content:\"\\2014\\00A0\"}"
+    },
+    {
+        "name": "details plus icon and radius",
+        "type": "details",
+        "values": {
+            "iconStyle": "plus",
+            "iconColor": "#2563eb",
+            "radius": "8px",
+            "openSummaryBackground": "#2563eb",
+            "contentPadding": "1em",
+            "contentPadding@mobile": "0.75em"
+        },
+        "root": ".gs.gs-details",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-details{border-radius:8px;overflow:hidden}\n.gs.gs-details[open] > summary{background-color:#2563eb}\n.gs.gs-details > summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1em}\n.gs.gs-details > summary::-webkit-details-marker{display:none}\n.gs.gs-details > summary::after{content:\"+\";font-size:1.3em;font-weight:400;line-height:1;color:#2563eb}\n.gs.gs-details[open] > summary::after{content:\"\\2212\"}\n.gs.gs-details > summary::marker{color:#2563eb}\n.gs.gs-details > :not(summary){padding-inline:1em}\n.gs.gs-details > :last-child:not(summary){padding-block-end:1em}\n@media (width <= 480px){.gs.gs-details > :not(summary){padding-inline:0.75em}\n.gs.gs-details > :last-child:not(summary){padding-block-end:0.75em}}"
+    },
+    {
+        "name": "heading underlined preset with responsive h2",
+        "type": "heading",
+        "values": {
+            "fontWeight": "700",
+            "decoration": "border",
+            "accentColor": "#2563eb",
+            "borderWidth": "3px",
+            "paddingBottom": "0.25em",
+            "h2FontSize": "30px",
+            "h2FontSize@mobile": "24px"
+        },
+        "root": ".gs.gs-heading",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-heading{font-weight:700;border-bottom:3px solid #2563eb;padding-bottom:0.25em}\n.gs.gs-heading:is(h2){font-size:30px}\n@media (width <= 480px){.gs.gs-heading:is(h2){font-size:24px}}"
+    },
+    {
+        "name": "button pill with lift hover and full width",
+        "type": "button",
+        "values": {
+            "background": "#111827",
+            "textColor": "#ffffff",
+            "radius": "999px",
+            "hoverEffect": "lift",
+            "width": "full"
+        },
+        "root": ".gs.gs-button",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-button .wp-block-button__link{background-color:#111827;color:#ffffff;border-radius:999px;width:100%;text-align:center;box-sizing:border-box;transition:transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease}\n.gs.gs-button{display:block;width:100%}\n.gs.gs-button .wp-block-button__link:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,0.18)}"
+    },
+    {
+        "name": "image polaroid",
+        "type": "image",
+        "values": {
+            "background": "#ffffff",
+            "padding": "12px",
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "shadow": "hard",
+            "captionStyle": "italic"
+        },
+        "root": ".gs.gs-image.gs-b-x",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-image.gs-b-x img{box-shadow:8px 8px 0 #e5e7eb;border-width:1px;border-style:solid;border-color:#e5e7eb}\n.gs.gs-image.gs-b-x{padding:12px;background-color:#ffffff}\n.gs.gs-image.gs-b-x figcaption{font-style:italic}"
+    },
+    {
+        "name": "table stacked on mobile only",
+        "type": "table",
+        "values": {
+            "gridColor": "#dddddd",
+            "radius": "8px",
+            "mobileLayout@mobile": "stack"
+        },
+        "root": ".gs.gs-table",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-table table{border-radius:8px;border-collapse:separate;border-spacing:0;overflow:hidden}\n@media (width <= 480px){.gs.gs-table table{display:block;min-width:0;border:none}\n.gs.gs-table thead{display:none}\n.gs.gs-table tbody,.gs.gs-table tfoot{display:block}\n.gs.gs-table tr{display:block;margin-bottom:0.75em;border:1px solid #dddddd;border-radius:8px;overflow:hidden}\n.gs.gs-table th,.gs.gs-table td{display:block;width:100%;box-sizing:border-box;border-inline-end:none}\n.gs.gs-table tbody tr:last-child > *{border-bottom:1px solid #dddddd}\n.gs.gs-table tr > :last-child{border-bottom:none}}"
+    },
+    {
+        "name": "list nested controls",
+        "type": "list",
+        "values": {
+            "nestedMarkerStyle": "circle",
+            "nestedIndent": "1.2em",
+            "nestedFontSize": "0.9em"
+        },
+        "root": ".gs.gs-list",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-list ul{list-style-type:circle}\n.gs.gs-list ul,.gs.gs-list ol{padding-inline-start:1.2em;font-size:0.9em}"
+    },
+    {
+        "name": "hover values use the root :hover state and skip non-hover controls",
+        "type": "button",
+        "values": {
+            "background": "#111827",
+            "background@hover": "#2563eb",
+            "radius@hover": "4px",
+            "hoverEffect@hover": "lift"
+        },
+        "root": ".gs.gs-button",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-button .wp-block-button__link{background-color:#111827}\n.gs.gs-button:hover .wp-block-button__link{background-color:#2563eb}"
+    },
+    {
+        "name": "hover values come before media queries",
+        "type": "heading",
+        "values": {
+            "color": "#111827",
+            "color@hover": "#dc2626",
+            "h2FontSize@mobile": "24px"
+        },
+        "root": ".gs.gs-heading.gs-p-3",
+        "important": true,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-heading.gs-p-3{color:#111827!important}\n.gs.gs-heading.gs-p-3:hover{color:#dc2626!important}\n@media (width <= 480px){.gs.gs-heading.gs-p-3:is(h2){font-size:24px!important}}"
+    },
+    {
+        "name": "list icon marker prints the chosen glyph",
+        "type": "list",
+        "values": {
+            "markerStyle": "icon",
+            "markerIcon": "♥",
+            "markerColor": "#dc2626"
+        },
+        "root": ".gs.gs-list",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-list:is(ul){list-style:none}\n.gs.gs-list:is(ul) ul{list-style:none}\n.gs.gs-list:is(ul) li{position:relative}\n.gs.gs-list:is(ul) li::before{content:\"♥\";position:absolute;inset-inline-start:-1.4em;color:#dc2626;font-size:1em}\n.gs.gs-list li::marker{color:#dc2626}"
+    },
+    {
+        "name": "details left icon with divider, card shadow on hover",
+        "type": "details",
+        "values": {
+            "iconStyle": "plus",
+            "iconPosition": "left",
+            "contentDivider": "line",
+            "dividerColor": "#cbd5e1",
+            "shadow@hover": "medium"
+        },
+        "root": ".gs.gs-details",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-details > summary{list-style:none;display:flex;justify-content:flex-end;align-items:center;gap:1em;flex-direction:row-reverse}\n.gs.gs-details > summary::-webkit-details-marker{display:none}\n.gs.gs-details > summary::after{content:\"+\";font-size:1.3em;font-weight:400;line-height:1;color:currentColor}\n.gs.gs-details[open] > summary::after{content:\"\\2212\"}\n.gs.gs-details > summary + *{border-top:1px solid #cbd5e1;padding-top:0.75em}\n.gs.gs-details:hover{box-shadow:0 4px 12px rgba(0,0,0,0.1)}"
+    },
+    {
+        "name": "button focus outline",
+        "type": "button",
+        "values": {
+            "focusColor": "#2563eb",
+            "background": "#111827"
+        },
+        "root": ".gs.gs-button",
+        "important": false,
+        "mediaQueries": {
+            "tablet": "@media (480px < width <= 782px)",
+            "mobile": "@media (width <= 480px)"
+        },
+        "expected": ".gs.gs-button .wp-block-button__link{background-color:#111827}\n.gs.gs-button .wp-block-button__link:focus-visible{outline-color:#2563eb;outline-style:solid;outline-width:2px;outline-offset:2px}"
+    }
+]

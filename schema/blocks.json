@@ -1,0 +1,4387 @@
+{
+  "version": 1,
+  "blocks": {
+    "table": {
+      "name": "core/table",
+      "group": "text",
+      "tag": "table",
+      "label": "Table",
+      "description": "Header, cells, rows, borders and stripes for every table.",
+      "sections": [
+        {
+          "id": "general",
+          "label": "General",
+          "controls": [
+            {
+              "key": "width",
+              "label": "Table width",
+              "type": "unit",
+              "units": [
+                "%",
+                "px"
+              ],
+              "targets": [
+                {
+                  "selector": "table",
+                  "property": "width"
+                }
+              ]
+            },
+            {
+              "key": "minWidth",
+              "label": "Minimum width (scrolls when wider than screen)",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "table",
+                  "property": "min-width"
+                }
+              ]
+            },
+            {
+              "key": "fontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "table",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "textColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "table",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "background",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "table",
+                  "property": "background-color"
+                }
+              ]
+            },
+            {
+              "key": "borderWidth",
+              "label": "Outer border width",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 10,
+              "targets": [
+                {
+                  "selector": "table",
+                  "property": "border-width"
+                }
+              ],
+              "extra": {
+                "table": {
+                  "border-style": "solid"
+                }
+              }
+            },
+            {
+              "key": "borderColor",
+              "label": "Outer border color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "table",
+                  "property": "border-color"
+                }
+              ]
+            },
+            {
+              "key": "radius",
+              "label": "Corner radius",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 40,
+              "targets": [
+                {
+                  "selector": "table",
+                  "property": "border-radius"
+                }
+              ],
+              "extra": {
+                "table": {
+                  "border-collapse": "separate",
+                  "border-spacing": "0",
+                  "overflow": "hidden"
+                }
+              },
+              "quick": 8
+            }
+          ]
+        },
+        {
+          "id": "header",
+          "label": "Header",
+          "controls": [
+            {
+              "key": "headerBackground",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "background-color"
+                }
+              ],
+              "quick": 1
+            },
+            {
+              "key": "headerTextColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "color"
+                }
+              ],
+              "quick": 2
+            },
+            {
+              "key": "headerFontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "headerFontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                },
+                {
+                  "value": "800",
+                  "label": "Extra bold"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "font-weight"
+                }
+              ]
+            },
+            {
+              "key": "headerTextTransform",
+              "label": "Letter case",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "As written"
+                },
+                {
+                  "value": "uppercase",
+                  "label": "UPPERCASE"
+                },
+                {
+                  "value": "capitalize",
+                  "label": "Capitalize"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "text-transform"
+                }
+              ]
+            },
+            {
+              "key": "headerLetterSpacing",
+              "label": "Letter spacing",
+              "type": "unit",
+              "units": [
+                "px",
+                "em"
+              ],
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "letter-spacing"
+                }
+              ]
+            },
+            {
+              "key": "headerAlign",
+              "label": "Text alignment",
+              "type": "select",
+              "options": [
+                {
+                  "value": "left",
+                  "label": "Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Center"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "text-align"
+                }
+              ]
+            },
+            {
+              "key": "headerDividerWidth",
+              "label": "Divider below header",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 10,
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "border-bottom-width"
+                }
+              ],
+              "extra": {
+                "thead": {
+                  "border-bottom": "none"
+                },
+                "thead th": {
+                  "border-bottom-style": "solid"
+                }
+              }
+            },
+            {
+              "key": "headerDividerColor",
+              "label": "Divider color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "thead th",
+                  "property": "border-bottom-color"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cells",
+          "label": "Cells",
+          "controls": [
+            {
+              "key": "cellPaddingY",
+              "label": "Vertical padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "th, td",
+                  "property": "padding-block"
+                }
+              ],
+              "quick": 7
+            },
+            {
+              "key": "cellPaddingX",
+              "label": "Horizontal padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "th, td",
+                  "property": "padding-inline"
+                }
+              ]
+            },
+            {
+              "key": "cellTextColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "td",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "cellBackground",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "td",
+                  "property": "background-color"
+                }
+              ]
+            },
+            {
+              "key": "cellAlign",
+              "label": "Text alignment",
+              "type": "select",
+              "options": [
+                {
+                  "value": "left",
+                  "label": "Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Center"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "td",
+                  "property": "text-align"
+                }
+              ]
+            },
+            {
+              "key": "cellVerticalAlign",
+              "label": "Vertical alignment",
+              "type": "select",
+              "options": [
+                {
+                  "value": "top",
+                  "label": "Top"
+                },
+                {
+                  "value": "middle",
+                  "label": "Middle"
+                },
+                {
+                  "value": "bottom",
+                  "label": "Bottom"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "th, td",
+                  "property": "vertical-align"
+                }
+              ]
+            },
+            {
+              "key": "gridLines",
+              "label": "Grid lines",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    "thead, tbody, tfoot, tr": {
+                      "border": "none"
+                    },
+                    "th, td": {
+                      "border": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "rows",
+                  "label": "Horizontal",
+                  "css": {
+                    "thead, tbody, tfoot, tr": {
+                      "border": "none"
+                    },
+                    "th, td": {
+                      "border": "none",
+                      "border-bottom": "{gridWidth|1px} solid {gridColor|currentColor}"
+                    },
+                    "tbody tr:last-child > *": {
+                      "border-bottom": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "all",
+                  "label": "Grid",
+                  "css": {
+                    "thead, tbody, tfoot, tr": {
+                      "border": "none"
+                    },
+                    "th, td": {
+                      "border": "none",
+                      "border-bottom": "{gridWidth|1px} solid {gridColor|currentColor}",
+                      "border-inline-end": "{gridWidth|1px} solid {gridColor|currentColor}"
+                    },
+                    "tr > :last-child": {
+                      "border-inline-end": "none"
+                    },
+                    "tbody tr:last-child > *": {
+                      "border-bottom": "none"
+                    }
+                  }
+                }
+              ],
+              "quick": 3
+            },
+            {
+              "key": "gridColor",
+              "label": "Grid line color",
+              "type": "color",
+              "showIf": {
+                "key": "gridLines",
+                "in": [
+                  "rows",
+                  "all"
+                ]
+              },
+              "quick": 4
+            },
+            {
+              "key": "gridWidth",
+              "label": "Grid line width",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 10,
+              "showIf": {
+                "key": "gridLines",
+                "in": [
+                  "rows",
+                  "all"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "rows",
+          "label": "Rows",
+          "controls": [
+            {
+              "key": "stripeColor",
+              "label": "Stripe color (every other row)",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "tbody tr:nth-child(odd) > *",
+                  "property": "background-color"
+                }
+              ],
+              "quick": 5
+            },
+            {
+              "key": "hoverColor",
+              "label": "Row hover color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "tbody tr:hover > *",
+                  "property": "background-color"
+                }
+              ],
+              "quick": 6
+            }
+          ]
+        },
+        {
+          "id": "footer",
+          "label": "Footer",
+          "controls": [
+            {
+              "key": "footerBackground",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "tfoot th, tfoot td",
+                  "property": "background-color"
+                }
+              ]
+            },
+            {
+              "key": "footerTextColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "tfoot th, tfoot td",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "footerFontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "tfoot th, tfoot td",
+                  "property": "font-weight"
+                }
+              ]
+            },
+            {
+              "key": "footerDividerWidth",
+              "label": "Divider above footer",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 10,
+              "targets": [
+                {
+                  "selector": "tfoot th, tfoot td",
+                  "property": "border-top-width"
+                }
+              ],
+              "extra": {
+                "tfoot": {
+                  "border-top": "none"
+                },
+                "tfoot th, tfoot td": {
+                  "border-top-style": "solid"
+                }
+              }
+            },
+            {
+              "key": "footerDividerColor",
+              "label": "Divider color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "tfoot th, tfoot td",
+                  "property": "border-top-color"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "caption",
+          "label": "Caption",
+          "controls": [
+            {
+              "key": "captionColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "figcaption",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "captionFontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "figcaption",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "captionAlign",
+              "label": "Alignment",
+              "type": "select",
+              "options": [
+                {
+                  "value": "left",
+                  "label": "Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Center"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "figcaption",
+                  "property": "text-align"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mobile",
+          "label": "Small screens",
+          "controls": [
+            {
+              "key": "mobileLayout",
+              "label": "Layout on small screens",
+              "type": "select",
+              "options": [
+                {
+                  "value": "scroll",
+                  "label": "Scroll sideways",
+                  "css": {
+                    "table": {
+                      "min-width": "560px"
+                    }
+                  }
+                },
+                {
+                  "value": "stack",
+                  "label": "Stack rows",
+                  "css": {
+                    "table": {
+                      "display": "block",
+                      "min-width": "0",
+                      "border": "none"
+                    },
+                    "thead": {
+                      "display": "none"
+                    },
+                    "tbody, tfoot": {
+                      "display": "block"
+                    },
+                    "tr": {
+                      "display": "block",
+                      "margin-bottom": "0.75em",
+                      "border": "1px solid {gridColor|#e5e7eb}",
+                      "border-radius": "{radius|0}",
+                      "overflow": "hidden"
+                    },
+                    "th, td": {
+                      "display": "block",
+                      "width": "100%",
+                      "box-sizing": "border-box",
+                      "border-inline-end": "none"
+                    },
+                    "tbody tr:last-child > *": {
+                      "border-bottom": "1px solid {gridColor|#e5e7eb}"
+                    },
+                    "tr > :last-child": {
+                      "border-bottom": "none"
+                    }
+                  }
+                }
+              ],
+              "responsive": true,
+              "freeResponsive": true,
+              "mediaOnly": true
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "id": "clean",
+          "label": "Clean",
+          "values": {
+            "gridLines": "rows",
+            "gridColor": "#e5e7eb",
+            "headerBackground": "#f9fafb",
+            "headerTextColor": "#111827",
+            "headerFontWeight": "600",
+            "headerDividerWidth": "2px",
+            "headerDividerColor": "#d1d5db",
+            "cellPaddingY": "12px",
+            "cellPaddingX": "16px",
+            "hoverColor": "#f9fafb"
+          }
+        },
+        {
+          "id": "minimal",
+          "label": "Minimal",
+          "values": {
+            "gridLines": "rows",
+            "gridColor": "#eeeeee",
+            "headerTextTransform": "uppercase",
+            "headerLetterSpacing": "0.05em",
+            "headerFontSize": "0.8em",
+            "headerFontWeight": "600",
+            "headerTextColor": "#6b7280",
+            "headerDividerWidth": "1px",
+            "headerDividerColor": "#111827",
+            "cellPaddingY": "10px",
+            "cellPaddingX": "4px"
+          }
+        },
+        {
+          "id": "bordered",
+          "label": "Bordered",
+          "values": {
+            "gridLines": "all",
+            "gridColor": "#d1d5db",
+            "borderWidth": "1px",
+            "borderColor": "#d1d5db",
+            "headerBackground": "#f3f4f6",
+            "headerFontWeight": "600",
+            "headerDividerWidth": "1px",
+            "headerDividerColor": "#d1d5db",
+            "cellPaddingY": "10px",
+            "cellPaddingX": "14px"
+          }
+        },
+        {
+          "id": "modern",
+          "label": "Modern",
+          "values": {
+            "radius": "12px",
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "gridLines": "rows",
+            "gridColor": "#e5e7eb",
+            "headerBackground": "#1e293b",
+            "headerTextColor": "#ffffff",
+            "headerFontWeight": "600",
+            "headerDividerWidth": "0px",
+            "cellPaddingY": "14px",
+            "cellPaddingX": "18px",
+            "stripeColor": "#f8fafc",
+            "hoverColor": "#eef2ff"
+          }
+        },
+        {
+          "id": "dark",
+          "label": "Dark",
+          "values": {
+            "radius": "10px",
+            "background": "#111827",
+            "textColor": "#e5e7eb",
+            "cellTextColor": "#e5e7eb",
+            "gridLines": "rows",
+            "gridColor": "#374151",
+            "headerBackground": "#030712",
+            "headerTextColor": "#f9fafb",
+            "headerFontWeight": "600",
+            "headerDividerWidth": "1px",
+            "headerDividerColor": "#4b5563",
+            "cellPaddingY": "12px",
+            "cellPaddingX": "16px",
+            "cellBackground": "transparent",
+            "stripeColor": "#0f172a",
+            "hoverColor": "#1f2937",
+            "footerBackground": "#030712",
+            "footerTextColor": "#f9fafb",
+            "captionColor": "#6b7280"
+          }
+        },
+        {
+          "id": "comparison",
+          "label": "Comparison",
+          "values": {
+            "radius": "8px",
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "gridLines": "all",
+            "gridColor": "#e5e7eb",
+            "headerBackground": "#2563eb",
+            "headerTextColor": "#ffffff",
+            "headerFontWeight": "700",
+            "headerAlign": "center",
+            "headerDividerWidth": "0px",
+            "cellAlign": "center",
+            "cellPaddingY": "12px",
+            "cellPaddingX": "12px",
+            "stripeColor": "#f8fafc",
+            "hoverColor": "#eff6ff"
+          }
+        },
+        {
+          "id": "pricing",
+          "label": "Pricing",
+          "values": {
+            "radius": "12px",
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "gridLines": "rows",
+            "gridColor": "#eef2f7",
+            "headerBackground": "#0f172a",
+            "headerTextColor": "#ffffff",
+            "headerFontWeight": "700",
+            "headerFontSize": "1.05em",
+            "headerAlign": "center",
+            "headerDividerWidth": "0px",
+            "cellAlign": "center",
+            "cellPaddingY": "16px",
+            "cellPaddingX": "20px",
+            "cellPaddingY@mobile": "10px",
+            "cellPaddingX@mobile": "10px",
+            "hoverColor": "#f5f3ff",
+            "footerBackground": "#f8fafc",
+            "footerFontWeight": "600",
+            "captionAlign": "center"
+          }
+        },
+        {
+          "id": "striped",
+          "label": "Striped",
+          "values": {
+            "gridLines": "none",
+            "headerBackground": "#f3f4f6",
+            "headerTextColor": "#111827",
+            "headerFontWeight": "600",
+            "headerDividerWidth": "2px",
+            "headerDividerColor": "#e5e7eb",
+            "cellPaddingY": "12px",
+            "cellPaddingX": "16px",
+            "stripeColor": "#f9fafb",
+            "hoverColor": "#f3f4f6"
+          }
+        },
+        {
+          "id": "compact",
+          "label": "Compact",
+          "values": {
+            "fontSize": "0.875em",
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "gridLines": "all",
+            "gridColor": "#e5e7eb",
+            "headerBackground": "#f9fafb",
+            "headerFontSize": "0.8em",
+            "headerFontWeight": "600",
+            "headerTextTransform": "uppercase",
+            "headerLetterSpacing": "0.04em",
+            "headerDividerWidth": "1px",
+            "headerDividerColor": "#e5e7eb",
+            "cellPaddingY": "6px",
+            "cellPaddingX": "10px"
+          }
+        }
+      ]
+    },
+    "heading": {
+      "name": "core/heading",
+      "group": "text",
+      "tag": "h2",
+      "label": "Heading",
+      "description": "Size, weight, color and spacing for H2, H3 and H4 across your content.",
+      "sections": [
+        {
+          "id": "all",
+          "label": "All headings",
+          "controls": [
+            {
+              "key": "color",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "color"
+                }
+              ],
+              "quick": 1
+            },
+            {
+              "key": "fontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                },
+                {
+                  "value": "800",
+                  "label": "Extra bold"
+                }
+              ],
+              "quick": 2,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "font-weight"
+                }
+              ]
+            },
+            {
+              "key": "lineHeight",
+              "label": "Line height",
+              "type": "number",
+              "min": 0.8,
+              "max": 2.5,
+              "step": 0.05,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "line-height"
+                }
+              ]
+            },
+            {
+              "key": "letterSpacing",
+              "label": "Letter spacing",
+              "type": "unit",
+              "units": [
+                "em",
+                "px"
+              ],
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "letter-spacing"
+                }
+              ]
+            },
+            {
+              "key": "textTransform",
+              "label": "Letter case",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "As written"
+                },
+                {
+                  "value": "uppercase",
+                  "label": "UPPERCASE"
+                },
+                {
+                  "value": "capitalize",
+                  "label": "Capitalize"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "text-transform"
+                }
+              ]
+            },
+            {
+              "key": "decoration",
+              "label": "Decoration",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    "&": {
+                      "text-decoration": "none",
+                      "border-bottom": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "underline",
+                  "label": "Underline",
+                  "css": {
+                    "&": {
+                      "text-decoration": "underline",
+                      "text-underline-offset": "0.2em",
+                      "text-decoration-thickness": "2px",
+                      "text-decoration-color": "{accentColor|currentColor}"
+                    }
+                  }
+                },
+                {
+                  "value": "border",
+                  "label": "Bottom line",
+                  "css": {
+                    "&": {
+                      "border-bottom": "{borderWidth|2px} solid {accentColor|currentColor}",
+                      "padding-bottom": "{paddingBottom|0.3em}"
+                    }
+                  }
+                },
+                {
+                  "value": "bar",
+                  "label": "Accent bar",
+                  "css": {
+                    "&": {
+                      "border-inline-start": "{borderWidth|4px} solid {accentColor|currentColor}",
+                      "padding-inline-start": "0.6em"
+                    }
+                  }
+                }
+              ],
+              "quick": 6
+            },
+            {
+              "key": "accentColor",
+              "label": "Accent color",
+              "type": "color",
+              "showIf": {
+                "key": "decoration",
+                "in": [
+                  "underline",
+                  "border",
+                  "bar"
+                ]
+              }
+            },
+            {
+              "key": "borderWidth",
+              "label": "Line thickness",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 12,
+              "showIf": {
+                "key": "decoration",
+                "in": [
+                  "border",
+                  "bar"
+                ]
+              }
+            },
+            {
+              "key": "paddingBottom",
+              "label": "Space above line",
+              "type": "unit",
+              "units": [
+                "px",
+                "em"
+              ],
+              "showIf": {
+                "key": "decoration",
+                "in": [
+                  "border"
+                ]
+              }
+            },
+            {
+              "key": "marginTop",
+              "label": "Space above",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "margin-top"
+                }
+              ],
+              "responsive": true
+            },
+            {
+              "key": "marginBottom",
+              "label": "Space below",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "margin-bottom"
+                }
+              ],
+              "responsive": true,
+              "quick": 5
+            }
+          ]
+        },
+        {
+          "id": "h2",
+          "label": "H2",
+          "controls": [
+            {
+              "key": "h2FontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "&:is(h2)",
+                  "property": "font-size"
+                }
+              ],
+              "responsive": true,
+              "freeResponsive": true,
+              "quick": 3
+            },
+            {
+              "key": "h2FontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                },
+                {
+                  "value": "800",
+                  "label": "Extra bold"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "&:is(h2)",
+                  "property": "font-weight"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "h3",
+          "label": "H3",
+          "controls": [
+            {
+              "key": "h3FontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "&:is(h3)",
+                  "property": "font-size"
+                }
+              ],
+              "responsive": true,
+              "freeResponsive": true,
+              "quick": 4
+            },
+            {
+              "key": "h3FontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                },
+                {
+                  "value": "800",
+                  "label": "Extra bold"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "&:is(h3)",
+                  "property": "font-weight"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "h4",
+          "label": "H4",
+          "controls": [
+            {
+              "key": "h4FontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "&:is(h4)",
+                  "property": "font-size"
+                }
+              ],
+              "responsive": true,
+              "freeResponsive": true
+            },
+            {
+              "key": "h4FontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                },
+                {
+                  "value": "800",
+                  "label": "Extra bold"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "&:is(h4)",
+                  "property": "font-weight"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "id": "clean",
+          "label": "Clean",
+          "values": {
+            "fontWeight": "600",
+            "lineHeight": "1.25",
+            "marginTop": "1.6em",
+            "marginBottom": "0.6em",
+            "h2FontSize": "32px",
+            "h2FontSize@mobile": "26px",
+            "h3FontSize": "24px",
+            "h3FontSize@mobile": "21px",
+            "h4FontSize": "19px"
+          }
+        },
+        {
+          "id": "bold",
+          "label": "Bold",
+          "values": {
+            "fontWeight": "800",
+            "lineHeight": "1.1",
+            "letterSpacing": "-0.02em",
+            "marginTop": "1.4em",
+            "marginBottom": "0.5em",
+            "h2FontSize": "38px",
+            "h2FontSize@mobile": "28px",
+            "h3FontSize": "28px",
+            "h3FontSize@mobile": "22px",
+            "h4FontSize": "21px"
+          }
+        },
+        {
+          "id": "underlined",
+          "label": "Underlined",
+          "values": {
+            "fontWeight": "700",
+            "decoration": "border",
+            "accentColor": "#2563eb",
+            "borderWidth": "3px",
+            "paddingBottom": "0.25em",
+            "marginBottom": "0.8em",
+            "h2FontSize": "30px",
+            "h3FontSize": "23px",
+            "h4FontSize": "18px"
+          }
+        },
+        {
+          "id": "accent-bar",
+          "label": "Accent bar",
+          "values": {
+            "fontWeight": "700",
+            "decoration": "bar",
+            "accentColor": "#16a34a",
+            "borderWidth": "4px",
+            "h2FontSize": "30px",
+            "h3FontSize": "23px",
+            "h4FontSize": "18px"
+          }
+        },
+        {
+          "id": "uppercase",
+          "label": "Small caps",
+          "values": {
+            "fontWeight": "700",
+            "textTransform": "uppercase",
+            "letterSpacing": "0.08em",
+            "color": "#374151",
+            "h2FontSize": "24px",
+            "h3FontSize": "19px",
+            "h4FontSize": "15px",
+            "marginBottom": "0.7em"
+          }
+        },
+        {
+          "id": "elegant",
+          "label": "Elegant",
+          "values": {
+            "fontWeight": "400",
+            "lineHeight": "1.2",
+            "letterSpacing": "-0.01em",
+            "color": "#1f2937",
+            "marginTop": "1.5em",
+            "marginBottom": "0.5em",
+            "h2FontSize": "36px",
+            "h2FontSize@mobile": "28px",
+            "h3FontSize": "27px",
+            "h3FontSize@mobile": "22px",
+            "h4FontSize": "20px"
+          }
+        },
+        {
+          "id": "colored",
+          "label": "Colored",
+          "values": {
+            "fontWeight": "700",
+            "lineHeight": "1.25",
+            "color": "#1d4ed8",
+            "h2FontSize": "30px",
+            "h2FontSize@mobile": "25px",
+            "h3FontSize": "23px",
+            "h4FontSize": "18px"
+          }
+        },
+        {
+          "id": "underline",
+          "label": "Underline",
+          "values": {
+            "fontWeight": "700",
+            "decoration": "underline",
+            "accentColor": "#f59e0b",
+            "h2FontSize": "30px",
+            "h3FontSize": "23px",
+            "h4FontSize": "18px"
+          }
+        },
+        {
+          "id": "compact",
+          "label": "Compact",
+          "values": {
+            "fontWeight": "600",
+            "lineHeight": "1.3",
+            "marginTop": "1.2em",
+            "marginBottom": "0.4em",
+            "h2FontSize": "26px",
+            "h2FontSize@mobile": "22px",
+            "h3FontSize": "21px",
+            "h4FontSize": "17px"
+          }
+        }
+      ]
+    },
+    "list": {
+      "name": "core/list",
+      "group": "text",
+      "tag": "ul",
+      "label": "List",
+      "description": "Bulleted and numbered lists: markers, spacing and boxes.",
+      "sections": [
+        {
+          "id": "markers",
+          "label": "Markers",
+          "controls": [
+            {
+              "key": "markerStyle",
+              "label": "Bulleted list marker",
+              "type": "select",
+              "options": [
+                {
+                  "value": "disc",
+                  "label": "Disc",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style-type": "disc"
+                    }
+                  }
+                },
+                {
+                  "value": "circle",
+                  "label": "Circle",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style-type": "circle"
+                    }
+                  }
+                },
+                {
+                  "value": "square",
+                  "label": "Square",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style-type": "square"
+                    }
+                  }
+                },
+                {
+                  "value": "check",
+                  "label": "Check mark",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) ul": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) li": {
+                      "position": "relative"
+                    },
+                    "&:is(ul) li::before": {
+                      "content": "\"\\2713\"",
+                      "position": "absolute",
+                      "inset-inline-start": "-1.4em",
+                      "color": "{markerColor|currentColor}",
+                      "font-size": "{markerSize|1em}",
+                      "font-weight": "700"
+                    }
+                  }
+                },
+                {
+                  "value": "arrow",
+                  "label": "Arrow",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) ul": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) li": {
+                      "position": "relative"
+                    },
+                    "&:is(ul) li::before": {
+                      "content": "\"\\2192\"",
+                      "position": "absolute",
+                      "inset-inline-start": "-1.4em",
+                      "color": "{markerColor|currentColor}",
+                      "font-size": "{markerSize|1em}"
+                    }
+                  }
+                },
+                {
+                  "value": "dash",
+                  "label": "Dash",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) ul": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) li": {
+                      "position": "relative"
+                    },
+                    "&:is(ul) li::before": {
+                      "content": "\"\\2013\"",
+                      "position": "absolute",
+                      "inset-inline-start": "-1.4em",
+                      "color": "{markerColor|currentColor}",
+                      "font-size": "{markerSize|1em}"
+                    }
+                  }
+                },
+                {
+                  "value": "star",
+                  "label": "Star",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) ul": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) li": {
+                      "position": "relative"
+                    },
+                    "&:is(ul) li::before": {
+                      "content": "\"\\2605\"",
+                      "position": "absolute",
+                      "inset-inline-start": "-1.4em",
+                      "color": "{markerColor|currentColor}",
+                      "font-size": "{markerSize|1em}"
+                    }
+                  }
+                },
+                {
+                  "value": "icon",
+                  "label": "Icon",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) ul": {
+                      "list-style": "none"
+                    },
+                    "&:is(ul) li": {
+                      "position": "relative"
+                    },
+                    "&:is(ul) li::before": {
+                      "content": "\"{markerIcon|★}\"",
+                      "position": "absolute",
+                      "inset-inline-start": "-1.4em",
+                      "color": "{markerColor|currentColor}",
+                      "font-size": "{markerSize|1em}"
+                    }
+                  }
+                },
+                {
+                  "value": "none",
+                  "label": "No marker",
+                  "css": {
+                    "&:is(ul)": {
+                      "list-style": "none"
+                    }
+                  }
+                }
+              ],
+              "quick": 1
+            },
+            {
+              "key": "markerIcon",
+              "label": "Marker icon",
+              "type": "select",
+              "options": [
+                {
+                  "value": "★",
+                  "label": "★ Star"
+                },
+                {
+                  "value": "♥",
+                  "label": "♥ Heart"
+                },
+                {
+                  "value": "✔",
+                  "label": "✔ Check"
+                },
+                {
+                  "value": "➜",
+                  "label": "➜ Arrow"
+                },
+                {
+                  "value": "◆",
+                  "label": "◆ Diamond"
+                },
+                {
+                  "value": "✦",
+                  "label": "✦ Sparkle"
+                },
+                {
+                  "value": "⚡",
+                  "label": "⚡ Bolt"
+                },
+                {
+                  "value": "☑",
+                  "label": "☑ Checkbox"
+                },
+                {
+                  "value": "✚",
+                  "label": "✚ Plus"
+                },
+                {
+                  "value": "●",
+                  "label": "● Dot"
+                },
+                {
+                  "value": "▶",
+                  "label": "▶ Play"
+                },
+                {
+                  "value": "✱",
+                  "label": "✱ Asterisk"
+                }
+              ],
+              "showIf": {
+                "key": "markerStyle",
+                "in": [
+                  "icon"
+                ]
+              }
+            },
+            {
+              "key": "orderedMarkerStyle",
+              "label": "Numbered list marker",
+              "type": "select",
+              "options": [
+                {
+                  "value": "decimal",
+                  "label": "1, 2, 3",
+                  "css": {
+                    "&:is(ol)": {
+                      "list-style-type": "decimal"
+                    }
+                  }
+                },
+                {
+                  "value": "decimal-leading-zero",
+                  "label": "01, 02, 03",
+                  "css": {
+                    "&:is(ol)": {
+                      "list-style-type": "decimal-leading-zero"
+                    }
+                  }
+                },
+                {
+                  "value": "lower-alpha",
+                  "label": "a, b, c",
+                  "css": {
+                    "&:is(ol)": {
+                      "list-style-type": "lower-alpha"
+                    }
+                  }
+                },
+                {
+                  "value": "upper-roman",
+                  "label": "I, II, III",
+                  "css": {
+                    "&:is(ol)": {
+                      "list-style-type": "upper-roman"
+                    }
+                  }
+                },
+                {
+                  "value": "badge",
+                  "label": "Number badge",
+                  "css": {
+                    "&:is(ol)": {
+                      "list-style": "none",
+                      "counter-reset": "gs-counter"
+                    },
+                    "&:is(ol) > li": {
+                      "counter-increment": "gs-counter",
+                      "position": "relative"
+                    },
+                    "&:is(ol) > li::before": {
+                      "content": "counter(gs-counter)",
+                      "position": "absolute",
+                      "inset-inline-start": "-2.2em",
+                      "top": "0.1em",
+                      "width": "1.6em",
+                      "height": "1.6em",
+                      "border-radius": "50%",
+                      "background": "{markerColor|#2563eb}",
+                      "color": "#ffffff",
+                      "font-size": "0.85em",
+                      "font-weight": "700",
+                      "line-height": "1.6em",
+                      "text-align": "center"
+                    }
+                  }
+                },
+                {
+                  "value": "none",
+                  "label": "No marker",
+                  "css": {
+                    "&:is(ol)": {
+                      "list-style": "none"
+                    }
+                  }
+                }
+              ],
+              "quick": 3
+            },
+            {
+              "key": "markerColor",
+              "label": "Marker color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "li::marker",
+                  "property": "color"
+                }
+              ],
+              "quick": 2
+            },
+            {
+              "key": "markerSize",
+              "label": "Marker size",
+              "type": "unit",
+              "units": [
+                "em",
+                "px"
+              ],
+              "targets": [
+                {
+                  "selector": "li::marker",
+                  "property": "font-size"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "items",
+          "label": "Items",
+          "controls": [
+            {
+              "key": "itemSpacing",
+              "label": "Space between items",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "li + li",
+                  "property": "margin-top"
+                }
+              ],
+              "quick": 4
+            },
+            {
+              "key": "indent",
+              "label": "Indentation",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "padding-inline-start"
+                }
+              ]
+            },
+            {
+              "key": "textColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "fontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "lineHeight",
+              "label": "Line height",
+              "type": "number",
+              "min": 0.8,
+              "max": 3,
+              "step": 0.1,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "line-height"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "box",
+          "label": "Box",
+          "controls": [
+            {
+              "key": "background",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "background-color"
+                }
+              ]
+            },
+            {
+              "key": "paddingBlock",
+              "label": "Vertical padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "padding-block"
+                }
+              ]
+            },
+            {
+              "key": "paddingEnd",
+              "label": "Right padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "padding-inline-end"
+                }
+              ]
+            },
+            {
+              "key": "borderWidth",
+              "label": "Border width",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 10,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "border-width"
+                }
+              ],
+              "extra": {
+                "&": {
+                  "border-style": "solid"
+                }
+              }
+            },
+            {
+              "key": "borderColor",
+              "label": "Border color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "border-color"
+                }
+              ]
+            },
+            {
+              "key": "radius",
+              "label": "Corner radius",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 40,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "border-radius"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "nested",
+          "label": "Nested lists",
+          "controls": [
+            {
+              "key": "nestedMarkerStyle",
+              "label": "Nested marker",
+              "type": "select",
+              "options": [
+                {
+                  "value": "disc",
+                  "label": "Disc",
+                  "css": {
+                    "& ul": {
+                      "list-style-type": "disc"
+                    }
+                  }
+                },
+                {
+                  "value": "circle",
+                  "label": "Circle",
+                  "css": {
+                    "& ul": {
+                      "list-style-type": "circle"
+                    }
+                  }
+                },
+                {
+                  "value": "square",
+                  "label": "Square",
+                  "css": {
+                    "& ul": {
+                      "list-style-type": "square"
+                    }
+                  }
+                },
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    "& ul": {
+                      "list-style": "none"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "nestedIndent",
+              "label": "Nested indentation",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "& ul, & ol",
+                  "property": "padding-inline-start"
+                }
+              ]
+            },
+            {
+              "key": "nestedSpacing",
+              "label": "Space above nested list",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "li > ul, li > ol",
+                  "property": "margin-top"
+                }
+              ]
+            },
+            {
+              "key": "nestedFontSize",
+              "label": "Nested font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "& ul, & ol",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "nestedMarkerColor",
+              "label": "Nested marker color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "& ul li::marker, & ol li::marker",
+                  "property": "color"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "id": "clean",
+          "label": "Clean",
+          "values": {
+            "markerColor": "#2563eb",
+            "itemSpacing": "0.5em"
+          }
+        },
+        {
+          "id": "checklist",
+          "label": "Check list",
+          "values": {
+            "markerStyle": "check",
+            "markerColor": "#16a34a",
+            "itemSpacing": "0.5em"
+          }
+        },
+        {
+          "id": "numbered",
+          "label": "Numbered",
+          "values": {
+            "orderedMarkerStyle": "badge",
+            "markerColor": "#2563eb",
+            "itemSpacing": "0.75em",
+            "indent": "2.75em"
+          }
+        },
+        {
+          "id": "boxed",
+          "label": "Boxed",
+          "values": {
+            "background": "#f8fafc",
+            "borderWidth": "1px",
+            "borderColor": "#e2e8f0",
+            "radius": "10px",
+            "paddingBlock": "1.25em",
+            "paddingEnd": "1.5em",
+            "indent": "2.75em",
+            "markerColor": "#2563eb",
+            "itemSpacing": "0.5em"
+          }
+        },
+        {
+          "id": "arrows",
+          "label": "Arrows",
+          "values": {
+            "markerStyle": "arrow",
+            "markerColor": "#2563eb",
+            "itemSpacing": "0.5em"
+          }
+        },
+        {
+          "id": "stars",
+          "label": "Stars",
+          "values": {
+            "markerStyle": "star",
+            "markerColor": "#f59e0b",
+            "itemSpacing": "0.5em"
+          }
+        },
+        {
+          "id": "dashes",
+          "label": "Dashes",
+          "values": {
+            "markerStyle": "dash",
+            "markerColor": "#9ca3af",
+            "itemSpacing": "0.4em"
+          }
+        },
+        {
+          "id": "roman",
+          "label": "Roman numerals",
+          "values": {
+            "orderedMarkerStyle": "upper-roman",
+            "markerColor": "#6b7280",
+            "itemSpacing": "0.5em"
+          }
+        },
+        {
+          "id": "spacious",
+          "label": "Spacious",
+          "values": {
+            "markerStyle": "square",
+            "markerColor": "#111827",
+            "fontSize": "1.05em",
+            "lineHeight": "1.7",
+            "itemSpacing": "1em"
+          }
+        }
+      ]
+    },
+    "quote": {
+      "name": "core/quote",
+      "group": "text",
+      "tag": "blockquote",
+      "label": "Quote",
+      "description": "Quote boxes, borders, quote icon and citation.",
+      "sections": [
+        {
+          "id": "text",
+          "label": "Text",
+          "controls": [
+            {
+              "key": "textColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "color"
+                }
+              ],
+              "quick": 4
+            },
+            {
+              "key": "fontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "fontStyle",
+              "label": "Font style",
+              "type": "select",
+              "options": [
+                {
+                  "value": "normal",
+                  "label": "Normal"
+                },
+                {
+                  "value": "italic",
+                  "label": "Italic"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "&, & p",
+                  "property": "font-style"
+                }
+              ],
+              "quick": 6
+            },
+            {
+              "key": "fontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "300",
+                  "label": "Light"
+                },
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "font-weight"
+                }
+              ]
+            },
+            {
+              "key": "lineHeight",
+              "label": "Line height",
+              "type": "number",
+              "min": 0.8,
+              "max": 3,
+              "step": 0.1,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "line-height"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "box",
+          "label": "Box",
+          "controls": [
+            {
+              "key": "background",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "background-color"
+                }
+              ],
+              "quick": 3
+            },
+            {
+              "key": "paddingBlock",
+              "label": "Vertical padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "padding-block"
+                }
+              ]
+            },
+            {
+              "key": "paddingInline",
+              "label": "Horizontal padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "padding-inline"
+                }
+              ]
+            },
+            {
+              "key": "radius",
+              "label": "Corner radius",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 40,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "border-radius"
+                }
+              ]
+            },
+            {
+              "key": "borderPosition",
+              "label": "Border",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    "&": {
+                      "border": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "left",
+                  "label": "Left side",
+                  "css": {
+                    "&": {
+                      "border": "none",
+                      "border-inline-start": "{borderWidth|4px} solid {borderColor|currentColor}"
+                    }
+                  }
+                },
+                {
+                  "value": "top",
+                  "label": "Top",
+                  "css": {
+                    "&": {
+                      "border": "none",
+                      "border-top": "{borderWidth|4px} solid {borderColor|currentColor}"
+                    }
+                  }
+                },
+                {
+                  "value": "bottom",
+                  "label": "Bottom",
+                  "css": {
+                    "&": {
+                      "border": "none",
+                      "border-bottom": "{borderWidth|4px} solid {borderColor|currentColor}"
+                    }
+                  }
+                },
+                {
+                  "value": "all",
+                  "label": "All sides",
+                  "css": {
+                    "&": {
+                      "border": "{borderWidth|1px} solid {borderColor|currentColor}"
+                    }
+                  }
+                }
+              ],
+              "quick": 1
+            },
+            {
+              "key": "borderWidth",
+              "label": "Border width",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 20,
+              "showIf": {
+                "key": "borderPosition",
+                "in": [
+                  "left",
+                  "top",
+                  "bottom",
+                  "all"
+                ]
+              }
+            },
+            {
+              "key": "borderColor",
+              "label": "Border color",
+              "type": "color",
+              "showIf": {
+                "key": "borderPosition",
+                "in": [
+                  "left",
+                  "top",
+                  "bottom",
+                  "all"
+                ]
+              },
+              "quick": 2
+            }
+          ]
+        },
+        {
+          "id": "icon",
+          "label": "Quote icon",
+          "controls": [
+            {
+              "key": "quoteIcon",
+              "label": "Quote mark",
+              "type": "select",
+              "options": [
+                {
+                  "value": "hide",
+                  "label": "Hidden",
+                  "css": {
+                    "&::before": {
+                      "content": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "show",
+                  "label": "Large quote mark",
+                  "css": {
+                    "&::before": {
+                      "content": "\"\\201C\"",
+                      "display": "block",
+                      "font-family": "Georgia, 'Times New Roman', serif",
+                      "font-size": "{iconSize|3em}",
+                      "font-style": "normal",
+                      "line-height": "1",
+                      "height": "0.45em",
+                      "margin-bottom": "0.15em",
+                      "color": "{iconColor|currentColor}"
+                    }
+                  }
+                }
+              ],
+              "quick": 5
+            },
+            {
+              "key": "iconColor",
+              "label": "Quote mark color",
+              "type": "color",
+              "showIf": {
+                "key": "quoteIcon",
+                "in": [
+                  "show"
+                ]
+              }
+            },
+            {
+              "key": "iconSize",
+              "label": "Quote mark size",
+              "type": "unit",
+              "units": [
+                "em",
+                "px"
+              ],
+              "showIf": {
+                "key": "quoteIcon",
+                "in": [
+                  "show"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "citation",
+          "label": "Citation",
+          "controls": [
+            {
+              "key": "citeDisplay",
+              "label": "Citation",
+              "type": "select",
+              "options": [
+                {
+                  "value": "show",
+                  "label": "Show",
+                  "css": {
+                    "cite": {
+                      "display": "block"
+                    }
+                  }
+                },
+                {
+                  "value": "hide",
+                  "label": "Hide",
+                  "css": {
+                    "cite": {
+                      "display": "none"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "citeColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "cite",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "citeFontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "cite",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "citeFontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "cite",
+                  "property": "font-weight"
+                }
+              ]
+            },
+            {
+              "key": "citeTransform",
+              "label": "Letter case",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "As written"
+                },
+                {
+                  "value": "uppercase",
+                  "label": "UPPERCASE"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "cite",
+                  "property": "text-transform"
+                }
+              ]
+            },
+            {
+              "key": "citePrefix",
+              "label": "Prefix",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    "cite::before": {
+                      "content": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "dash",
+                  "label": "Em dash",
+                  "css": {
+                    "cite::before": {
+                      "content": "\"\\2014\\00A0\""
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "id": "minimal",
+          "label": "Minimal",
+          "values": {
+            "borderPosition": "left",
+            "borderWidth": "3px",
+            "borderColor": "#111827",
+            "paddingInline": "1.25em",
+            "paddingBlock": "0.25em",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "id": "highlighted",
+          "label": "Highlighted",
+          "values": {
+            "background": "#fefce8",
+            "borderPosition": "left",
+            "borderWidth": "4px",
+            "borderColor": "#eab308",
+            "paddingBlock": "1.25em",
+            "paddingInline": "1.5em",
+            "radius": "6px"
+          }
+        },
+        {
+          "id": "editorial",
+          "label": "Editorial",
+          "values": {
+            "borderPosition": "none",
+            "quoteIcon": "show",
+            "iconColor": "#9ca3af",
+            "fontSize": "1.35em",
+            "fontStyle": "italic",
+            "lineHeight": "1.5",
+            "paddingInline": "0",
+            "citeTransform": "uppercase",
+            "citeFontSize": "0.6em",
+            "citeColor": "#6b7280",
+            "citePrefix": "dash"
+          }
+        },
+        {
+          "id": "callout",
+          "label": "Callout",
+          "values": {
+            "background": "#eff6ff",
+            "textColor": "#1e3a8a",
+            "borderPosition": "all",
+            "borderWidth": "1px",
+            "borderColor": "#bfdbfe",
+            "radius": "12px",
+            "paddingBlock": "1.5em",
+            "paddingInline": "1.75em",
+            "quoteIcon": "show",
+            "iconColor": "#3b82f6",
+            "citeColor": "#1d4ed8",
+            "citeFontWeight": "600"
+          }
+        },
+        {
+          "id": "pull-quote",
+          "label": "Pull quote",
+          "values": {
+            "borderPosition": "top",
+            "borderWidth": "4px",
+            "borderColor": "#111827",
+            "paddingBlock": "1em",
+            "paddingInline": "0",
+            "fontSize": "1.5em",
+            "fontWeight": "600",
+            "fontStyle": "normal",
+            "lineHeight": "1.35",
+            "citeFontSize": "0.55em",
+            "citeTransform": "uppercase",
+            "citeColor": "#6b7280"
+          }
+        },
+        {
+          "id": "dark",
+          "label": "Dark",
+          "values": {
+            "background": "#111827",
+            "textColor": "#f9fafb",
+            "borderPosition": "none",
+            "radius": "12px",
+            "paddingBlock": "1.5em",
+            "paddingInline": "1.75em",
+            "quoteIcon": "show",
+            "iconColor": "#818cf8",
+            "citeColor": "#9ca3af"
+          }
+        },
+        {
+          "id": "bordered",
+          "label": "Bordered",
+          "values": {
+            "borderPosition": "all",
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "radius": "8px",
+            "paddingBlock": "1.25em",
+            "paddingInline": "1.5em",
+            "fontStyle": "normal"
+          }
+        },
+        {
+          "id": "testimonial",
+          "label": "Testimonial",
+          "values": {
+            "background": "#f9fafb",
+            "borderPosition": "none",
+            "radius": "16px",
+            "paddingBlock": "1.75em",
+            "paddingInline": "2em",
+            "fontSize": "1.1em",
+            "fontStyle": "normal",
+            "lineHeight": "1.6",
+            "quoteIcon": "show",
+            "iconColor": "#2563eb",
+            "iconSize": "2.5em",
+            "citeColor": "#111827",
+            "citeFontWeight": "600"
+          }
+        },
+        {
+          "id": "classic",
+          "label": "Classic",
+          "values": {
+            "borderPosition": "left",
+            "borderWidth": "5px",
+            "borderColor": "#d1d5db",
+            "paddingInline": "1.25em",
+            "paddingBlock": "0.25em",
+            "textColor": "#4b5563",
+            "fontSize": "1.1em",
+            "fontStyle": "italic",
+            "citeColor": "#6b7280",
+            "citePrefix": "dash"
+          }
+        }
+      ]
+    },
+    "details": {
+      "name": "core/details",
+      "group": "text",
+      "tag": "details",
+      "label": "Details / Accordion",
+      "description": "FAQ and accordion styling: header, icon, open state and content.",
+      "sections": [
+        {
+          "id": "box",
+          "label": "Box",
+          "controls": [
+            {
+              "key": "background",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "background-color"
+                }
+              ]
+            },
+            {
+              "key": "textColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "borderWidth",
+              "label": "Border width",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 10,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "border-width"
+                }
+              ],
+              "extra": {
+                "&": {
+                  "border-style": "solid"
+                }
+              }
+            },
+            {
+              "key": "borderColor",
+              "label": "Border color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "border-color"
+                }
+              ],
+              "quick": 4
+            },
+            {
+              "key": "radius",
+              "label": "Corner radius",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 40,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "border-radius"
+                }
+              ],
+              "extra": {
+                "&": {
+                  "overflow": "hidden"
+                }
+              },
+              "quick": 5
+            },
+            {
+              "key": "shadow",
+              "label": "Shadow",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    "&": {
+                      "box-shadow": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "soft",
+                  "label": "Soft",
+                  "css": {
+                    "&": {
+                      "box-shadow": "0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)"
+                    }
+                  }
+                },
+                {
+                  "value": "medium",
+                  "label": "Medium",
+                  "css": {
+                    "&": {
+                      "box-shadow": "0 4px 12px rgba(0,0,0,0.1)"
+                    }
+                  }
+                }
+              ],
+              "hover": true
+            },
+            {
+              "key": "spacing",
+              "label": "Space between accordions",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "& + .wp-block-details",
+                  "property": "margin-block-start"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "summary",
+          "label": "Header",
+          "controls": [
+            {
+              "key": "summaryBackground",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "& > summary",
+                  "property": "background-color"
+                }
+              ],
+              "quick": 2
+            },
+            {
+              "key": "summaryTextColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "& > summary",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "summaryFontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "& > summary",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "summaryFontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "& > summary",
+                  "property": "font-weight"
+                }
+              ],
+              "quick": 6
+            },
+            {
+              "key": "summaryPadding",
+              "label": "Padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "& > summary",
+                  "property": "padding"
+                }
+              ]
+            },
+            {
+              "key": "summaryHoverBackground",
+              "label": "Hover background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "& > summary:hover",
+                  "property": "background-color"
+                }
+              ]
+            },
+            {
+              "key": "openSummaryBackground",
+              "label": "Background when open",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&[open] > summary",
+                  "property": "background-color"
+                }
+              ],
+              "quick": 3
+            },
+            {
+              "key": "openSummaryTextColor",
+              "label": "Text color when open",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&[open] > summary",
+                  "property": "color"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "icon",
+          "label": "Icon",
+          "controls": [
+            {
+              "key": "iconStyle",
+              "label": "Icon",
+              "type": "select",
+              "options": [
+                {
+                  "value": "default",
+                  "label": "Browser default (triangle)"
+                },
+                {
+                  "value": "plus",
+                  "label": "Plus / minus (right side)",
+                  "css": {
+                    "& > summary": {
+                      "list-style": "none",
+                      "display": "flex",
+                      "justify-content": "space-between",
+                      "align-items": "center",
+                      "gap": "1em"
+                    },
+                    "& > summary::-webkit-details-marker": {
+                      "display": "none"
+                    },
+                    "& > summary::after": {
+                      "content": "\"+\"",
+                      "font-size": "1.3em",
+                      "font-weight": "400",
+                      "line-height": "1",
+                      "color": "{iconColor|currentColor}"
+                    },
+                    "&[open] > summary::after": {
+                      "content": "\"\\2212\""
+                    }
+                  }
+                },
+                {
+                  "value": "chevron",
+                  "label": "Chevron (right side)",
+                  "css": {
+                    "& > summary": {
+                      "list-style": "none",
+                      "display": "flex",
+                      "justify-content": "space-between",
+                      "align-items": "center",
+                      "gap": "1em"
+                    },
+                    "& > summary::-webkit-details-marker": {
+                      "display": "none"
+                    },
+                    "& > summary::after": {
+                      "content": "\"\"",
+                      "flex-shrink": "0",
+                      "width": "0.45em",
+                      "height": "0.45em",
+                      "margin-inline-end": "0.2em",
+                      "border-right": "2px solid {iconColor|currentColor}",
+                      "border-bottom": "2px solid {iconColor|currentColor}",
+                      "transform": "translateY(-25%) rotate(45deg)",
+                      "transition": "transform 0.2s ease"
+                    },
+                    "&[open] > summary::after": {
+                      "transform": "translateY(25%) rotate(-135deg)"
+                    }
+                  }
+                },
+                {
+                  "value": "none",
+                  "label": "No icon",
+                  "css": {
+                    "& > summary": {
+                      "list-style": "none"
+                    },
+                    "& > summary::-webkit-details-marker": {
+                      "display": "none"
+                    }
+                  }
+                }
+              ],
+              "quick": 1
+            },
+            {
+              "key": "iconPosition",
+              "label": "Icon position",
+              "type": "select",
+              "options": [
+                {
+                  "value": "right",
+                  "label": "Right",
+                  "css": {
+                    "& > summary": {
+                      "flex-direction": "row",
+                      "justify-content": "space-between"
+                    }
+                  }
+                },
+                {
+                  "value": "left",
+                  "label": "Left",
+                  "css": {
+                    "& > summary": {
+                      "flex-direction": "row-reverse",
+                      "justify-content": "flex-end"
+                    }
+                  }
+                }
+              ],
+              "showIf": {
+                "key": "iconStyle",
+                "in": [
+                  "plus",
+                  "chevron"
+                ]
+              }
+            },
+            {
+              "key": "iconColor",
+              "label": "Icon color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "& > summary::marker",
+                  "property": "color"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "content",
+          "label": "Content",
+          "controls": [
+            {
+              "key": "contentTextColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "& > :not(summary)",
+                  "property": "color"
+                }
+              ]
+            },
+            {
+              "key": "contentFontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "& > :not(summary)",
+                  "property": "font-size"
+                }
+              ]
+            },
+            {
+              "key": "contentPadding",
+              "label": "Padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "responsive": true,
+              "targets": [
+                {
+                  "selector": "& > :not(summary)",
+                  "property": "padding-inline"
+                },
+                {
+                  "selector": "& > :last-child:not(summary)",
+                  "property": "padding-block-end"
+                }
+              ]
+            },
+            {
+              "key": "contentDivider",
+              "label": "Line above content",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    "& > summary + *": {
+                      "border-top": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "line",
+                  "label": "Line",
+                  "css": {
+                    "& > summary + *": {
+                      "border-top": "1px solid {dividerColor|#e5e7eb}",
+                      "padding-top": "0.75em"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "dividerColor",
+              "label": "Line color",
+              "type": "color",
+              "showIf": {
+                "key": "contentDivider",
+                "in": [
+                  "line"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "id": "clean",
+          "label": "Clean",
+          "values": {
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "radius": "8px",
+            "summaryPadding": "1em",
+            "summaryFontWeight": "600",
+            "contentPadding": "1em",
+            "iconStyle": "chevron",
+            "spacing": "0.75em"
+          }
+        },
+        {
+          "id": "card",
+          "label": "Card",
+          "values": {
+            "background": "#ffffff",
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "radius": "12px",
+            "shadow": "soft",
+            "summaryPadding": "1.1em",
+            "summaryFontWeight": "600",
+            "contentPadding": "1.1em",
+            "iconStyle": "plus",
+            "iconColor": "#2563eb",
+            "openSummaryTextColor": "#2563eb",
+            "spacing": "1em"
+          }
+        },
+        {
+          "id": "faq",
+          "label": "FAQ",
+          "values": {
+            "borderWidth": "1px",
+            "borderColor": "#e2e8f0",
+            "radius": "8px",
+            "summaryBackground": "#f8fafc",
+            "summaryPadding": "1em",
+            "summaryFontWeight": "600",
+            "openSummaryBackground": "#2563eb",
+            "openSummaryTextColor": "#ffffff",
+            "iconStyle": "plus",
+            "contentPadding": "1em",
+            "spacing": "0.5em"
+          }
+        },
+        {
+          "id": "minimal",
+          "label": "Minimal",
+          "values": {
+            "iconStyle": "chevron",
+            "summaryFontWeight": "600",
+            "summaryPadding": "0.75em",
+            "summaryHoverBackground": "#f9fafb",
+            "spacing": "0.25em"
+          }
+        },
+        {
+          "id": "soft",
+          "label": "Soft",
+          "values": {
+            "background": "#f8fafc",
+            "borderWidth": "0px",
+            "radius": "12px",
+            "summaryPadding": "1.1em",
+            "summaryFontWeight": "600",
+            "iconStyle": "plus",
+            "iconColor": "#2563eb",
+            "contentPadding": "1.1em",
+            "contentTextColor": "#475569",
+            "spacing": "0.75em"
+          }
+        },
+        {
+          "id": "dark",
+          "label": "Dark",
+          "values": {
+            "background": "#111827",
+            "textColor": "#f9fafb",
+            "borderWidth": "0px",
+            "radius": "10px",
+            "summaryPadding": "1em",
+            "summaryFontWeight": "600",
+            "summaryHoverBackground": "#1f2937",
+            "iconStyle": "chevron",
+            "iconColor": "#9ca3af",
+            "contentTextColor": "#d1d5db",
+            "contentPadding": "1em",
+            "spacing": "0.75em"
+          }
+        },
+        {
+          "id": "bold-border",
+          "label": "Bold border",
+          "values": {
+            "borderWidth": "2px",
+            "borderColor": "#111827",
+            "radius": "6px",
+            "summaryPadding": "1em",
+            "summaryFontWeight": "700",
+            "iconStyle": "plus",
+            "iconColor": "#111827",
+            "contentDivider": "line",
+            "dividerColor": "#111827",
+            "contentPadding": "1em",
+            "spacing": "0.75em"
+          }
+        },
+        {
+          "id": "accent",
+          "label": "Accent",
+          "values": {
+            "borderWidth": "1px",
+            "borderColor": "#dbeafe",
+            "radius": "10px",
+            "summaryBackground": "#eff6ff",
+            "summaryTextColor": "#1e3a8a",
+            "summaryFontWeight": "600",
+            "openSummaryBackground": "#dbeafe",
+            "iconStyle": "chevron",
+            "iconPosition": "left",
+            "iconColor": "#2563eb",
+            "summaryPadding": "1em",
+            "contentPadding": "1em",
+            "spacing": "0.5em"
+          }
+        },
+        {
+          "id": "compact",
+          "label": "Compact",
+          "values": {
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "radius": "6px",
+            "summaryPadding": "0.6em",
+            "summaryFontSize": "0.95em",
+            "summaryFontWeight": "500",
+            "iconStyle": "default",
+            "contentDivider": "line",
+            "dividerColor": "#e5e7eb",
+            "contentPadding": "0.6em",
+            "contentFontSize": "0.95em",
+            "spacing": "0.4em"
+          }
+        }
+      ]
+    },
+    "button": {
+      "name": "core/button",
+      "group": "design",
+      "tag": "a",
+      "label": "Button",
+      "description": "Colors, shape, text and hover style for every button.",
+      "sections": [
+        {
+          "id": "colors",
+          "label": "Colors",
+          "controls": [
+            {
+              "key": "background",
+              "label": "Background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "background-color"
+                }
+              ],
+              "quick": 1
+            },
+            {
+              "key": "textColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "color"
+                }
+              ],
+              "quick": 2
+            },
+            {
+              "key": "hoverBackground",
+              "label": "Hover background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link:hover",
+                  "property": "background-color"
+                }
+              ],
+              "quick": 4
+            },
+            {
+              "key": "hoverTextColor",
+              "label": "Hover text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link:hover",
+                  "property": "color"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "shape",
+          "label": "Shape",
+          "controls": [
+            {
+              "key": "radius",
+              "label": "Corner radius",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 999,
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "border-radius"
+                }
+              ],
+              "quick": 3
+            },
+            {
+              "key": "borderWidth",
+              "label": "Border width",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 10,
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "border-width"
+                }
+              ],
+              "extra": {
+                ".wp-block-button__link": {
+                  "border-style": "solid"
+                }
+              }
+            },
+            {
+              "key": "borderColor",
+              "label": "Border color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "border-color"
+                }
+              ]
+            },
+            {
+              "key": "paddingY",
+              "label": "Vertical padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "padding-block"
+                }
+              ],
+              "responsive": true
+            },
+            {
+              "key": "paddingX",
+              "label": "Horizontal padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "padding-inline"
+                }
+              ],
+              "responsive": true,
+              "quick": 5
+            },
+            {
+              "key": "width",
+              "label": "Width",
+              "type": "select",
+              "options": [
+                {
+                  "value": "auto",
+                  "label": "Fit text",
+                  "css": {
+                    "&": {
+                      "display": "inline-block"
+                    },
+                    ".wp-block-button__link": {
+                      "width": "auto"
+                    }
+                  }
+                },
+                {
+                  "value": "full",
+                  "label": "Full width",
+                  "css": {
+                    "&": {
+                      "display": "block",
+                      "width": "100%"
+                    },
+                    ".wp-block-button__link": {
+                      "width": "100%",
+                      "text-align": "center",
+                      "box-sizing": "border-box"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "text",
+          "label": "Text",
+          "controls": [
+            {
+              "key": "fontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "font-size"
+                }
+              ],
+              "responsive": true
+            },
+            {
+              "key": "fontWeight",
+              "label": "Font weight",
+              "type": "select",
+              "options": [
+                {
+                  "value": "400",
+                  "label": "Regular"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium"
+                },
+                {
+                  "value": "600",
+                  "label": "Semi bold"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold"
+                },
+                {
+                  "value": "800",
+                  "label": "Extra bold"
+                }
+              ],
+              "quick": 6,
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "font-weight"
+                }
+              ]
+            },
+            {
+              "key": "textTransform",
+              "label": "Letter case",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "As written"
+                },
+                {
+                  "value": "uppercase",
+                  "label": "UPPERCASE"
+                },
+                {
+                  "value": "capitalize",
+                  "label": "Capitalize"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "text-transform"
+                }
+              ]
+            },
+            {
+              "key": "letterSpacing",
+              "label": "Letter spacing",
+              "type": "unit",
+              "units": [
+                "em",
+                "px"
+              ],
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link",
+                  "property": "letter-spacing"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "effects",
+          "label": "Effects",
+          "controls": [
+            {
+              "key": "shadow",
+              "label": "Shadow",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    ".wp-block-button__link": {
+                      "box-shadow": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "soft",
+                  "label": "Soft",
+                  "css": {
+                    ".wp-block-button__link": {
+                      "box-shadow": "0 1px 3px rgba(0,0,0,0.12)"
+                    }
+                  }
+                },
+                {
+                  "value": "medium",
+                  "label": "Medium",
+                  "css": {
+                    ".wp-block-button__link": {
+                      "box-shadow": "0 6px 16px rgba(0,0,0,0.16)"
+                    }
+                  }
+                }
+              ],
+              "hover": true
+            },
+            {
+              "key": "hoverEffect",
+              "label": "Hover effect",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    ".wp-block-button__link:hover": {
+                      "transform": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "lift",
+                  "label": "Lift",
+                  "css": {
+                    ".wp-block-button__link": {
+                      "transition": "transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease"
+                    },
+                    ".wp-block-button__link:hover": {
+                      "transform": "translateY(-2px)",
+                      "box-shadow": "0 8px 18px rgba(0,0,0,0.18)"
+                    }
+                  }
+                },
+                {
+                  "value": "grow",
+                  "label": "Grow",
+                  "css": {
+                    ".wp-block-button__link": {
+                      "transition": "transform 0.15s ease, background-color 0.15s ease"
+                    },
+                    ".wp-block-button__link:hover": {
+                      "transform": "scale(1.04)"
+                    }
+                  }
+                },
+                {
+                  "value": "shadow",
+                  "label": "Shadow",
+                  "css": {
+                    ".wp-block-button__link": {
+                      "transition": "box-shadow 0.15s ease"
+                    },
+                    ".wp-block-button__link:hover": {
+                      "box-shadow": "0 8px 18px rgba(0,0,0,0.18)"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "focusColor",
+              "label": "Focus outline color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": ".wp-block-button__link:focus-visible",
+                  "property": "outline-color"
+                }
+              ],
+              "extra": {
+                ".wp-block-button__link:focus-visible": {
+                  "outline-style": "solid",
+                  "outline-width": "2px",
+                  "outline-offset": "2px"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "id": "primary",
+          "label": "Primary",
+          "values": {
+            "background": "#2563eb",
+            "textColor": "#ffffff",
+            "hoverBackground": "#1d4ed8",
+            "radius": "8px",
+            "paddingY": "12px",
+            "paddingX": "24px",
+            "fontWeight": "600"
+          }
+        },
+        {
+          "id": "outline",
+          "label": "Outline",
+          "values": {
+            "background": "transparent",
+            "textColor": "#111827",
+            "borderWidth": "2px",
+            "borderColor": "#111827",
+            "hoverBackground": "#111827",
+            "hoverTextColor": "#ffffff",
+            "radius": "8px",
+            "paddingY": "10px",
+            "paddingX": "22px",
+            "fontWeight": "600"
+          }
+        },
+        {
+          "id": "pill",
+          "label": "Pill",
+          "values": {
+            "background": "#111827",
+            "textColor": "#ffffff",
+            "hoverBackground": "#374151",
+            "radius": "999px",
+            "paddingY": "12px",
+            "paddingX": "28px",
+            "fontWeight": "600",
+            "hoverEffect": "lift"
+          }
+        },
+        {
+          "id": "soft",
+          "label": "Soft",
+          "values": {
+            "background": "#e0e7ff",
+            "textColor": "#3730a3",
+            "hoverBackground": "#c7d2fe",
+            "radius": "10px",
+            "paddingY": "12px",
+            "paddingX": "22px",
+            "fontWeight": "600"
+          }
+        },
+        {
+          "id": "bold",
+          "label": "Bold",
+          "values": {
+            "background": "#dc2626",
+            "textColor": "#ffffff",
+            "hoverBackground": "#b91c1c",
+            "radius": "6px",
+            "paddingY": "14px",
+            "paddingX": "28px",
+            "fontWeight": "700",
+            "textTransform": "uppercase",
+            "letterSpacing": "0.05em",
+            "shadow": "medium",
+            "hoverEffect": "grow"
+          }
+        },
+        {
+          "id": "ghost",
+          "label": "Ghost",
+          "values": {
+            "background": "transparent",
+            "textColor": "#2563eb",
+            "hoverBackground": "#eff6ff",
+            "hoverTextColor": "#1d4ed8",
+            "radius": "8px",
+            "paddingY": "12px",
+            "paddingX": "20px",
+            "fontWeight": "600"
+          }
+        },
+        {
+          "id": "dark",
+          "label": "Dark",
+          "values": {
+            "background": "#111827",
+            "textColor": "#ffffff",
+            "hoverBackground": "#000000",
+            "radius": "4px",
+            "paddingY": "14px",
+            "paddingX": "28px",
+            "fontWeight": "600",
+            "letterSpacing": "0.02em",
+            "shadow": "soft",
+            "hoverEffect": "lift"
+          }
+        },
+        {
+          "id": "green",
+          "label": "Green",
+          "values": {
+            "background": "#16a34a",
+            "textColor": "#ffffff",
+            "hoverBackground": "#15803d",
+            "radius": "8px",
+            "paddingY": "12px",
+            "paddingX": "24px",
+            "fontWeight": "600",
+            "shadow": "soft"
+          }
+        },
+        {
+          "id": "large",
+          "label": "Large",
+          "values": {
+            "background": "#2563eb",
+            "textColor": "#ffffff",
+            "hoverBackground": "#1d4ed8",
+            "radius": "12px",
+            "paddingY": "18px",
+            "paddingX": "36px",
+            "fontSize": "1.15em",
+            "fontWeight": "700",
+            "shadow": "medium",
+            "hoverEffect": "lift"
+          }
+        }
+      ]
+    },
+    "image": {
+      "name": "core/image",
+      "group": "media",
+      "tag": "figure",
+      "label": "Image",
+      "description": "Frames, corners, shadows and captions for images.",
+      "sections": [
+        {
+          "id": "frame",
+          "label": "Frame",
+          "controls": [
+            {
+              "key": "radius",
+              "label": "Corner radius",
+              "type": "unit",
+              "units": [
+                "px",
+                "%"
+              ],
+              "max": 999,
+              "targets": [
+                {
+                  "selector": "img",
+                  "property": "border-radius"
+                }
+              ],
+              "quick": 1
+            },
+            {
+              "key": "shadow",
+              "label": "Shadow",
+              "type": "select",
+              "options": [
+                {
+                  "value": "none",
+                  "label": "None",
+                  "css": {
+                    "img": {
+                      "box-shadow": "none"
+                    }
+                  }
+                },
+                {
+                  "value": "soft",
+                  "label": "Soft",
+                  "css": {
+                    "img": {
+                      "box-shadow": "0 2px 8px rgba(0,0,0,0.12)"
+                    }
+                  }
+                },
+                {
+                  "value": "medium",
+                  "label": "Medium",
+                  "css": {
+                    "img": {
+                      "box-shadow": "0 10px 30px rgba(0,0,0,0.18)"
+                    }
+                  }
+                },
+                {
+                  "value": "hard",
+                  "label": "Offset",
+                  "css": {
+                    "img": {
+                      "box-shadow": "8px 8px 0 {borderColor|#111827}"
+                    }
+                  }
+                }
+              ],
+              "quick": 2,
+              "hover": true
+            },
+            {
+              "key": "borderWidth",
+              "label": "Border width",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 20,
+              "targets": [
+                {
+                  "selector": "img",
+                  "property": "border-width"
+                }
+              ],
+              "extra": {
+                "img": {
+                  "border-style": "solid"
+                }
+              },
+              "quick": 3
+            },
+            {
+              "key": "borderColor",
+              "label": "Border color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "img",
+                  "property": "border-color"
+                }
+              ],
+              "quick": 4
+            },
+            {
+              "key": "padding",
+              "label": "Frame padding",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "padding"
+                }
+              ]
+            },
+            {
+              "key": "background",
+              "label": "Frame background",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "background-color"
+                }
+              ]
+            },
+            {
+              "key": "frameRadius",
+              "label": "Frame corner radius",
+              "type": "unit",
+              "units": [
+                "px"
+              ],
+              "max": 60,
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "border-radius"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "caption",
+          "label": "Caption",
+          "controls": [
+            {
+              "key": "captionDisplay",
+              "label": "Caption",
+              "type": "select",
+              "options": [
+                {
+                  "value": "show",
+                  "label": "Show",
+                  "css": {
+                    "figcaption": {
+                      "display": "block"
+                    }
+                  }
+                },
+                {
+                  "value": "hide",
+                  "label": "Hide",
+                  "css": {
+                    "figcaption": {
+                      "display": "none"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "key": "captionColor",
+              "label": "Text color",
+              "type": "color",
+              "targets": [
+                {
+                  "selector": "figcaption",
+                  "property": "color"
+                }
+              ],
+              "quick": 5
+            },
+            {
+              "key": "captionFontSize",
+              "label": "Font size",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "figcaption",
+                  "property": "font-size"
+                }
+              ],
+              "responsive": true
+            },
+            {
+              "key": "captionStyle",
+              "label": "Style",
+              "type": "select",
+              "options": [
+                {
+                  "value": "normal",
+                  "label": "Normal"
+                },
+                {
+                  "value": "italic",
+                  "label": "Italic"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "figcaption",
+                  "property": "font-style"
+                }
+              ]
+            },
+            {
+              "key": "captionAlign",
+              "label": "Alignment",
+              "type": "select",
+              "options": [
+                {
+                  "value": "left",
+                  "label": "Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Center"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+              ],
+              "targets": [
+                {
+                  "selector": "figcaption",
+                  "property": "text-align"
+                }
+              ]
+            },
+            {
+              "key": "captionSpacing",
+              "label": "Space above caption",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "figcaption",
+                  "property": "margin-top"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "spacing",
+          "label": "Spacing",
+          "controls": [
+            {
+              "key": "marginTop",
+              "label": "Space above",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "margin-top"
+                }
+              ],
+              "responsive": true
+            },
+            {
+              "key": "marginBottom",
+              "label": "Space below",
+              "type": "unit",
+              "units": [
+                "px",
+                "em",
+                "rem"
+              ],
+              "targets": [
+                {
+                  "selector": "&",
+                  "property": "margin-bottom"
+                }
+              ],
+              "responsive": true
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "id": "rounded",
+          "label": "Rounded",
+          "values": {
+            "radius": "12px"
+          }
+        },
+        {
+          "id": "card",
+          "label": "Card",
+          "values": {
+            "radius": "12px",
+            "shadow": "medium",
+            "captionColor": "#6b7280",
+            "captionAlign": "center"
+          }
+        },
+        {
+          "id": "polaroid",
+          "label": "Polaroid",
+          "values": {
+            "background": "#ffffff",
+            "padding": "12px",
+            "borderWidth": "1px",
+            "borderColor": "#e5e7eb",
+            "frameRadius": "4px",
+            "shadow": "soft",
+            "captionAlign": "center",
+            "captionStyle": "italic",
+            "captionColor": "#374151"
+          }
+        },
+        {
+          "id": "framed",
+          "label": "Framed",
+          "values": {
+            "borderWidth": "4px",
+            "borderColor": "#111827"
+          }
+        },
+        {
+          "id": "offset",
+          "label": "Offset",
+          "values": {
+            "shadow": "hard",
+            "borderColor": "#2563eb",
+            "radius": "4px"
+          }
+        },
+        {
+          "id": "round",
+          "label": "Round",
+          "values": {
+            "radius": "50%"
+          }
+        },
+        {
+          "id": "soft-shadow",
+          "label": "Soft shadow",
+          "values": {
+            "radius": "8px",
+            "shadow": "soft"
+          }
+        },
+        {
+          "id": "matted",
+          "label": "Matted",
+          "values": {
+            "background": "#f3f4f6",
+            "padding": "20px",
+            "frameRadius": "8px"
+          }
+        },
+        {
+          "id": "captioned",
+          "label": "Captioned",
+          "values": {
+            "radius": "6px",
+            "captionColor": "#6b7280",
+            "captionFontSize": "0.875em",
+            "captionStyle": "italic",
+            "captionAlign": "center",
+            "captionSpacing": "0.75em"
+          }
+        }
+      ]
+    }
+  }
+}

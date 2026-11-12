@@ -1,0 +1,7 @@
+/*
+ * Tailwind for the admin app only. Preflight is off (see tailwind.config.mjs), so `base` only adds
+ * Tailwind's own custom properties; wp-admin and antd keep their element styles.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
