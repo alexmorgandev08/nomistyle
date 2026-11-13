@@ -27,6 +27,7 @@ final class DataCleaner
         GlobalCssFile::deleteAll();
 
         // Add-ons such as GutenStyle Pro delete their style data (presets, design system, history) here.
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         do_action(Config::withPrefix('data_reset'));
     }
 

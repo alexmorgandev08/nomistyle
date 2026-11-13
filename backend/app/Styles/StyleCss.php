@@ -48,6 +48,7 @@ final class StyleCss
     {
         $settings = StyleSettings::get();
 
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         return (bool) apply_filters(Config::withPrefix('force_style'), !empty($settings['forceStyle']), $type, $settings);
     }
 }

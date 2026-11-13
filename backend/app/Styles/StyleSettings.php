@@ -67,6 +67,7 @@ final class StyleSettings
          * After every save, with the new and the previous settings. GutenStyle Pro's Style history
          * records the changes to global styles here.
          */
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         do_action(Config::withPrefix('settings_saved'), $settings, $previous);
 
         return $settings;
@@ -157,6 +158,7 @@ final class StyleSettings
             return \is_array($storedPro) ? $storedPro : [];
         }
 
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- $hook is Config::withPrefix('pro_settings').
         $settings = apply_filters($hook, [], $input);
 
         return \is_array($settings) ? $settings : [];

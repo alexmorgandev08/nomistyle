@@ -50,6 +50,7 @@ final class Overrides
         $args     = array_merge($types, ['%' . $wpdb->esc_like(self::CONTENT_MARKER) . '%', PostStyles::META_STYLES]);
 
         // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery -- $where holds only placeholders; the admin tool needs fresh data.
+        // phpcs:disable WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- the placeholders are in $where.
         $total = (int) $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} p WHERE {$where}", $args));
         $ids   = $wpdb->get_col(
             $wpdb->prepare(

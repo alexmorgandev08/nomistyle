@@ -204,7 +204,9 @@ final class StylesController
                 'post_type'      => 'any',
                 'post_status'    => ['publish', 'draft', 'pending', 'private', 'future'],
                 'posts_per_page' => 200,
+                // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- admin-only list, at most 200 posts.
                 'meta_key'       => PostStyles::META_DISABLED,
+                // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- admin-only list, at most 200 posts.
                 'meta_value'     => '1',
                 'no_found_rows'  => true,
             ]

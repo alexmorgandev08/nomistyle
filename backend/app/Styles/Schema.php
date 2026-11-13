@@ -59,6 +59,7 @@ final class Schema
             return $blocks;
         }
 
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         $added  = apply_filters(Config::withPrefix('blocks'), []);
         $blocks += \is_array($added) ? array_filter($added, [self::class, 'isBlock']) : [];
 
@@ -133,6 +134,7 @@ final class Schema
             return [];
         }
 
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         $keys = apply_filters(Config::withPrefix('device_controls'), DeviceValues::freeKeys($block), $type, $block);
 
         return \is_array($keys) ? array_values(array_filter($keys, 'is_string')) : [];

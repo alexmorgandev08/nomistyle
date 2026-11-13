@@ -73,6 +73,7 @@ final class Assets
      */
     private static function location($name)
     {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         $location = apply_filters(Config::withPrefix('assets_location'), null, $name);
 
         if (\is_array($location) && isset($location[0], $location[1]) && file_exists($location[0] . $name . '.js')) {
@@ -123,6 +124,7 @@ final class Assets
      */
     private static function brandColors()
     {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         $colors = apply_filters(Config::withPrefix('brand_colors'), []);
         $clean  = [];
 

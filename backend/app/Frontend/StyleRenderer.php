@@ -197,7 +197,7 @@ final class StyleRenderer
     private function printGlobal($type, array $values)
     {
         if ($this->fileUrl()) {
-            wp_enqueue_style(self::FILE_HANDLE, $this->fileUrl(), [], null);
+            wp_enqueue_style(self::FILE_HANDLE, $this->fileUrl(), [], Config::VERSION);
 
             return;
         }

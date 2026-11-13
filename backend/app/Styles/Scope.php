@@ -47,6 +47,7 @@ final class Scope
      */
     public static function matchesConditions($postId)
     {
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         return (bool) apply_filters(Config::withPrefix('post_matches_conditions'), true, (int) $postId);
     }
 

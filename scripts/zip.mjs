@@ -71,7 +71,7 @@ export function makeZip(plan, { skipBuild = false } = {}) {
 
   step('Installing production PHP dependencies (no dev packages)')
   run('composer', ['install', '--no-dev', '--optimize-autoloader', '--no-interaction', '--no-progress', '--quiet'], stage)
-  rmSync(path.join(stage, 'composer.json'))
+  // composer.json stays: Plugin Check expects it next to vendor/.
   rmSync(path.join(stage, 'composer.lock'))
 
   step('Creating zip')
