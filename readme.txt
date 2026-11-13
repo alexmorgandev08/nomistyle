@@ -40,14 +40,33 @@ A later level always wins, so a single post or block can look different when it 
 
 = Features =
 
-* 34 ready-made presets to start from. Apply one, then adjust it.
+* 63 ready-made presets, 9 for each block. Apply one, then adjust it.
 * Live preview that shows sample blocks in your active theme.
-* Separate values for desktop, tablet and mobile, using WordPress core's breakpoints.
+* Tablet and mobile font sizes for headings, and a stacked table layout on small screens.
+* Uses the breakpoints of your theme and WordPress, or your own breakpoints from Settings → Responsive.
 * Hover styles for colors and shadows.
-* Readability check that warns about low color contrast.
+* Readability check that warns about low color contrast. Click Fix to correct the problem.
 * Choose which post types GutenStyle applies to, and exclude single posts.
 * Force Style: gives GutenStyle priority when your theme overrides it.
 * Light and dark admin theme.
+
+= Block editor =
+
+* Use the ⋯ menu in the GutenStyle panel to copy, paste or reset a style, or to edit the global style.
+* Show style source: see if a value comes from the global, post or block style.
+* Turn post styles and block styles on or off, and choose the roles that can edit styles.
+* Show the theme.json colors of your theme in the color pickers.
+
+= Tools =
+
+* Overrides: see every post that has its own post style or block styles. Open the post, or remove its overrides. GutenStyle saves a revision of the post first.
+
+= Advanced settings =
+
+* CSS output: load the global styles from a cached file or as inline CSS.
+* Load CSS only for the blocks used on the page.
+* Content area selector: limit the styles to the content area of your theme.
+* Regenerate CSS, reset everything, and delete all data when you uninstall the plugin.
 
 = Privacy =
 
@@ -99,8 +118,9 @@ The readable source of the JavaScript and CSS is in the `frontend/src` folder of
 * First release.
 * Styles for the Table, Heading, List, Quote, Details / Accordion, Button and Image blocks.
 * Global, post and block style levels.
-* 34 presets, live preview, responsive values, hover styles and a readability check.
+* 63 presets, live preview, tablet and mobile heading sizes, hover styles and a readability check with Fix.
 * Post type selection, post exclusions and Force Style.
+* Overrides tool, editor ⋯ menu, CSS output options and custom breakpoints.
 
 == Upgrade Notice ==
 
