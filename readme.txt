@@ -112,6 +112,8 @@ No. It works next to them. GutenStyle adds styling options for content blocks, p
 
 The readable source of the JavaScript and CSS is in the `frontend/src` folder of the plugin, next to the built files in `assets`. Build it with `pnpm install` and `pnpm build`.
 
+The full source code and build tools are also public on GitHub: [github.com/alexmorgandev08/guten-style-public](https://github.com/alexmorgandev08/guten-style-public).
+
 == Changelog ==
 
 = 0.0.1 =
