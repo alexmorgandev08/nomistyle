@@ -13,13 +13,14 @@ import { useSaveConfig } from './queries'
 import Settings from './Settings'
 import Tools from './Tools'
 import ProOnlyBadge from './upgrade/ProOnlyBadge'
+import { SHOW_PRO_FEATURES } from './upgrade/showProFeatures'
 
 const ROUTES = [
   { label: __('Global Styles', 'guten-style'), path: 'styles' },
   { label: __('Design System', 'guten-style'), path: 'design', pro: true },
   { label: __('Tools', 'guten-style'), path: 'tools' },
   { label: __('Settings', 'guten-style'), path: 'settings' }
-]
+].filter(item => SHOW_PRO_FEATURES || !item.pro)
 
 export default function App() {
   const [theme] = useUiTheme()
@@ -85,7 +86,7 @@ export default function App() {
       <main className="gs-admin__body">
         <Routes>
           <Route element={<GlobalStyles config={draft} onChange={setDraft} />} path="/styles/:type?" />
-          <Route element={<DesignSystem />} path="/design" />
+          {SHOW_PRO_FEATURES && <Route element={<DesignSystem />} path="/design" />}
           <Route element={<Tools />} path="/tools/:section?" />
           <Route element={<Settings config={draft} onChange={setDraft} />} path="/settings/:section?" />
           <Route element={<Navigate replace to="/styles" />} path="*" />

@@ -1,5 +1,8 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 
+// The Pro blocks are listed only while the free plugin shows Pro features.
+vi.mock('../admin/upgrade/showProFeatures', () => ({ SHOW_PRO_FEATURES: true }))
+
 const FREE_BLOCKS = ['table', 'heading', 'list', 'quote', 'details', 'button', 'image']
 
 let blockTypes: string[]

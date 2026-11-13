@@ -3,6 +3,8 @@ import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 
 import { type SettingsSection } from './types'
 
+vi.mock('../upgrade/showProFeatures', () => ({ SHOW_PRO_FEATURES: true }))
+
 const UPGRADE_URL = 'https://example.test/pricing'
 let featureSections: SettingsSection[]
 let sections: SettingsSection[]
@@ -12,7 +14,7 @@ beforeAll(async () => {
   vi.stubGlobal('gutenStyleAdmin', { upgradeUrl: UPGRADE_URL })
   const plan = await import('./planSections')
   featureSections = plan.planSections()
-  sections = [...featureSections, plan.licenseSection()]
+  sections = [...featureSections, plan.licenseSection()!]
 })
 
 afterEach(cleanup)

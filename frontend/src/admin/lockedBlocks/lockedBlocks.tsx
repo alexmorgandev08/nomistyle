@@ -1,5 +1,6 @@
 import { __ } from '@wordpress/i18n'
 
+import { SHOW_PRO_FEATURES } from '../upgrade/showProFeatures'
 import { type LockedBlock } from './types'
 
 /**
@@ -7,7 +8,7 @@ import { type LockedBlock } from './types'
  * what Pro styles and an upgrade link. Add a block here when Pro adds it.
  * A function, not a module-level array: top-level __() calls would keep this file in the Pro build.
  */
-export const lockedBlocks = (): LockedBlock[] => [
+export const lockedBlocks = (): LockedBlock[] => !SHOW_PRO_FEATURES ? [] : [
   {
     description: __('Body text, links and drop caps for every paragraph.', 'guten-style'),
     features: [

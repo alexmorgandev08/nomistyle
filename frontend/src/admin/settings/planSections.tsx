@@ -3,6 +3,7 @@ import { __ } from '@wordpress/i18n'
 import SettingRow from '../SettingRow'
 import { KeyIcon, PlugIcon, PuzzleIcon, SparkIcon, TransferIcon } from '../settingsIcons'
 import ProBadge from '../upgrade/ProBadge'
+import { SHOW_PRO_FEATURES } from '../upgrade/showProFeatures'
 import UpgradeCard from '../upgrade/UpgradeCard'
 import UpgradeLink from '../upgrade/UpgradeLink'
 import { type SettingsSection } from './types'
@@ -12,7 +13,7 @@ import { type SettingsSection } from './types'
  * an upgrade link; there is no Pro code here (WordPress.org rules).
  * A function, not a module-level array: top-level __() calls would keep this file in the Pro build.
  */
-export const planSections = (): SettingsSection[] => [
+export const planSections = (): SettingsSection[] => !SHOW_PRO_FEATURES ? [] : [
   {
     badge: <ProBadge />,
     icon: PuzzleIcon,
@@ -78,7 +79,7 @@ export const planSections = (): SettingsSection[] => [
 ]
 
 /** The License section, shown last (after Settings › Advanced). */
-export const licenseSection = (): SettingsSection => ({
+export const licenseSection = (): SettingsSection | null => !SHOW_PRO_FEATURES ? null : ({
   icon: KeyIcon,
   id: 'license',
   label: __('License', 'guten-style'),

@@ -32,8 +32,10 @@ const ADVANCED_SECTION: SettingsSection = {
   render: props => <AdvancedSection {...props} />
 }
 
+const license = licenseSection()
+
 /** Order from the spec: core sections, the plan's feature sections, Advanced, then License. */
-const SECTIONS = [...CORE_SECTIONS, ...planSections(), ADVANCED_SECTION, licenseSection()]
+const SECTIONS = [...CORE_SECTIONS, ...planSections(), ADVANCED_SECTION, ...(license ? [license] : [])]
 
 /** Settings: a section list on the left, the open section on the right. The section is in the URL (#/settings/license). */
 export default function Settings({ config, onChange }: SettingsProps) {

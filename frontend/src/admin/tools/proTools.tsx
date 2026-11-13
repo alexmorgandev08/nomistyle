@@ -2,6 +2,7 @@ import { __ } from '@wordpress/i18n'
 
 import { AccessibilityIcon, HealthIcon, HistoryIcon, SearchIcon } from '../settingsIcons'
 import ProBadge from '../upgrade/ProBadge'
+import { SHOW_PRO_FEATURES } from '../upgrade/showProFeatures'
 import UpgradeCard from '../upgrade/UpgradeCard'
 import { type ToolSection } from './types'
 
@@ -10,7 +11,7 @@ import { type ToolSection } from './types'
  * upgrade link; there is no Pro code here (WordPress.org rules).
  * A function, not a module-level array: top-level __() calls would keep this file in the Pro build.
  */
-export const proTools = (): ToolSection[] => [
+export const proTools = (): ToolSection[] => !SHOW_PRO_FEATURES ? [] : [
   {
     badge: <ProBadge />,
     icon: HealthIcon,
