@@ -56,6 +56,9 @@
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "typisttech/imposter-plugin": true,
       "phpstan/extension-installer": true
+    },
+    "platform": {
+      "php": "8.2.0"
     }
   },
   "extra": {
