@@ -4,7 +4,7 @@
  * Plugin URI:        https://wordpress.org/plugins/blockstyle/
  * Description:       Style tables, headings, lists, quotes, accordions, buttons and images across your whole site, per post or per block. No CSS needed.
  * Version:           0.0.1
- * Author:            alexmorgandev
+ * Author:            CodeNomi
  * Author URI:        https://profiles.wordpress.org/alexmorgandev/
  * Text Domain:       blockstyle
  * Requires PHP:      8.2
