@@ -10,13 +10,13 @@ export interface SavePresetProps {
   values: StyleValues
 }
 
-/** "Save as preset" is a GutenStyle Pro feature: the free plugin shows it as a link to the upgrade page. */
+/** "Save as preset" is a Block Style Pro feature: the free plugin shows it as a link to the upgrade page. */
 export default function SavePreset(_props: SavePresetProps) {
   if (!SHOW_PRO_FEATURES) return null
 
   return (
     <a className="inline-flex items-center gap-1.5 text-xs" href={adminData.upgradeUrl} rel="noopener noreferrer" target="_blank">
-      {__('Save your own presets', 'guten-style')}
+      {__('Save your own presets', 'blockstyle')}
       <ProBadge />
     </a>
   )

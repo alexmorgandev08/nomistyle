@@ -16,10 +16,10 @@ import ProOnlyBadge from './upgrade/ProOnlyBadge'
 import { SHOW_PRO_FEATURES } from './upgrade/showProFeatures'
 
 const ROUTES = [
-  { label: __('Global Styles', 'guten-style'), path: 'styles' },
-  { label: __('Design System', 'guten-style'), path: 'design', pro: true },
-  { label: __('Tools', 'guten-style'), path: 'tools' },
-  { label: __('Settings', 'guten-style'), path: 'settings' }
+  { label: __('Global Styles', 'blockstyle'), path: 'styles' },
+  { label: __('Design System', 'blockstyle'), path: 'design', pro: true },
+  { label: __('Tools', 'blockstyle'), path: 'tools' },
+  { label: __('Settings', 'blockstyle'), path: 'settings' }
 ].filter(item => SHOW_PRO_FEATURES || !item.pro)
 
 export default function App() {
@@ -41,7 +41,7 @@ export default function App() {
     <div className={`gs-admin ${themeClass(theme)}`}>
       <header className="gs-admin__header">
         <div className="gs-admin__brand">
-          <h1>GutenStyle</h1>
+          <h1>Block Style</h1>
           <PlanBadge />
         </div>
         <nav className="gs-admin__tabs">
@@ -54,11 +54,11 @@ export default function App() {
         </nav>
         <div className="gs-admin__actions">
           <ThemeToggle />
-          {save.isSuccess && !isDirty && <span className="gs-admin__saved">{__('Saved', 'guten-style')}</span>}
-          {isDirty && <span className="gs-admin__unsaved">{__('Unsaved changes', 'guten-style')}</span>}
+          {save.isSuccess && !isDirty && <span className="gs-admin__saved">{__('Saved', 'blockstyle')}</span>}
+          {isDirty && <span className="gs-admin__unsaved">{__('Unsaved changes', 'blockstyle')}</span>}
           {isDirty && (
             <Button className="h-9 px-4" onClick={discard}>
-              {__('Discard', 'guten-style')}
+              {__('Discard', 'blockstyle')}
             </Button>
           )}
           <Button
@@ -68,7 +68,7 @@ export default function App() {
             onClick={() => save.mutate(draft)}
             type="primary"
           >
-            {__('Save changes', 'guten-style')}
+            {__('Save changes', 'blockstyle')}
           </Button>
         </div>
       </header>
@@ -78,7 +78,7 @@ export default function App() {
           className="gs-admin__notice"
           closable={{ onClose: () => save.reset() }}
           showIcon
-          title={__('Saving failed. Check your connection and try again.', 'guten-style')}
+          title={__('Saving failed. Check your connection and try again.', 'blockstyle')}
           type="error"
         />
       )}

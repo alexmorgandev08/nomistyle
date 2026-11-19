@@ -9,7 +9,7 @@ import { type ToolSection } from './tools/types'
 const OVERRIDES: ToolSection = {
   icon: OverridesIcon,
   id: 'overrides',
-  label: __('Overrides', 'guten-style'),
+  label: __('Overrides', 'blockstyle'),
   render: () => <OverridesTool />
 }
 
@@ -21,9 +21,9 @@ export default function Tools() {
     <SectionPage
       basePath="tools"
       idPrefix="gs-tools"
-      navLabel={__('Tools', 'guten-style')}
+      navLabel={__('Tools', 'blockstyle')}
       sections={TOOLS}
-      title={__('Tools', 'guten-style')}
+      title={__('Tools', 'blockstyle')}
     >
       {tool => tool.render()}
     </SectionPage>

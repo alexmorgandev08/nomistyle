@@ -23,7 +23,7 @@ const CONFIG: Config = {
 let AdvancedSection: ComponentType<SectionProps>
 
 beforeAll(async () => {
-  vi.stubGlobal('gutenStyleAdmin', { config: CONFIG, restNamespace: 'guten-style/v1', upgradeUrl: 'https://example.test' })
+  vi.stubGlobal('gutenStyleAdmin', { config: CONFIG, restNamespace: 'blockstyle/v1', upgradeUrl: 'https://example.test' })
   AdvancedSection = (await import('./AdvancedSection')).default
 })
 
@@ -66,10 +66,10 @@ describe('AdvancedSection', () => {
 
     const dialog = await screen.findByRole('dialog')
     expect(dialog.textContent).toContain('Block styles saved inside posts stay')
-    expect(apiFetch).not.toHaveBeenCalledWith(expect.objectContaining({ path: '/guten-style/v1/reset' }))
+    expect(apiFetch).not.toHaveBeenCalledWith(expect.objectContaining({ path: '/blockstyle/v1/reset' }))
 
     const confirm = [...dialog.querySelectorAll('button')].find(button => button.textContent === 'Reset everything')!
     fireEvent.click(confirm)
-    await waitFor(() => expect(apiFetch).toHaveBeenCalledWith({ method: 'POST', path: '/guten-style/v1/reset' }))
+    await waitFor(() => expect(apiFetch).toHaveBeenCalledWith({ method: 'POST', path: '/blockstyle/v1/reset' }))
   })
 })

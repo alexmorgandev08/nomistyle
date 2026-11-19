@@ -7,7 +7,7 @@ import { adminData } from '../data'
 export default function UpgradeLink({ primary = false }: { primary?: boolean }) {
   return (
     <Button href={adminData.upgradeUrl} rel="noopener noreferrer" size={primary ? 'middle' : 'small'} target="_blank" type={primary ? 'primary' : 'default'}>
-      {__('Upgrade to Pro', 'guten-style')}
+      {__('Upgrade to Pro', 'blockstyle')}
     </Button>
   )
 }

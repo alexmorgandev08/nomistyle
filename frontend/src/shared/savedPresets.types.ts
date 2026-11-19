@@ -1,6 +1,6 @@
 import { type Preset, type StyleValues } from './schema'
 
-/** Presets that users saved (GutenStyle Pro). The free build has none. */
+/** Presets that users saved (Block Style Pro). The free build has none. */
 export interface SavedPresetsApi {
   presets: Preset[]
   remove: (id: string) => Promise<void>

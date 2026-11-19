@@ -33,7 +33,7 @@ export interface Control {
   /** Position in the "Quick styles" tab (1 = first): the handful of settings most people change. */
   quick?: number
   responsive?: boolean
-  /** Device values that GutenStyle (free) outputs; other responsive controls need an add-on. */
+  /** Device values that Block Style (free) outputs; other responsive controls need an add-on. */
   freeResponsive?: boolean
   showIf?: { in: string[]; key: string }
   step?: number
@@ -77,7 +77,7 @@ export interface BlockSchema {
   label: string
   name: string
   presets: Preset[]
-  /** Readability checks of an add-on block. GutenStyle's own blocks have theirs in a11y.ts. */
+  /** Readability checks of an add-on block. Block Style's own blocks have theirs in a11y.ts. */
   readability?: { pairs: ContrastPair[]; sizeKeys: string[] }
   sections: Section[]
   /** The block's main HTML element, shown as a hint in the admin block list. */
@@ -96,7 +96,7 @@ const freeSchema = schemaJson as unknown as { blocks: Record<string, BlockSchema
 
 const addOnBlocks = Object.entries(proBlocks()).filter(([type]) => !(type in freeSchema.blocks))
 
-/** GutenStyle's blocks, then add-on blocks (GutenStyle Pro replaces ./proBlocks); an add-on cannot replace one (like Schema::blocks() in PHP). */
+/** Block Style's blocks, then add-on blocks (Block Style Pro replaces ./proBlocks); an add-on cannot replace one (like Schema::blocks() in PHP). */
 export const schema = {
   ...freeSchema,
   blocks: { ...freeSchema.blocks, ...Object.fromEntries(addOnBlocks) } as Record<string, BlockSchema>

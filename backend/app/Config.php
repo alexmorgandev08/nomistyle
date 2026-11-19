@@ -12,7 +12,7 @@ if (! defined('ABSPATH')) {
 
 class Config
 {
-    public const SLUG = 'guten-style';
+    public const SLUG = 'blockstyle';
 
     public const REST_NAMESPACE = 'GutenStyle';
 
@@ -20,9 +20,9 @@ class Config
     /**
      * Where "Upgrade" links in the free plugin go.
      */
-    public const UPGRADE_URL = 'https://guten-style.com/pricing';
+    public const UPGRADE_URL = 'https://getblockstyle.com/pricing';
 
-    public const TITLE = 'GutenStyle';
+    public const TITLE = 'Block Style';
 
     public const VAR_PREFIX = 'GUTEN_STYLE_';
 

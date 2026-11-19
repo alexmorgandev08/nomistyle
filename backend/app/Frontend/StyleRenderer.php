@@ -32,11 +32,11 @@ use WP_HTML_Tag_Processor;
  */
 final class StyleRenderer
 {
-    private const HANDLE = 'guten-style';
+    private const HANDLE = 'blockstyle';
 
-    private const LATE_HANDLE = 'guten-style-late';
+    private const LATE_HANDLE = 'blockstyle-late';
 
-    private const FILE_HANDLE = 'guten-style-global';
+    private const FILE_HANDLE = 'blockstyle-global';
 
     /** @var int[] post IDs whose the_content is currently being rendered */
     private $_contentStack = [];
@@ -176,7 +176,7 @@ final class StyleRenderer
             : [];
 
         if (!empty($blockValues)) {
-            // A forced block (GutenStyle Pro's Style Inspector) gets !important CSS for its own values.
+            // A forced block (Block Style Pro's Style Inspector) gets !important CSS for its own values.
             $force = !empty($block['attrs']['gutenStyle']['force']);
 
             ksort($blockValues);

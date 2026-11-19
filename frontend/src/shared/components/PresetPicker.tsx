@@ -52,7 +52,7 @@ export default function PresetPicker({ extraPresets = [], hasValues, limit, onAp
     <CollapsibleSection
       className="gs-presets"
       status={<span className={`gs-presets__status${status.modified ? ' is-modified' : status.preset ? ' is-exact' : ''}`}>{statusLabel}</span>}
-      title={__('Presets', 'guten-style')}
+      title={__('Presets', 'blockstyle')}
     >
       <div className="gs-presets__grid">
         {shown.map(preset => {
@@ -78,7 +78,7 @@ export default function PresetPicker({ extraPresets = [], hasValues, limit, onAp
         <button className="gs-text-btn gs-presets__all" onClick={onShowAll} type="button">
           {sprintf(
             /* translators: %d: number of presets */
-            __('View all %d presets', 'guten-style'),
+            __('View all %d presets', 'blockstyle'),
             presets.length
           )}
         </button>
@@ -88,7 +88,7 @@ export default function PresetPicker({ extraPresets = [], hasValues, limit, onAp
           <p>
             {sprintf(
               /* translators: %s: preset name */
-              __('Apply "%s"? It replaces your current settings here.', 'guten-style'),
+              __('Apply "%s"? It replaces your current settings here.', 'blockstyle'),
               pending.label
             )}
           </p>
@@ -101,16 +101,16 @@ export default function PresetPicker({ extraPresets = [], hasValues, limit, onAp
               }}
               type="button"
             >
-              {__('Apply preset', 'guten-style')}
+              {__('Apply preset', 'blockstyle')}
             </button>
             <button className="gs-btn" onClick={() => setPending(null)} type="button">
-              {__('Keep my settings', 'guten-style')}
+              {__('Keep my settings', 'blockstyle')}
             </button>
           </div>
         </div>
       )}
       <p className="gs-presets__help">
-        {__('A preset replaces the settings at this level. Adjust anything below afterwards.', 'guten-style')}
+        {__('A preset replaces the settings at this level. Adjust anything below afterwards.', 'blockstyle')}
       </p>
     </CollapsibleSection>
   )

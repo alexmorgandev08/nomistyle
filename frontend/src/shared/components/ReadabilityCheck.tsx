@@ -21,14 +21,14 @@ export default function ReadabilityCheck({ onFix, type, values }: ReadabilityChe
       <button
         aria-label={sprintf(
           /* translators: %s: what is fixed, e.g. "Header text" */
-          __('Fix %s', 'guten-style'),
+          __('Fix %s', 'blockstyle'),
           label
         )}
         className="gs-btn gs-readability__fix"
         onClick={() => onFix(changes)}
         type="button"
       >
-        {__('Fix', 'guten-style')}
+        {__('Fix', 'blockstyle')}
       </button>
     ) : null
 
@@ -38,12 +38,12 @@ export default function ReadabilityCheck({ onFix, type, values }: ReadabilityChe
 
   const summary =
     contrast.length + smallText.length === 0
-      ? __('Nothing to check', 'guten-style')
+      ? __('Nothing to check', 'blockstyle')
       : issues === 0
-        ? __('All clear', 'guten-style')
+        ? __('All clear', 'blockstyle')
         : sprintf(
             /* translators: %d: number of readability problems */
-            _n('%d issue', '%d issues', issues, 'guten-style'),
+            _n('%d issue', '%d issues', issues, 'blockstyle'),
             issues
           )
 
@@ -52,7 +52,7 @@ export default function ReadabilityCheck({ onFix, type, values }: ReadabilityChe
       className="gs-readability"
       initialOpen={issues > 0}
       status={<span className={`gs-readability__summary${issues > 0 ? ' has-issues' : ''}`}>{summary}</span>}
-      title={__('Accessibility', 'guten-style')}
+      title={__('Accessibility', 'blockstyle')}
     >
 
       {(contrast.length > 0 || smallText.length > 0) && (
@@ -67,13 +67,13 @@ export default function ReadabilityCheck({ onFix, type, values }: ReadabilityChe
                 <span className="gs-readability__detail">
                   {sprintf(
                     /* translators: 1: contrast ratio, 2: required ratio */
-                    __('%1$s:1 · needs %2$s:1', 'guten-style'),
+                    __('%1$s:1 · needs %2$s:1', 'blockstyle'),
                     item.ratio.toFixed(1),
                     String(item.required)
                   )}
                 </span>
               </span>
-              <span className="gs-readability__badge">{item.ok ? __('Pass', 'guten-style') : __('Low contrast', 'guten-style')}</span>
+              <span className="gs-readability__badge">{item.ok ? __('Pass', 'blockstyle') : __('Low contrast', 'blockstyle')}</span>
               {fixButton(item.fix, item.label)}
             </li>
           ))}
@@ -88,12 +88,12 @@ export default function ReadabilityCheck({ onFix, type, values }: ReadabilityChe
                   <span className="gs-readability__detail">
                     {sprintf(
                       /* translators: %s: text size in px */
-                      __('%spx is hard to read. Use 12px or more.', 'guten-style'),
+                      __('%spx is hard to read. Use 12px or more.', 'blockstyle'),
                       String(item.px)
                     )}
                   </span>
                 </span>
-                <span className="gs-readability__badge">{__('Too small', 'guten-style')}</span>
+                <span className="gs-readability__badge">{__('Too small', 'blockstyle')}</span>
                 {fixButton(item.fix, name)}
               </li>
             )
@@ -104,7 +104,7 @@ export default function ReadabilityCheck({ onFix, type, values }: ReadabilityChe
       <p className="gs-readability__note">
         {sprintf(
           /* translators: 1: assumed text color, 2: assumed page color */
-          __('WCAG AA needs 4.5:1 for body text and 3:1 for large text. Where GutenStyle sets no color, the check assumes %1$s text on a %2$s page. Fix changes one setting at the level you edit. Nothing changes until you click it.', 'guten-style'),
+          __('WCAG AA needs 4.5:1 for body text and 3:1 for large text. Where Block Style sets no color, the check assumes %1$s text on a %2$s page. Fix changes one setting at the level you edit. Nothing changes until you click it.', 'blockstyle'),
           ASSUMED_TEXT,
           ASSUMED_BACKGROUND
         )}

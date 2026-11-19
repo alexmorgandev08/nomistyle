@@ -41,7 +41,7 @@ export default function ControlField({ control, inheritedFrom, inheritedValue, o
     !hasValue && inheritedValue && inheritedFrom
       ? sprintf(
           /* translators: %s: where the value comes from, e.g. "Global" */
-          __('Inherited from %s', 'guten-style'),
+          __('Inherited from %s', 'blockstyle'),
           inheritedFrom
         )
       : undefined
@@ -58,12 +58,12 @@ export default function ControlField({ control, inheritedFrom, inheritedValue, o
         <button
           aria-label={sprintf(
             /* translators: %s: setting name */
-            __('Reset %s', 'guten-style'),
+            __('Reset %s', 'blockstyle'),
             control.label
           )}
           className="gs-field__reset"
           onClick={() => onChange(undefined)}
-          title={__('Reset', 'guten-style')}
+          title={__('Reset', 'blockstyle')}
           type="button"
         >
           <svg aria-hidden fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
@@ -116,10 +116,10 @@ function Input({ control, inheritedValue, onChange, palette, value }: Omit<Contr
               {inheritedLabel
                 ? sprintf(
                     /* translators: %s: inherited option name */
-                    __('%s (inherited)', 'guten-style'),
+                    __('%s (inherited)', 'blockstyle'),
                     inheritedLabel
                   )
-                : __('Theme default', 'guten-style')}
+                : __('Theme default', 'blockstyle')}
             </option>
             {options.map(option => (
               <option key={option.value} value={option.value}>
@@ -195,14 +195,14 @@ function NumberField({
         onBlur={() => save()}
         onChange={event => setDraft(event.target.value)}
         onKeyDown={onKeyDown}
-        placeholder={inherited.number || (control.type === 'number' ? inheritedValue : '') || __('Auto', 'guten-style')}
+        placeholder={inherited.number || (control.type === 'number' ? inheritedValue : '') || __('Auto', 'blockstyle')}
         value={draft}
       />
       {units.length > 1 ? (
         <select
           aria-label={sprintf(
             /* translators: %s: setting name */
-            __('%s unit', 'guten-style'),
+            __('%s unit', 'blockstyle'),
             control.label
           )}
           className="gs-input__unit"

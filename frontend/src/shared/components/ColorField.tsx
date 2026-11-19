@@ -118,7 +118,7 @@ export default function ColorField({ control, inheritedValue, onChange, palette,
         aria-expanded={pickerOpen}
         aria-label={sprintf(
           /* translators: %s: setting name */
-          __('Choose %s', 'guten-style'),
+          __('Choose %s', 'blockstyle'),
           control.label
         )}
         className={`gs-input__swatch${shown ? '' : ' is-empty'}`}
@@ -155,14 +155,14 @@ export default function ColorField({ control, inheritedValue, onChange, palette,
           setActive(-1)
         }}
         onKeyDown={onKeyDown}
-        placeholder={inheritedValue ?? __('Theme default', 'guten-style')}
+        placeholder={inheritedValue ?? __('Theme default', 'blockstyle')}
         role="combobox"
         spellCheck={false}
         value={draft}
       />
       {listOpen && (
         <Floating anchor={box} className={`gs-color-list ${themeClass(theme)}`}>
-          <div aria-label={__('Colors', 'guten-style')} className="gs-color-list__items" id={listId} role="listbox">
+          <div aria-label={__('Colors', 'blockstyle')} className="gs-color-list__items" id={listId} role="listbox">
             {suggestions.map((item, index) => (
               <div
                 aria-selected={index === active}

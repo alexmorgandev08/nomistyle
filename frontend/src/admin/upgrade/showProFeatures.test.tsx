@@ -15,7 +15,7 @@ let modules: {
 // The modules load antd, which is slow when the whole suite runs in parallel.
 beforeAll(async () => {
   // data.ts reads the page's localized data when it loads.
-  vi.stubGlobal('gutenStyleAdmin', { restNamespace: 'guten-style/v1', upgradeUrl: 'https://example.test/pricing' })
+  vi.stubGlobal('gutenStyleAdmin', { restNamespace: 'blockstyle/v1', upgradeUrl: 'https://example.test/pricing' })
   const [blocks, tools, plan, row, preset] = await Promise.all([
     import('../lockedBlocks'),
     import('../tools/proTools'),

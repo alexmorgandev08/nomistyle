@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from 'react'
 
 /**
- * Light or dark look for the GutenStyle screens (admin page and editor panel).
+ * Light or dark look for the Block Style screens (admin page and editor panel).
  * A per-user convenience kept in localStorage; the first visit follows the system setting.
  */
 export type UiTheme = 'dark' | 'light'
@@ -60,11 +60,11 @@ function subscribe(listener: () => void) {
 
 const snapshot = (): UiTheme => (current ??= readTheme())
 
-/** The current theme, shared by every GutenStyle screen on the page. */
+/** The current theme, shared by every Block Style screen on the page. */
 export function useUiTheme(): [UiTheme, (theme: UiTheme) => void] {
   const theme = useSyncExternalStore(subscribe, snapshot, () => 'dark' as UiTheme)
   return [theme, next => setTheme(next)]
 }
 
-/** Class names for a GutenStyle UI root in the given theme. */
+/** Class names for a Block Style UI root in the given theme. */
 export const themeClass = (theme: UiTheme): string => (theme === 'light' ? 'gs-ui is-light' : 'gs-ui')

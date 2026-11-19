@@ -51,7 +51,7 @@ export default function StylePanel({
   const isHoverView = state === 'hover'
   const isResponsiveView = !isHoverView && device !== 'desktop'
   const valueVariant = isHoverView ? 'hover' : device
-  const baseLabel = isHoverView ? __('Default state', 'guten-style') : __('Desktop', 'guten-style')
+  const baseLabel = isHoverView ? __('Default state', 'blockstyle') : __('Desktop', 'blockstyle')
 
   /**
    * What applies when this level has no value for `key`. In the hover and tablet/mobile views,
@@ -94,7 +94,7 @@ export default function StylePanel({
   )
 
   const groups: Section[] = [
-    { controls: quickControls, id: QUICK_ID, label: __('Quick styles', 'guten-style') },
+    { controls: quickControls, id: QUICK_ID, label: __('Quick styles', 'blockstyle') },
     ...block.sections
   ].filter(section => visible(section.controls).length > 0)
 
@@ -135,7 +135,7 @@ export default function StylePanel({
       >
         {sprintf(
           /* translators: %s: section name, e.g. "Header" */
-          __('Reset %s', 'guten-style'),
+          __('Reset %s', 'blockstyle'),
           section.label.toLowerCase()
         )}
       </button>
@@ -143,15 +143,15 @@ export default function StylePanel({
 
   const viewNote = isHoverView ? (
     <p className="gs-style-panel__device-note">
-      {__('Editing the hover state. These values apply when a visitor points at the block, on every screen size. Only colors and shadows are shown.', 'guten-style')}
+      {__('Editing the hover state. These values apply when a visitor points at the block, on every screen size. Only colors and shadows are shown.', 'blockstyle')}
     </p>
   ) : (
     isResponsiveView && (
       <p className="gs-style-panel__device-note">
         {sprintf(
           /* translators: %s: device name */
-          __('Editing %s values. Only settings that can change per screen size are shown. Everything else carries over from desktop.', 'guten-style'),
-          device === 'tablet' ? __('tablet', 'guten-style') : __('mobile', 'guten-style')
+          __('Editing %s values. Only settings that can change per screen size are shown. Everything else carries over from desktop.', 'blockstyle'),
+          device === 'tablet' ? __('tablet', 'blockstyle') : __('mobile', 'blockstyle')
         )}
       </p>
     )
@@ -161,7 +161,7 @@ export default function StylePanel({
     <div className="gs-style-panel">
       {viewNote && <div className="gs-style-panel__intro">{viewNote}</div>}
       {isResponsiveView && groups.length === 0 && (
-        <p className="gs-style-panel__empty">{__('This block has no settings for this screen size.', 'guten-style')}</p>
+        <p className="gs-style-panel__empty">{__('This block has no settings for this screen size.', 'blockstyle')}</p>
       )}
       {groups.map((group, index) => {
         const count = customizedCount(group.controls)
@@ -176,7 +176,7 @@ export default function StylePanel({
                   className="gs-style-panel__count"
                   title={sprintf(
                     /* translators: %d: number of settings set at this level */
-                    __('%d set here', 'guten-style'),
+                    __('%d set here', 'blockstyle'),
                     count
                   )}
                 >

@@ -24,7 +24,7 @@ function ApplyAction({ current, needsConfirm, onApply, presetLabel }: ApplyActio
   if (current) {
     return (
       <Button disabled size="small" type="text">
-        {__('In use', 'guten-style')}
+        {__('In use', 'blockstyle')}
       </Button>
     )
   }
@@ -32,24 +32,24 @@ function ApplyAction({ current, needsConfirm, onApply, presetLabel }: ApplyActio
   if (needsConfirm) {
     return (
       <Popconfirm
-        cancelText={__('Keep my settings', 'guten-style')}
-        description={__('It replaces your current settings here.', 'guten-style')}
-        okText={__('Apply preset', 'guten-style')}
+        cancelText={__('Keep my settings', 'blockstyle')}
+        description={__('It replaces your current settings here.', 'blockstyle')}
+        okText={__('Apply preset', 'blockstyle')}
         onConfirm={onApply}
         title={sprintf(
           /* translators: %s: preset name */
-          __('Apply "%s"?', 'guten-style'),
+          __('Apply "%s"?', 'blockstyle'),
           presetLabel
         )}
       >
-        <Button size="small">{__('Apply', 'guten-style')}</Button>
+        <Button size="small">{__('Apply', 'blockstyle')}</Button>
       </Popconfirm>
     )
   }
 
   return (
     <Button onClick={onApply} size="small">
-      {__('Apply', 'guten-style')}
+      {__('Apply', 'blockstyle')}
     </Button>
   )
 }
@@ -108,14 +108,14 @@ export default function PresetsSection({ hasValues, label, onApply, type, values
         open={open}
         title={sprintf(
           /* translators: %s: block name */
-          __('%s presets', 'guten-style'),
+          __('%s presets', 'blockstyle'),
           label
         )}
         width={800}
       >
         <div className={themeClass(theme)}>
           <p className="gs-presets__help">
-            {__('A preset replaces the settings at this level. Adjust anything below afterwards.', 'guten-style')}
+            {__('A preset replaces the settings at this level. Adjust anything below afterwards.', 'blockstyle')}
           </p>
           <div className="gs-preset-modal__grid">
             {presets.map(preset => {
@@ -129,14 +129,14 @@ export default function PresetsSection({ hasValues, label, onApply, type, values
                     <span className="gs-preset-card__name">{preset.label}</span>
                     {savedIds.has(preset.id) && (
                       <Popconfirm
-                        description={__('Nobody can apply it after this. Styles that use it do not change.', 'guten-style')}
+                        description={__('Nobody can apply it after this. Styles that use it do not change.', 'blockstyle')}
                         okButtonProps={{ danger: true }}
-                        okText={__('Delete', 'guten-style')}
+                        okText={__('Delete', 'blockstyle')}
                         onConfirm={() => saved.remove(preset.id)}
-                        title={__('Delete this preset?', 'guten-style')}
+                        title={__('Delete this preset?', 'blockstyle')}
                       >
                         <Button color="danger" size="small" variant="text">
-                          {__('Delete', 'guten-style')}
+                          {__('Delete', 'blockstyle')}
                         </Button>
                       </Popconfirm>
                     )}

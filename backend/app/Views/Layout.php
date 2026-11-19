@@ -21,7 +21,7 @@ final class Layout
     }
 
     /**
-     * Marks the GutenStyle admin page. Tailwind's `important` selector (tailwind.config.mjs) is scoped to it.
+     * Marks the Block Style admin page. Tailwind's `important` selector (tailwind.config.mjs) is scoped to it.
      *
      * @param string $classes
      *

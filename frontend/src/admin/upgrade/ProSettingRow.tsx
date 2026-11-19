@@ -11,7 +11,7 @@ interface ProSettingRowProps {
   title: string
 }
 
-/** A GutenStyle Pro setting shown in the free plugin: dimmed, with a PRO tag and an upgrade link. */
+/** A Block Style Pro setting shown in the free plugin: dimmed, with a PRO tag and an upgrade link. */
 export default function ProSettingRow({ description, icon, title }: ProSettingRowProps) {
   if (!SHOW_PRO_FEATURES) return null
 

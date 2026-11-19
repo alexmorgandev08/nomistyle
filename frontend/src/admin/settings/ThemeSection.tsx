@@ -13,26 +13,26 @@ export default function ThemeSection({ config, onChange }: SectionProps) {
       <SettingRow
         description={
           adminData.themeJson
-            ? __('GutenStyle uses the breakpoints and colors from your theme.json file.', 'guten-style')
-            : __('Your theme has no theme.json file. GutenStyle uses the WordPress default breakpoints.', 'guten-style')
+            ? __('Block Style uses the breakpoints and colors from your theme.json file.', 'blockstyle')
+            : __('Your theme has no theme.json file. Block Style uses the WordPress default breakpoints.', 'blockstyle')
         }
         icon={ThemeIcon}
-        title={__('theme.json', 'guten-style')}
+        title={__('theme.json', 'blockstyle')}
       >
         <p className={`gs-settings__value text-end ${adminData.themeJson ? 'is-ok' : ''}`}>
-          {adminData.themeJson ? __('Found', 'guten-style') : __('Not found', 'guten-style')}
+          {adminData.themeJson ? __('Found', 'blockstyle') : __('Not found', 'blockstyle')}
         </p>
       </SettingRow>
       <SwitchRow
         checked={config.themeColors}
         description={
           adminData.palette.length > 0
-            ? __('Show your theme\'s color palette next to the default colors in every color picker.', 'guten-style')
-            : __('Your theme has no color palette. Color pickers show the default colors only.', 'guten-style')
+            ? __('Show your theme\'s color palette next to the default colors in every color picker.', 'blockstyle')
+            : __('Your theme has no color palette. Color pickers show the default colors only.', 'blockstyle')
         }
         icon={PaletteIcon}
         onChange={themeColors => onChange({ ...config, themeColors })}
-        title={__('Show theme colors in color pickers', 'guten-style')}
+        title={__('Show theme colors in color pickers', 'blockstyle')}
       />
     </>
   )

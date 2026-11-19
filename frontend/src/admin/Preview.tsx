@@ -15,9 +15,9 @@ const DEVICE_WIDTHS: Record<Device, string> = {
 };
 
 const DEVICE_OPTIONS: { label: string; value: Device }[] = [
-  { label: __("Desktop", "guten-style"), value: "desktop" },
-  { label: __("Tablet", "guten-style"), value: "tablet" },
-  { label: __("Mobile", "guten-style"), value: "mobile" },
+  { label: __("Desktop", "blockstyle"), value: "desktop" },
+  { label: __("Tablet", "blockstyle"), value: "tablet" },
+  { label: __("Mobile", "blockstyle"), value: "mobile" },
 ];
 
 const STYLE_ELEMENT_ID = "gs-admin-preview-styles";
@@ -35,7 +35,7 @@ interface PreviewProps {
 
 /**
  * Shows the selected block's samples rendered by the active theme
- * (see PreviewPage.php), with the unsaved GutenStyle CSS injected.
+ * (see PreviewPage.php), with the unsaved Block Style CSS injected.
  */
 export default function Preview({
   css,
@@ -53,7 +53,7 @@ export default function Preview({
 
   const badge = sprintf(
     /* translators: %s: block name */
-    __("%s · Global", "guten-style"),
+    __("%s · Global", "blockstyle"),
     label,
   );
 
@@ -92,15 +92,15 @@ export default function Preview({
   }, [badge, css, loaded, type]);
 
   return (
-    <section aria-label={__("Preview", "guten-style")} className="gs-preview">
+    <section aria-label={__("Preview", "blockstyle")} className="gs-preview">
       <div className="gs-preview__toolbar">
         <p className="gs-preview__crumb">
-          {__("Global Styles", "guten-style")}{" "}
+          {__("Global Styles", "blockstyle")}{" "}
           <span className="gs-preview__crumb-sep">/</span>{" "}
           <strong>{label}</strong>
         </p>
         <SegmentedControl
-          label={__("Preview size", "guten-style")}
+          label={__("Preview size", "blockstyle")}
           onChange={(next) => next && onDeviceChange(next as Device)}
           options={DEVICE_OPTIONS}
           value={device}
@@ -121,7 +121,7 @@ export default function Preview({
               strokeWidth="2"
             />
           </svg>
-          {__("CSS", "guten-style")}
+          {__("CSS", "blockstyle")}
         </button>
       </div>
       <div className="gs-preview__stage">
@@ -136,30 +136,30 @@ export default function Preview({
           ref={frame}
           src={adminData.previewUrl}
           style={{ width: DEVICE_WIDTHS[device] }}
-          title={__("GutenStyle preview with your theme", "guten-style")}
+          title={__("Block Style preview with your theme", "blockstyle")}
         />
       </div>
       {showCss && (
         <div className="gs-preview__css">
           <div className="gs-preview__css-head">
-            <span>{__("Generated CSS · Global layer", "guten-style")}</span>
+            <span>{__("Generated CSS · Global layer", "blockstyle")}</span>
             <span>
               {sprintf(
                 /* translators: %d: number of CSS rules */
-                _n("%d rule", "%d rules", ruleCount, "guten-style"),
+                _n("%d rule", "%d rules", ruleCount, "blockstyle"),
                 ruleCount,
               )}
             </span>
           </div>
           <pre
-            aria-label={__("Generated CSS", "guten-style")}
+            aria-label={__("Generated CSS", "blockstyle")}
             className="gs-preview__code"
             tabIndex={0}
           >
             {css ||
               __(
                 "/* No styles set. The theme styles this block. */",
-                "guten-style",
+                "blockstyle",
               )}
           </pre>
         </div>

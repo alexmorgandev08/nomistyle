@@ -37,7 +37,7 @@ final class StyleCss
     }
 
     /**
-     * Whether a block type's CSS is marked !important (Settings › Force Style). GutenStyle forces every
+     * Whether a block type's CSS is marked !important (Settings › Force Style). Block Style forces every
      * block type when the switch is on; add-ons can narrow it with the GUTEN_STYLE_force_style filter.
      *
      * @param string $type block type, e.g. "table"

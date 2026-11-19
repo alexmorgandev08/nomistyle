@@ -49,7 +49,7 @@ export default function SettingRow({
               <button
                 aria-label={sprintf(
                   /* translators: %s: setting name */
-                  __('About %s', 'guten-style'),
+                  __('About %s', 'blockstyle'),
                   title
                 )}
                 className="gs-setting-row__info"

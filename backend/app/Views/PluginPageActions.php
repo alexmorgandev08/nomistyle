@@ -15,11 +15,11 @@ class PluginPageActions
         return [
             [
                 'url'   => admin_url('admin.php?page=' . Config::SLUG),
-                'title' => __('Settings', 'guten-style'),
+                'title' => __('Settings', 'blockstyle'),
             ],
             [
-                'url'   => 'https://wordpress.org/support/plugin/guten-style/',
-                'title' => __('Support', 'guten-style'),
+                'url'   => 'https://wordpress.org/support/plugin/blockstyle/',
+                'title' => __('Support', 'blockstyle'),
             ],
         ];
     }

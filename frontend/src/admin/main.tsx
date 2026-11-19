@@ -9,7 +9,7 @@ import App from './App'
 import Providers from './Providers'
 
 domReady(() => {
-  const root = document.getElementById('guten-style-root')
+  const root = document.getElementById('blockstyle-root')
   if (root) {
     createRoot(root).render(
       <StrictMode>

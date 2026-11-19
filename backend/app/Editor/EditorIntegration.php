@@ -15,7 +15,7 @@ use GutenStyle\Styles\StyleSettings;
 use GutenStyle\Views\Assets;
 
 /**
- * Loads the GutenStyle sidebar panels in the post editor and registers the
+ * Loads the Block Style sidebar panels in the post editor and registers the
  * `gutenStyle` block attribute on supported core blocks.
  */
 final class EditorIntegration

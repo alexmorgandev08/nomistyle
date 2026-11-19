@@ -3,7 +3,7 @@ import { theme, type ThemeConfig } from 'antd'
 import { type UiTheme } from '../shared/theme'
 
 /**
- * antd tokens that match the GutenStyle design system (tokens in shared/components/style.css).
+ * antd tokens that match the Block Style design system (tokens in shared/components/style.css).
  * antd derives hover and border shades from these, so they must be plain colors, not var().
  */
 const SURFACES: Record<UiTheme, ThemeConfig['token']> = {

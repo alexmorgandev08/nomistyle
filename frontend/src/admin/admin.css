@@ -1,6 +1,6 @@
-/* GutenStyle admin screen: a full-height app in the GutenStyle design system (tokens in style.css). */
+/* Block Style admin screen: a full-height app in the Block Style design system (tokens in style.css). */
 
-#guten-style-root.wrap {
+#blockstyle-root.wrap {
   margin: 0 0 0 -20px;
 }
 
@@ -565,7 +565,7 @@ body:has(.gs-admin) #wpbody-content {
   padding: 1px 6px;
 }
 
-/* GutenStyle Pro in the free plugin: PRO tag, dimmed setting rows, upgrade cards */
+/* Block Style Pro in the free plugin: PRO tag, dimmed setting rows, upgrade cards */
 .gs-pro-badge {
   background: var(--gs-accent-soft);
   border-radius: 4px;
@@ -850,7 +850,7 @@ body:has(.gs-admin) #wpbody-content {
 }
 
 @media (width <= 782px) {
-  #guten-style-root.wrap {
+  #blockstyle-root.wrap {
     margin-left: -10px;
   }
 

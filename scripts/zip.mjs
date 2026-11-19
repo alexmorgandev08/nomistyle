@@ -1,4 +1,4 @@
-// Builds an installable production zip: dist/guten-style-<version>.zip.
+// Builds an installable production zip: dist/blockstyle-<version>.zip.
 //
 // 1. Builds fresh assets (tsc + vite) unless --skip-build is passed.
 // 2. Copies only the runtime files (and the readable source) into build/<slug>/, a staging folder.
@@ -14,15 +14,15 @@ import { pathToFileURL } from 'node:url'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
 
-/** GutenStyle's package. */
+/** Block Style's package. */
 export const FREE_PLAN = {
   build: { args: ['build'], command: 'pnpm', cwd: ROOT },
   forbidden: ['.env', 'node_modules/', 'tests/', 'vendor/phpunit/'],
-  required: ['guten-style.php', 'readme.txt', 'backend/bootstrap.php', 'schema/blocks.json', 'assets/admin.js', 'assets/editor.js', 'vendor/autoload.php'],
-  runtime: ['guten-style.php', 'readme.txt', 'backend', 'schema', 'assets', 'languages', 'composer.json', 'composer.lock'],
+  required: ['blockstyle.php', 'readme.txt', 'backend/bootstrap.php', 'schema/blocks.json', 'assets/admin.js', 'assets/editor.js', 'vendor/autoload.php'],
+  runtime: ['blockstyle.php', 'readme.txt', 'backend', 'schema', 'assets', 'languages', 'composer.json', 'composer.lock'],
   // WordPress.org asks for the readable source next to the built files. Tests are left out.
   sourceFiles: ['frontend/src', 'package.json', 'pnpm-lock.yaml', 'tsconfig.json', 'vite.config.ts', 'tailwind.config.mjs', 'postcss.config.mjs', 'scripts/build.mjs'],
-  slug: 'guten-style',
+  slug: 'blockstyle',
   source: ROOT,
   dist: path.join(ROOT, 'dist')
 }

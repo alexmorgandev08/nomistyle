@@ -38,16 +38,16 @@ export default function ResponsiveSection({ config, onChange }: SectionProps) {
   return (
     <>
       <SettingRow
-        description={__('Tablet values apply up to the tablet width. Mobile values apply up to the mobile width.', 'guten-style')}
+        description={__('Tablet values apply up to the tablet width. Mobile values apply up to the mobile width.', 'blockstyle')}
         icon={DevicesIcon}
-        title={__('Breakpoints', 'guten-style')}
+        title={__('Breakpoints', 'blockstyle')}
       >
         <Segmented
           block
           onChange={setMode}
           options={[
-            { label: __('Theme', 'guten-style'), value: 'theme' },
-            { label: __('Custom', 'guten-style'), value: 'custom' }
+            { label: __('Theme', 'blockstyle'), value: 'theme' },
+            { label: __('Custom', 'blockstyle'), value: 'custom' }
           ]}
           value={custom ? 'custom' : 'theme'}
         />
@@ -56,21 +56,21 @@ export default function ResponsiveSection({ config, onChange }: SectionProps) {
       <SettingRow
         description={
           custom
-            ? __('Enter the largest screen width for tablet and for mobile values.', 'guten-style')
-            : __('These widths come from WordPress and your theme.', 'guten-style')
+            ? __('Enter the largest screen width for tablet and for mobile values.', 'blockstyle')
+            : __('These widths come from WordPress and your theme.', 'blockstyle')
         }
         icon={ScreenIcon}
-        title={custom ? __('Custom widths', 'guten-style') : __('Theme widths', 'guten-style')}
+        title={custom ? __('Custom widths', 'blockstyle') : __('Theme widths', 'blockstyle')}
       >
         {custom ? (
           <div className="grid grid-cols-2 gap-2">
-            <WidthField label={__('Tablet up to', 'guten-style')} onChange={value => setWidth('tablet', value)} value={shown.tablet} />
-            <WidthField label={__('Mobile up to', 'guten-style')} onChange={value => setWidth('mobile', value)} value={shown.mobile} />
+            <WidthField label={__('Tablet up to', 'blockstyle')} onChange={value => setWidth('tablet', value)} value={shown.tablet} />
+            <WidthField label={__('Mobile up to', 'blockstyle')} onChange={value => setWidth('mobile', value)} value={shown.mobile} />
             {pending && (
               <p className="gs-settings__error col-span-2" role="alert">
                 {sprintf(
                   /* translators: 1: smallest width, 2: largest width */
-                  __('Mobile must be smaller than tablet. Use widths from %1$d to %2$d px.', 'guten-style'),
+                  __('Mobile must be smaller than tablet. Use widths from %1$d to %2$d px.', 'blockstyle'),
                   BREAKPOINT_LIMITS.min,
                   BREAKPOINT_LIMITS.max
                 )}
@@ -81,7 +81,7 @@ export default function ResponsiveSection({ config, onChange }: SectionProps) {
           <p className="gs-settings__value">
             {sprintf(
               /* translators: 1: tablet width in px, 2: mobile width in px */
-              __('Tablet up to %1$d px, mobile up to %2$d px', 'guten-style'),
+              __('Tablet up to %1$d px, mobile up to %2$d px', 'blockstyle'),
               theme.tablet,
               theme.mobile
             )}

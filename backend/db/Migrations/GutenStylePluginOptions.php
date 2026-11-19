@@ -19,7 +19,7 @@ final class GutenStylePluginOptions extends Migration
 
     /**
      * Runs on uninstall. Data is kept unless Settings › Advanced › Delete data on uninstall is on,
-     * so reinstalling GutenStyle brings everything back.
+     * so reinstalling Block Style brings everything back.
      */
     public function down(): void
     {

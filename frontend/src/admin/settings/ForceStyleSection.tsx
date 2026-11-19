@@ -11,10 +11,10 @@ export default function ForceStyleSection({ config, onChange }: SectionProps) {
     <>
       <SwitchRow
         checked={config.forceStyle}
-        description={__('Use this if your theme or another plugin is overriding the GutenStyle design. It gives GutenStyle\'s settings priority by marking them !important.', 'guten-style')}
+        description={__('Use this if your theme or another plugin is overriding the Block Style design. It gives GutenStyle\'s settings priority by marking them !important.', 'blockstyle')}
         icon={ForceIcon}
         onChange={forceStyle => onChange({ ...config, forceStyle })}
-        title={__('Force GutenStyle', 'guten-style')}
+        title={__('Force Block Style', 'blockstyle')}
       />
       <ForceBlockTypes config={config} onChange={onChange} />
     </>

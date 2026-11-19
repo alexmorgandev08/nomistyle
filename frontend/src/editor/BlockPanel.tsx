@@ -33,7 +33,7 @@ import TableHeaderNotice from "./TableHeaderNotice";
 interface BlockPanelProps {
   attributes: {
     body?: TableRow[];
-    /** `force`: GutenStyle Pro's Style Inspector forced this block (its CSS is !important). */
+    /** `force`: Block Style Pro's Style Inspector forced this block (its CSS is !important). */
     gutenStyle?: { force?: boolean; values?: unknown };
     head?: TableRow[];
   };
@@ -58,7 +58,7 @@ export default function BlockPanel({
   const [theme] = useUiTheme();
   // Read once per mount: selecting another block remounts this panel and reads it again.
   const [copied, setCopied] = useState(() => readCopiedStyle(type));
-  // Saved presets and "Save as preset" (GutenStyle Pro; nothing in the free build).
+  // Saved presets and "Save as preset" (Block Style Pro; nothing in the free build).
   const savedPresets = useSavedPresets(type);
   const savePreset = useSavePresetAction({
     canSave: editorData.canEditStyles,
@@ -77,7 +77,7 @@ export default function BlockPanel({
     }
   };
 
-  // "Describe a style with AI" (GutenStyle Pro). Apply goes through the same update as presets.
+  // "Describe a style with AI" (Block Style Pro). Apply goes through the same update as presets.
   const describeStyle = useDescribeStyleAction({
     canApply: source !== "global",
     onApply: update,
@@ -102,7 +102,7 @@ export default function BlockPanel({
     return (
       <PanelBody
         className={`gs-block-panel ${themeClass(theme)}`}
-        title={__("GutenStyle", "guten-style")}
+        title={__("Block Style", "blockstyle")}
       >
         <OutOfScopeNotice />
       </PanelBody>
@@ -130,10 +130,10 @@ export default function BlockPanel({
     source === "block"
       ? sprintf(
           /* translators: %s: block name */
-          __("Reset this %s", "guten-style"),
+          __("Reset this %s", "blockstyle"),
           blockLabel,
         )
-      : __("Remove post style", "guten-style");
+      : __("Remove post style", "blockstyle");
 
   const copyCurrent = () => {
     copyStyle(type, editing);
@@ -141,7 +141,7 @@ export default function BlockPanel({
     notify(
       sprintf(
         /* translators: 1: number of settings, 2: block name */
-        __("Copied %1$d settings from this %2$s.", "guten-style"),
+        __("Copied %1$d settings from this %2$s.", "blockstyle"),
         countValues(editing),
         blockLabel,
       ),
@@ -151,7 +151,7 @@ export default function BlockPanel({
   const pasteCopied = () => {
     if (!copied) return;
     update(copied.values);
-    notify(__("Style pasted.", "guten-style"));
+    notify(__("Style pasted.", "blockstyle"));
   };
 
   const resetCurrent = () => {
@@ -159,9 +159,9 @@ export default function BlockPanel({
     update({});
     notify(
       source === "block"
-        ? __("Block style reset.", "guten-style")
-        : __("Post style removed.", "guten-style"),
-      [{ label: __("Undo", "guten-style"), onClick: () => update(previous) }],
+        ? __("Block style reset.", "blockstyle")
+        : __("Post style removed.", "blockstyle"),
+      [{ label: __("Undo", "blockstyle"), onClick: () => update(previous) }],
     );
   };
 
@@ -170,15 +170,15 @@ export default function BlockPanel({
       /* translators: %s: block name, e.g. "table" */
       __(
         "Edits apply to this one %s, on top of Global and this post.",
-        "guten-style",
+        "blockstyle",
       ),
       blockLabel,
     ),
     global: sprintf(
       /* translators: %s: block name, e.g. "table" */
       __(
-        "Global styles apply to every %s where GutenStyle is on. Edit them in GutenStyle → Global Styles.",
-        "guten-style",
+        "Global styles apply to every %s where Block Style is on. Edit them in Block Style → Global Styles.",
+        "blockstyle",
       ),
       blockLabel,
     ),
@@ -186,7 +186,7 @@ export default function BlockPanel({
       /* translators: 1: block name, 2: post type, e.g. "post" */
       __(
         "Edits apply to every %1$s in this %2$s, on top of Global.",
-        "guten-style",
+        "blockstyle",
       ),
       blockLabel,
       context.postTypeLabel.toLowerCase(),
@@ -196,7 +196,7 @@ export default function BlockPanel({
   return (
     <PanelBody
       className={`gs-block-panel ${themeClass(theme)}`}
-      title={__("GutenStyle", "guten-style")}
+      title={__("Block Style", "blockstyle")}
     >
       {savePreset.dialog}
       {describeStyle.dialog}
@@ -212,7 +212,7 @@ export default function BlockPanel({
       <div className="gs-panel-section">
         <div className="gs-panel-section__head">
           <span className="gs-panel-section__title">
-            {__("Style source", "guten-style")}
+            {__("Style source", "blockstyle")}
           </span>
           <ThemeToggle />
           <StyleMenu
@@ -225,7 +225,7 @@ export default function BlockPanel({
             onReset={resetCurrent}
             pasteHint={sprintf(
               /* translators: %s: block name */
-              __("Copy a %s style first.", "guten-style"),
+              __("Copy a %s style first.", "blockstyle"),
               blockLabel,
             )}
             resetLabel={resetLabel}
@@ -251,7 +251,7 @@ export default function BlockPanel({
           {editorData.canManage && (
             <p>
               <ExternalLink href={globalStyleUrl ?? ""}>
-                {__("Open Global Styles", "guten-style")}
+                {__("Open Global Styles", "blockstyle")}
               </ExternalLink>
             </p>
           )}
@@ -262,11 +262,11 @@ export default function BlockPanel({
           <div className="gs-panel-section gs-rows">
             <div className="gs-row">
               <span className="gs-row__label">
-                {__("State", "guten-style")}
+                {__("State", "blockstyle")}
               </span>
               <SegmentedControl
                 block
-                label={__("State", "guten-style")}
+                label={__("State", "blockstyle")}
                 onChange={(next) => next && setState(next as StyleState)}
                 options={STATE_OPTIONS}
                 value={state}
@@ -310,8 +310,8 @@ export default function BlockPanel({
 
 
 const STATE_OPTIONS = [
-  { label: __("Default", "guten-style"), value: "default" },
-  { label: __("Hover", "guten-style"), value: "hover" },
+  { label: __("Default", "blockstyle"), value: "default" },
+  { label: __("Hover", "blockstyle"), value: "hover" },
 ];
 
 /** Which level edits are saved to, with how many settings each level has for this block. */
@@ -328,7 +328,7 @@ function SourceBar({
 }) {
   return (
     <div
-      aria-label={__("Style source", "guten-style")}
+      aria-label={__("Style source", "blockstyle")}
       className="gs-source-bar"
       role="radiogroup"
     >
@@ -346,10 +346,10 @@ function SourceBar({
             {counts[level] > 0
               ? sprintf(
                   /* translators: %d: number of settings */
-                  __("%d set", "guten-style"),
+                  __("%d set", "blockstyle"),
                   counts[level],
                 )
-              : __("None set", "guten-style")}
+              : __("None set", "blockstyle")}
           </span>
         </button>
       ))}
@@ -366,12 +366,12 @@ export function OutOfScopeNotice() {
       <Notice isDismissible={false} status="info">
         {sprintf(
           /* translators: %s: post type label */
-          __("GutenStyle is not active for %s content.", "guten-style"),
+          __("Block Style is not active for %s content.", "blockstyle"),
           postTypeLabel,
         )}{" "}
         {editorData.canManage && (
           <ExternalLink href={editorData.settingsUrl}>
-            {__("Change where it applies", "guten-style")}
+            {__("Change where it applies", "blockstyle")}
           </ExternalLink>
         )}
       </Notice>
@@ -381,11 +381,11 @@ export function OutOfScopeNotice() {
   if (!matchesConditions) {
     return (
       <Notice isDismissible={false} status="info">
-        {__("This post does not match the conditions in GutenStyle settings.", "guten-style")}{" "}
-        {__("After you change its categories, tags or author, save the post and reload the editor.", "guten-style")}{" "}
+        {__("This post does not match the conditions in Block Style settings.", "blockstyle")}{" "}
+        {__("After you change its categories, tags or author, save the post and reload the editor.", "blockstyle")}{" "}
         {editorData.canManage && (
           <ExternalLink href={editorData.settingsUrl}>
-            {__("Change where it applies", "guten-style")}
+            {__("Change where it applies", "blockstyle")}
           </ExternalLink>
         )}
       </Notice>
@@ -395,9 +395,9 @@ export function OutOfScopeNotice() {
   if (disabled) {
     return (
       <Notice isDismissible={false} status="info">
-        {__("GutenStyle is turned off for this post.", "guten-style")}{" "}
+        {__("Block Style is turned off for this post.", "blockstyle")}{" "}
         <Button onClick={() => setDisabled(false)} variant="link">
-          {__("Turn it on", "guten-style")}
+          {__("Turn it on", "blockstyle")}
         </Button>
       </Notice>
     );
@@ -405,7 +405,7 @@ export function OutOfScopeNotice() {
 
   return (
     <Notice isDismissible={false} status="warning">
-      {__("Save the post once to start using GutenStyle on it.", "guten-style")}
+      {__("Save the post once to start using Block Style on it.", "blockstyle")}
     </Notice>
   );
 }

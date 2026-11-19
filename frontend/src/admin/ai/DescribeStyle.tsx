@@ -9,7 +9,7 @@ export interface DescribeStyleProps {
   type: string
 }
 
-/** "Describe with AI" in Global Styles. The AI assistant is part of GutenStyle Pro, which replaces this module. */
+/** "Describe with AI" in Global Styles. The AI assistant is part of Block Style Pro, which replaces this module. */
 export default function DescribeStyle(_props: DescribeStyleProps): ReactNode {
   return null
 }

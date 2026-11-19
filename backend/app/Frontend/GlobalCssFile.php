@@ -12,13 +12,13 @@ use GutenStyle\Styles\StyleCss;
 
 /**
  * The cached CSS file (Settings › Advanced › CSS output): all global styles in
- * uploads/guten-style/global-<hash>.css, so browsers can cache them. Post and block styles stay
+ * uploads/blockstyle/global-<hash>.css, so browsers can cache them. Post and block styles stay
  * inline because they change per page. The hash changes with the CSS, so browsers never keep an
  * old file.
  */
 final class GlobalCssFile
 {
-    private const FOLDER = 'guten-style';
+    private const FOLDER = 'blockstyle';
 
     /**
      * Option with the current file name.
@@ -80,9 +80,9 @@ final class GlobalCssFile
     }
 
     /**
-     * Removes every GutenStyle CSS file and, on request, the folder.
+     * Removes every Block Style CSS file and, on request, the folder.
      *
-     * @param bool $removeFolder also remove uploads/guten-style/ (uninstall)
+     * @param bool $removeFolder also remove uploads/blockstyle/ (uninstall)
      */
     public static function deleteAll($removeFolder = false)
     {

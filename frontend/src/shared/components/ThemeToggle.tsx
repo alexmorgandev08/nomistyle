@@ -2,11 +2,11 @@ import { __ } from '@wordpress/i18n'
 
 import { useUiTheme } from '../theme'
 
-/** Switches the GutenStyle screens between the light and dark look. */
+/** Switches the Block Style screens between the light and dark look. */
 export default function ThemeToggle({ className }: { className?: string }) {
   const [theme, setTheme] = useUiTheme()
   const next = theme === 'dark' ? 'light' : 'dark'
-  const label = next === 'light' ? __('Use light theme', 'guten-style') : __('Use dark theme', 'guten-style')
+  const label = next === 'light' ? __('Use light theme', 'blockstyle') : __('Use dark theme', 'blockstyle')
 
   return (
     <button

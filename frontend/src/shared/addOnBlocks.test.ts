@@ -10,7 +10,7 @@ let lockedTypes: string[]
 
 beforeAll(async () => {
   // data.ts reads the page's localized data when it loads.
-  vi.stubGlobal('gutenStyleAdmin', { restNamespace: 'guten-style/v1', upgradeUrl: 'https://example.test' })
+  vi.stubGlobal('gutenStyleAdmin', { restNamespace: 'blockstyle/v1', upgradeUrl: 'https://example.test' })
   blockTypes = (await import('./schema')).blockTypes
   lockedTypes = (await import('../admin/lockedBlocks')).lockedBlocks().map(block => block.type)
 })

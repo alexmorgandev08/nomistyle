@@ -39,14 +39,14 @@ const renderMenu = (props: Partial<Parameters<typeof StyleMenu>[0]> = {}) => {
     <StyleMenu
       canCopyOrReset
       canPaste
-      globalStyleUrl="https://example.test/wp-admin/admin.php?page=guten-style#/styles/table"
+      globalStyleUrl="https://example.test/wp-admin/admin.php?page=blockstyle#/styles/table"
       pasteHint="Copy a table style first."
       resetLabel="Reset this table"
       {...handlers}
       {...props}
     />
   )
-  fireEvent.click(screen.getByRole('button', { name: 'GutenStyle actions' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Block Style actions' }))
   return handlers
 }
 
@@ -56,7 +56,7 @@ describe('StyleMenu', () => {
     fireEvent.click(screen.getByRole('menuitem', { name: 'Copy style' }))
     expect(handlers.onCopy).toHaveBeenCalledTimes(1)
 
-    fireEvent.click(screen.getByRole('button', { name: 'GutenStyle actions' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Block Style actions' }))
     fireEvent.click(screen.getByRole('menuitem', { name: 'Reset this table' }))
     expect(handlers.onReset).toHaveBeenCalledTimes(1)
   })
@@ -72,7 +72,7 @@ describe('StyleMenu', () => {
     const open = vi.spyOn(window, 'open').mockReturnValue(null)
     renderMenu()
     fireEvent.click(screen.getByRole('menuitem', { name: /Edit global style/ }))
-    expect(open).toHaveBeenCalledWith('https://example.test/wp-admin/admin.php?page=guten-style#/styles/table', '_blank', 'noopener,noreferrer')
+    expect(open).toHaveBeenCalledWith('https://example.test/wp-admin/admin.php?page=blockstyle#/styles/table', '_blank', 'noopener,noreferrer')
   })
 
   it('leaves out "Edit global style" for users who cannot manage it', () => {

@@ -15,11 +15,11 @@ use WP_HTML_Tag_Processor;
  * A front-end page with sample blocks, loaded in an iframe on the Global Styles
  * screen. It runs through the active theme's head, so the preview shows the
  * theme's own fonts, colors and block styles. The admin screen injects the
- * unsaved GutenStyle CSS into it.
+ * unsaved Block Style CSS into it.
  */
 final class PreviewPage
 {
-    public const QUERY_VAR = 'gutenstyle-preview';
+    public const QUERY_VAR = 'blockstyle-preview';
 
     public function __construct()
     {
@@ -38,7 +38,7 @@ final class PreviewPage
         }
 
         if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('You are not allowed to view this preview.', 'guten-style'), 403);
+            wp_die(esc_html__('You are not allowed to view this preview.', 'blockstyle'), 403);
         }
 
         show_admin_bar(false);
@@ -178,7 +178,7 @@ final class PreviewPage
 <!-- /wp:list -->
 <!-- wp:list {"ordered":true} -->
 <ol class="wp-block-list"><!-- wp:list-item -->
-<li>Open GutenStyle and pick a block</li>
+<li>Open Block Style and pick a block</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>Choose a preset as a starting point</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
@@ -187,12 +187,12 @@ final class PreviewPage
 <!-- /wp:list -->',
             'quote' => '<!-- wp:quote -->
 <blockquote class="wp-block-quote"><!-- wp:paragraph -->
-<p>Gutenberg handles the content. GutenStyle handles the styling. Writers keep writing, and every post stays consistent.</p>
+<p>Gutenberg handles the content. Block Style handles the styling. Writers keep writing, and every post stays consistent.</p>
 <!-- /wp:paragraph --><cite>Sample citation, Editor in Chief</cite></blockquote>
 <!-- /wp:quote -->',
             'details' => '<!-- wp:details {"showContent":true} -->
-<details class="wp-block-details" open><summary>Does GutenStyle change my existing posts?</summary><!-- wp:paragraph -->
-<p>No. Your content stays exactly as written. GutenStyle only adds styling to the blocks in the places you choose.</p>
+<details class="wp-block-details" open><summary>Does Block Style change my existing posts?</summary><!-- wp:paragraph -->
+<p>No. Your content stays exactly as written. Block Style only adds styling to the blocks in the places you choose.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 <!-- wp:details -->

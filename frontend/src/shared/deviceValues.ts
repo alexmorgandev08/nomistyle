@@ -2,7 +2,7 @@ import { getControls, type StyleValues } from './schema'
 
 const DEVICES = new Set(['mobile', 'tablet'])
 
-/** Controls whose tablet and mobile values GutenStyle (free) outputs. Same as PHP's DeviceValues::freeKeys(). */
+/** Controls whose tablet and mobile values Block Style (free) outputs. Same as PHP's DeviceValues::freeKeys(). */
 export const freeDeviceKeys = (type: string): string[] =>
   getControls(type)
     .filter(control => control.responsive && control.freeResponsive)

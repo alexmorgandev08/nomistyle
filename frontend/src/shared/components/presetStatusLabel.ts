@@ -11,12 +11,12 @@ export function presetStatusLabel(presets: Preset[], values: StyleValues) {
     return {
       label: sprintf(
         /* translators: %s: preset name */
-        __('%s · modified', 'guten-style'),
+        __('%s · modified', 'blockstyle'),
         status.preset.label
       ),
       status
     }
   }
   if (status.preset) return { label: status.preset.label, status }
-  return { label: status.modified ? __('Custom', 'guten-style') : __('None', 'guten-style'), status }
+  return { label: status.modified ? __('Custom', 'blockstyle') : __('None', 'blockstyle'), status }
 }

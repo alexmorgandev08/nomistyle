@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Block editor options (Settings › Block editor): what the GutenStyle panels show and who sees them.
+ * Block editor options (Settings › Block editor): what the Block Style panels show and who sees them.
  * Pure functions, so they work without WordPress (tests); StyleSettings passes in the site's roles.
  */
 final class EditorOptions
@@ -67,7 +67,7 @@ final class EditorOptions
     }
 
     /**
-     * Whether a user sees the GutenStyle editor panels. Administrators always do, so nobody is locked out.
+     * Whether a user sees the Block Style editor panels. Administrators always do, so nobody is locked out.
      *
      * @param string[] $userRoles    the user's roles
      * @param string[] $allowedRoles roles that can edit styles

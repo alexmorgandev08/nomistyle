@@ -9,23 +9,23 @@ import { lockedBlocks } from "./lockedBlocks";
 import ProBadge from "./upgrade/ProBadge";
 
 const GROUPS: { id: BlockGroup; label: string }[] = [
-  { id: "text", label: __("Text", "guten-style") },
-  { id: "media", label: __("Media", "guten-style") },
-  { id: "design", label: __("Design", "guten-style") },
+  { id: "text", label: __("Text", "blockstyle") },
+  { id: "media", label: __("Media", "blockstyle") },
+  { id: "design", label: __("Design", "blockstyle") },
 ];
 
 interface BlockRailProps {
   active: string;
   config: Config;
   onSelect: (type: string) => void;
-  /** Post type labels GutenStyle applies to, for the footer. */
+  /** Post type labels Block Style applies to, for the footer. */
   appliesTo: string;
 }
 
 interface RailEntry {
   group: BlockGroup;
   label: string;
-  /** A GutenStyle Pro block shown in the free plugin. */
+  /** A Block Style Pro block shown in the free plugin. */
   locked: boolean;
   type: string;
 }
@@ -54,14 +54,14 @@ export default function BlockRail({
   );
 
   return (
-    <nav aria-label={__("Blocks", "guten-style")} className="gs-global__rail">
+    <nav aria-label={__("Blocks", "blockstyle")} className="gs-global__rail">
       <div className="gs-rail__top">
         <div className="gs-rail__head">
-          <span className="gs-rail__title">{__("Blocks", "guten-style")}</span>
+          <span className="gs-rail__title">{__("Blocks", "blockstyle")}</span>
           <span className="gs-rail__total">
             {sprintf(
               /* translators: %d: number of blocks */
-              _n("%d block", "%d blocks", entries.length, "guten-style"),
+              _n("%d block", "%d blocks", entries.length, "blockstyle"),
               entries.length,
             )}
           </span>
@@ -85,9 +85,9 @@ export default function BlockRail({
             />
           </svg>
           <input
-            aria-label={__("Search blocks", "guten-style")}
+            aria-label={__("Search blocks", "blockstyle")}
             onChange={(event) => setSearch(event.target.value)}
-            placeholder={__("Search blocks", "guten-style")}
+            placeholder={__("Search blocks", "blockstyle")}
             type="search"
             value={search}
           />
@@ -97,7 +97,7 @@ export default function BlockRail({
       <div className="gs-rail__groups">
         {matches.length === 0 && (
           <p className="gs-rail__empty">
-            {__("No blocks match your search.", "guten-style")}
+            {__("No blocks match your search.", "blockstyle")}
           </p>
         )}
 
@@ -113,10 +113,10 @@ export default function BlockRail({
                   count > 0
                     ? sprintf(
                         /* translators: %d: number of customized settings */
-                        _n("%d change", "%d changes", count, "guten-style"),
+                        _n("%d change", "%d changes", count, "blockstyle"),
                         count,
                       )
-                    : __("Theme default", "guten-style");
+                    : __("Theme default", "blockstyle");
                 return (
                   <button
                     aria-current={type === active ? "page" : undefined}
@@ -141,9 +141,9 @@ export default function BlockRail({
       </div>
 
       <p className="gs-global__scope">
-        <span>{__("Applies to", "guten-style")}</span>
+        <span>{__("Applies to", "blockstyle")}</span>
         <strong>{appliesTo}</strong>
-        <a href="#/settings">{__("Change", "guten-style")}</a>
+        <a href="#/settings">{__("Change", "blockstyle")}</a>
       </p>
     </nav>
   );

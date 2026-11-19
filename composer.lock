@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ea86a4e152935643c03e7ef1492aa14",
+    "content-hash": "9d4cae38d8b541363987ff809ea0021c",
     "packages": [
         {
             "name": "bitapps/wp-kit",

@@ -63,7 +63,7 @@ export function useResetEverything() {
 
 export const useExclusions = () => useQuery({ queryFn: fetchExclusions, queryKey: queryKeys.exclusions })
 
-/** Excludes a post from (or returns it to) GutenStyle. The server answers with the new list. */
+/** Excludes a post from (or returns it to) Block Style. The server answers with the new list. */
 export function useSetExclusion() {
   const queryClient = useQueryClient()
   return useMutation({

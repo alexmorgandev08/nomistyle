@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Custom tablet and mobile breakpoints (Settings › Responsive). Without them, GutenStyle uses the
+ * Custom tablet and mobile breakpoints (Settings › Responsive). Without them, Block Style uses the
  * breakpoints of WordPress and the theme (Scope::themeMediaQueries()).
  * frontend/src/shared/breakpoints.ts builds the same media queries for the admin preview.
  */

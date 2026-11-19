@@ -11,14 +11,14 @@ use GutenStyle\Config;
 /**
  * Reads schema/blocks.json — the single definition of every supported block,
  * its controls, CSS targets and presets. The editor bundle imports the same file.
- * Add-ons such as GutenStyle Pro add blocks with the GUTEN_STYLE_blocks filter.
+ * Add-ons such as Block Style Pro add blocks with the GUTEN_STYLE_blocks filter.
  */
 final class Schema
 {
     private static $_schema;
 
     /**
-     * GutenStyle's blocks and the add-ons' blocks, once plugins are loaded.
+     * Block Style's blocks and the add-ons' blocks, once plugins are loaded.
      */
     private static $_blocks;
 
@@ -39,8 +39,8 @@ final class Schema
     }
 
     /**
-     * GutenStyle's blocks, then the blocks of active add-ons (GUTEN_STYLE_blocks filter). An add-on
-     * cannot replace a GutenStyle block. Optional block fields for add-ons: "sample" (block markup for
+     * Block Style's blocks, then the blocks of active add-ons (GUTEN_STYLE_blocks filter). An add-on
+     * cannot replace a Block Style block. Optional block fields for add-ons: "sample" (block markup for
      * the admin preview; "{sampleImage}" stands for a sample picture), "thumb" (HTML for preset
      * thumbnails) and "readability" (contrast checks).
      *
@@ -87,7 +87,7 @@ final class Schema
     }
 
     /**
-     * Whether an add-on block has the fields GutenStyle needs.
+     * Whether an add-on block has the fields Block Style needs.
      *
      * @param mixed $block block schema
      *
@@ -119,7 +119,7 @@ final class Schema
     }
 
     /**
-     * Controls of a block type whose tablet and mobile values are output. GutenStyle allows the ones
+     * Controls of a block type whose tablet and mobile values are output. Block Style allows the ones
      * marked "freeResponsive"; add-ons extend the list with the GUTEN_STYLE_device_controls filter.
      *
      * @param string $type block type, e.g. "table"

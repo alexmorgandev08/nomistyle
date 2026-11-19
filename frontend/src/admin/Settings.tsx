@@ -18,17 +18,17 @@ interface SettingsProps {
 
 /** Sections in both plans. */
 const CORE_SECTIONS: SettingsSection[] = [
-  { icon: ScopeIcon, id: 'scope', label: __('Where it applies', 'guten-style'), render: props => <WhereItApplies {...props} /> },
-  { icon: ForceIcon, id: 'force', label: __('Force Style', 'guten-style'), render: props => <ForceStyleSection {...props} /> },
-  { icon: DevicesIcon, id: 'responsive', label: __('Responsive', 'guten-style'), render: props => <ResponsiveSection {...props} /> },
-  { icon: LayersIcon, id: 'editor', label: __('Block editor', 'guten-style'), render: props => <BlockEditorSection {...props} /> },
-  { icon: ThemeIcon, id: 'theme', label: __('Theme', 'guten-style'), render: props => <ThemeSection {...props} /> }
+  { icon: ScopeIcon, id: 'scope', label: __('Where it applies', 'blockstyle'), render: props => <WhereItApplies {...props} /> },
+  { icon: ForceIcon, id: 'force', label: __('Force Style', 'blockstyle'), render: props => <ForceStyleSection {...props} /> },
+  { icon: DevicesIcon, id: 'responsive', label: __('Responsive', 'blockstyle'), render: props => <ResponsiveSection {...props} /> },
+  { icon: LayersIcon, id: 'editor', label: __('Block editor', 'blockstyle'), render: props => <BlockEditorSection {...props} /> },
+  { icon: ThemeIcon, id: 'theme', label: __('Theme', 'blockstyle'), render: props => <ThemeSection {...props} /> }
 ]
 
 const ADVANCED_SECTION: SettingsSection = {
   icon: AdvancedIcon,
   id: 'advanced',
-  label: __('Advanced', 'guten-style'),
+  label: __('Advanced', 'blockstyle'),
   render: props => <AdvancedSection {...props} />
 }
 
@@ -43,9 +43,9 @@ export default function Settings({ config, onChange }: SettingsProps) {
     <SectionPage
       basePath="settings"
       idPrefix="gs-settings"
-      navLabel={__('Settings sections', 'guten-style')}
+      navLabel={__('Settings sections', 'blockstyle')}
       sections={SECTIONS}
-      title={__('Settings', 'guten-style')}
+      title={__('Settings', 'blockstyle')}
     >
       {section => section.render({ config, onChange })}
     </SectionPage>

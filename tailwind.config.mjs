@@ -1,9 +1,9 @@
 /**
  * Tailwind 3.4 for the admin app (frontend/src/admin/tailwind.css). The editor bundle does not use it.
  * - preflight off: wp-admin and antd keep their own base styles.
- * - important scoped to the GutenStyle admin page body class (added in Views/Layout.php), so
+ * - important scoped to the Block Style admin page body class (added in Views/Layout.php), so
  *   utilities beat wp-admin CSS without leaking to other screens.
- * - dark: the GutenStyle UI is dark unless `.gs-ui` also has `.is-light` (see shared/theme.ts).
+ * - dark: the Block Style UI is dark unless `.gs-ui` also has `.is-light` (see shared/theme.ts).
  *
  * @type {import('tailwindcss').Config}
  */
@@ -16,7 +16,7 @@ export default {
     preflight: false
   },
   darkMode: ['variant', '&:is(.gs-ui:not(.is-light) *)'],
-  important: 'body.guten-style-page',
+  important: 'body.blockstyle-page',
   plugins: [],
   theme: {
     borderRadius: {

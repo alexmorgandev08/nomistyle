@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name:       GutenStyle
- * Plugin URI:        https://wordpress.org/plugins/guten-style/
+ * Plugin Name:       Block Style
+ * Plugin URI:        https://wordpress.org/plugins/blockstyle/
  * Description:       Style tables, headings, lists, quotes, accordions, buttons and images across your whole site, per post or per block. No CSS needed.
  * Version:           0.0.1
  * Author:            alexmorgandev
  * Author URI:        https://profiles.wordpress.org/alexmorgandev/
- * Text Domain:       guten-style
+ * Text Domain:       blockstyle
  * Requires PHP:      8.2
  * Requires at least: 6.6
  * License:           GPLv2 or later
