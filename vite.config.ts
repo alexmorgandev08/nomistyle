@@ -7,11 +7,12 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 /**
  * Builds one entry at a time (GS_ENTRY=admin|editor) as an IIFE into assets/ (GS_OUT_DIR changes it).
  * An add-on can build the same app with its own modules: see overlay() below.
- * - admin: bundles its own React 19 (plus antd, React Router, TanStack Query). Only non-React
- *   @wordpress packages (i18n, api-fetch, dom-ready) stay external.
+ * - admin: uses the React that WordPress ships (WordPress.org does not allow a bundled copy), and
+ *   bundles antd, React Router and TanStack Query. Of the @wordpress packages, only the ones without
+ *   components (i18n, api-fetch, dom-ready) stay external.
  * - editor: runs inside Gutenberg, so React and every @wordpress/* package map to the globals
  *   WordPress already loads (window.React, window.wp.components, …). A second React would break it.
- * Both run the React Compiler; the editor targets the React version WordPress ships (18).
+ * Both run the React Compiler and target the React version WordPress ships (18).
  * Use `pnpm build` / `pnpm dev`, which run scripts/build.mjs for every entry.
  */
 const ENTRIES = {
@@ -21,10 +22,18 @@ const ENTRIES = {
 
 type Entry = keyof typeof ENTRIES
 
-/** WordPress packages without React; safe to share with WordPress from the admin bundle. */
-const ADMIN_EXTERNALS = new Set(['@wordpress/api-fetch', '@wordpress/dom-ready', '@wordpress/i18n'])
+/** What the admin bundle takes from WordPress: React, and the @wordpress packages without components. */
+const ADMIN_EXTERNALS = new Set([
+  'react',
+  'react-dom',
+  'react-dom/client',
+  'react/jsx-runtime',
+  '@wordpress/api-fetch',
+  '@wordpress/dom-ready',
+  '@wordpress/i18n'
+])
 
-const REACT_TARGET: Record<Entry, '18' | '19'> = { admin: '19', editor: '18' }
+const REACT_TARGET: Record<Entry, '18' | '19'> = { admin: '18', editor: '18' }
 
 function wordpressGlobal(entry: Entry, id: string): string | undefined {
   if (entry === 'admin' && !ADMIN_EXTERNALS.has(id)) return undefined

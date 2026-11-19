@@ -13,13 +13,13 @@ use GutenStyle\Styles\StyleSettings;
 
 /**
  * Enqueues the built admin/editor bundles (assets/{name}.js|css, built by `pnpm build`).
- * The editor bundle uses the React and @wordpress packages WordPress already loads. The admin bundle
- * ships its own React 19 and antd, so it only needs the non-React WordPress packages.
+ * Both bundles use the React WordPress already loads. The editor bundle also uses the @wordpress
+ * packages; the admin bundle bundles antd, so it needs only the @wordpress packages without components.
  */
 final class Assets
 {
     private const DEPENDENCIES = [
-        'admin'  => ['wp-api-fetch', 'wp-i18n', 'wp-dom-ready'],
+        'admin'  => ['react', 'react-dom', 'react-jsx-runtime', 'wp-api-fetch', 'wp-i18n', 'wp-dom-ready'],
         'editor' => [
             'react',
             'react-dom',
