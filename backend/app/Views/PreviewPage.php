@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+use GutenStyle\Config;
 use GutenStyle\Deps\BitApps\WPKit\Hooks\Hooks;
 use GutenStyle\Styles\Schema;
 use WP_HTML_Tag_Processor;
@@ -54,6 +55,17 @@ final class PreviewPage
         }
 
         wp_enqueue_style('wp-block-library');
+
+        // The preview frame's own layout, printed by wp_head().
+        $handle = Config::SLUG . '-preview';
+        wp_register_style($handle, false, [], Config::VERSION);
+        wp_enqueue_style($handle);
+        wp_add_inline_style(
+            $handle,
+            'html, body { margin: 0 !important; }
+            .gs-preview { box-sizing: border-box; max-width: 760px; margin: 0 auto !important; padding: 40px 24px; }
+            .gs-preview-sample > * + * { margin-block-start: 1.5em; }'
+        );
         ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -61,11 +73,6 @@ final class PreviewPage
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
-    <style>
-        html, body { margin: 0 !important; }
-        .gs-preview { box-sizing: border-box; max-width: 760px; margin: 0 auto !important; padding: 40px 24px; }
-        .gs-preview-sample > * + * { margin-block-start: 1.5em; }
-    </style>
 </head>
 <body <?php body_class('gs-preview-body'); ?>>
     <div class="wp-site-blocks">
