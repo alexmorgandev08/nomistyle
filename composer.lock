@@ -8,25 +8,30 @@
     "packages": [
         {
             "name": "bitapps/wp-kit",
-            "version": "2.2",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Bit-Apps-Pro/wp-kit.git",
-                "reference": "6052fcfd1b94ccb452d2cb4ecfd93e63617503e3"
+                "url": "https://github.com/bit-apps-pro/wp-kit.git",
+                "reference": "2637391ae74b0c800a0a5b25434361e1cddbf60b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bit-Apps-Pro/wp-kit/zipball/6052fcfd1b94ccb452d2cb4ecfd93e63617503e3",
-                "reference": "6052fcfd1b94ccb452d2cb4ecfd93e63617503e3",
+                "url": "https://api.github.com/repos/bit-apps-pro/wp-kit/zipball/2637391ae74b0c800a0a5b25434361e1cddbf60b",
+                "reference": "2637391ae74b0c800a0a5b25434361e1cddbf60b",
                 "shasum": ""
             },
             "require": {
-                "bitapps/wp-validator": "^1.0"
+                "bitapps/wp-validator": "^1.0",
+                "php": ">=8.0"
             },
             "require-dev": {
+                "captainhook/captainhook": "^5.29",
+                "captainhook/hook-installer": "^1.0",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
                 "friendsofphp/php-cs-fixer": "^3.10",
                 "phpcompatibility/phpcompatibility-wp": "*",
+                "phpunit/phpunit": "^9.6",
+                "rector/rector": "2.7.0",
                 "sirbrillig/phpcs-variable-analysis": "*"
             },
             "type": "library",
@@ -51,10 +56,10 @@
                 "wp"
             ],
             "support": {
-                "issues": "https://github.com/Bit-Apps-Pro/wp-kit/issues",
-                "source": "https://github.com/Bit-Apps-Pro/wp-kit/tree/2.2"
+                "issues": "https://github.com/bit-apps-pro/wp-kit/issues",
+                "source": "https://github.com/bit-apps-pro/wp-kit/tree/2.5.0"
             },
-            "time": "2025-11-25T05:45:21+00:00"
+            "time": "2026-10-28T11:36:12+00:00"
         },
         {
             "name": "bitapps/wp-validator",
