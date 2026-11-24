@@ -27,9 +27,9 @@ function PostTypes({ onChange, postTypes }: { onChange: (postTypes: string[]) =>
 
   return (
     <SettingRow
-      description={__('Global styles only affect content of the types you select. Everything else keeps your theme\'s design.', 'blockstyle')}
+      description={__('Global styles only affect content of the types you select. Everything else keeps your theme\'s design.', 'nomistyle')}
       icon={DocumentsIcon}
-      title={__('Content types', 'blockstyle')}
+      title={__('Content types', 'nomistyle')}
     >
       <div className="flex flex-wrap gap-x-6 gap-y-2.5">
         {adminData.postTypes.map(postType => (
@@ -57,8 +57,8 @@ function Exclusions() {
   const excludedIds = new Set(exclusions.data?.map(post => post.id))
   const shownResults = search.trim() ? (results.data ?? []) : []
   let error = ''
-  if (exclusions.isError) error = __('Could not load excluded posts.', 'blockstyle')
-  else if (setExclusion.isError) error = __('Could not update the post. You may not have permission to edit it.', 'blockstyle')
+  if (exclusions.isError) error = __('Could not load excluded posts.', 'nomistyle')
+  else if (setExclusion.isError) error = __('Could not update the post. You may not have permission to edit it.', 'nomistyle')
 
   const update = (id: number, excluded: boolean) =>
     setExclusion.mutate(
@@ -75,16 +75,16 @@ function Exclusions() {
       {error && <Alert className="mt-4" showIcon title={error} type="error" />}
 
       <SettingRow
-        description={__('Excluded posts keep the theme\'s default design. Changes here are saved immediately.', 'blockstyle')}
+        description={__('Excluded posts keep the theme\'s default design. Changes here are saved immediately.', 'nomistyle')}
         icon={SearchIcon}
-        title={__('Exclude a post or page', 'blockstyle')}
+        title={__('Exclude a post or page', 'nomistyle')}
       >
         <Input.Search
           allowClear
-          aria-label={__('Find a post or page to exclude', 'blockstyle')}
+          aria-label={__('Find a post or page to exclude', 'nomistyle')}
           loading={results.isFetching}
           onChange={event => setSearch(event.target.value)}
-          placeholder={__('Search by title…', 'blockstyle')}
+          placeholder={__('Search by title…', 'nomistyle')}
           value={search}
         />
         {shownResults.length > 0 && (
@@ -92,7 +92,7 @@ function Exclusions() {
             {shownResults.map(result => (
               <li key={result.id}>
                 <span>
-                  {result.title || __('(no title)', 'blockstyle')} <small>{result.subtype}</small>
+                  {result.title || __('(no title)', 'nomistyle')} <small>{result.subtype}</small>
                 </span>
                 <Button
                   disabled={excludedIds.has(result.id)}
@@ -100,7 +100,7 @@ function Exclusions() {
                   onClick={() => update(result.id, true)}
                   size="small"
                 >
-                  {excludedIds.has(result.id) ? __('Excluded', 'blockstyle') : __('Exclude', 'blockstyle')}
+                  {excludedIds.has(result.id) ? __('Excluded', 'nomistyle') : __('Exclude', 'nomistyle')}
                 </Button>
               </li>
             ))}
@@ -109,15 +109,15 @@ function Exclusions() {
       </SettingRow>
 
       <SettingRow
-        description={__('You can also turn Block Style off from a post\'s sidebar in the editor.', 'blockstyle')}
+        description={__('You can also turn Nomi Style off from a post\'s sidebar in the editor.', 'nomistyle')}
         icon={ListIcon}
         stacked
-        title={__('Excluded content', 'blockstyle')}
+        title={__('Excluded content', 'nomistyle')}
       >
         {exclusions.isPending ? (
           <Spin />
         ) : !exclusions.data?.length ? (
-          <p className="gs-settings__empty">{__('No excluded content.', 'blockstyle')}</p>
+          <p className="gs-settings__empty">{__('No excluded content.', 'nomistyle')}</p>
         ) : (
           <ul className="gs-settings__list">
             {exclusions.data.map(post => (
@@ -128,7 +128,7 @@ function Exclusions() {
                 <Button
                   aria-label={sprintf(
                     /* translators: %s: post title */
-                    __('Apply Block Style to "%s" again', 'blockstyle'),
+                    __('Apply Nomi Style to "%s" again', 'nomistyle'),
                     post.title
                   )}
                   loading={busyId === post.id}
@@ -136,7 +136,7 @@ function Exclusions() {
                   size="small"
                   type="text"
                 >
-                  {__('Include again', 'blockstyle')}
+                  {__('Include again', 'nomistyle')}
                 </Button>
               </li>
             ))}

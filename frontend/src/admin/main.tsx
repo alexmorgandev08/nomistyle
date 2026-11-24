@@ -9,7 +9,7 @@ import App from './App'
 import Providers from './Providers'
 
 domReady(() => {
-  const root = document.getElementById('blockstyle-root')
+  const root = document.getElementById('nomistyle-root')
   if (root) {
     createRoot(root).render(
       <StrictMode>

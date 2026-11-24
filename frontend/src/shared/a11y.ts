@@ -3,10 +3,10 @@ import { type ContrastPair, getBlock, type StyleValues } from './schema'
 
 /**
  * Readability checks for a block's colors and text sizes (WCAG 2.x contrast).
- * Block Style only warns; it never changes the design.
+ * Nomi Style only warns; it never changes the design.
  */
 
-/** Where Block Style sets no color, assume the theme's dark text on a white page. */
+/** Where Nomi Style sets no color, assume the theme's dark text on a white page. */
 export const ASSUMED_TEXT = '#1e1e1e'
 export const ASSUMED_BACKGROUND = '#ffffff'
 
@@ -15,7 +15,7 @@ const NORMAL_RATIO = 4.5
 const LARGE_RATIO = 3
 const MIN_READABLE_PX = 12
 
-/** Adjustable limits (Block Style Pro's Accessibility tool). The defaults are WCAG AA and 12px. */
+/** Adjustable limits (Nomi Style Pro's Accessibility tool). The defaults are WCAG AA and 12px. */
 export interface ReadabilityOptions {
   largeRatio?: number
   minTextPx?: number

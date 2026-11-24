@@ -18,7 +18,7 @@ use WP_REST_Request;
 use WP_REST_Server;
 
 /**
- * REST endpoints for the Block Style admin screen.
+ * REST endpoints for the Nomi Style admin screen.
  * Registered directly (not through the WPKit router) so every route gets a real permission check.
  */
 final class StylesController
@@ -136,7 +136,7 @@ final class StylesController
         $body = $request->get_json_params();
 
         if (!\is_array($body)) {
-            return new WP_Error('guten_style_invalid', __('Invalid settings payload.', 'blockstyle'), ['status' => 400]);
+            return new WP_Error('guten_style_invalid', __('Invalid settings payload.', 'nomistyle'), ['status' => 400]);
         }
 
         $settings = StyleSettings::save($body);
@@ -181,7 +181,7 @@ final class StylesController
         $result = Overrides::remove((int) $request['id']);
 
         if ($result === null) {
-            return new WP_Error('guten_style_not_found', __('The post does not exist.', 'blockstyle'), ['status' => 404]);
+            return new WP_Error('guten_style_not_found', __('The post does not exist.', 'nomistyle'), ['status' => 404]);
         }
 
         return rest_ensure_response($result);
@@ -220,7 +220,7 @@ final class StylesController
         $postId = (int) $request->get_param('id');
 
         if (!get_post($postId) || !current_user_can('edit_post', $postId)) {
-            return new WP_Error('guten_style_forbidden', __('You cannot edit this post.', 'blockstyle'), ['status' => 403]);
+            return new WP_Error('guten_style_forbidden', __('You cannot edit this post.', 'nomistyle'), ['status' => 403]);
         }
 
         PostStyles::setDisabled($postId, (bool) $request->get_param('excluded'));
@@ -234,7 +234,7 @@ final class StylesController
 
         return [
             'id'       => $post->ID,
-            'title'    => get_the_title($post) ?: __('(no title)', 'blockstyle'),
+            'title'    => get_the_title($post) ?: __('(no title)', 'nomistyle'),
             'type'     => $postType ? $postType->labels->singular_name : $post->post_type,
             'editUrl'  => get_edit_post_link($post->ID, 'raw'),
             'viewUrl'  => get_permalink($post),

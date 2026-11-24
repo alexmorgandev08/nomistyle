@@ -10,7 +10,7 @@ use GutenStyle\Config;
 use GutenStyle\Frontend\GlobalCssFile;
 
 /**
- * Deletes Block Style data: for Settings › Advanced › Reset everything, and on uninstall when
+ * Deletes Nomi Style data: for Settings › Advanced › Reset everything, and on uninstall when
  * "Delete data on uninstall" is on. Block styles saved inside post content are not touched,
  * because removing them would change the posts.
  */
@@ -26,13 +26,13 @@ final class DataCleaner
         delete_post_meta_by_key(PostStyles::META_DISABLED);
         GlobalCssFile::deleteAll();
 
-        // Add-ons such as Block Style Pro delete their style data (presets, design system, history) here.
+        // Add-ons such as Nomi Style Pro delete their style data (presets, design system, history) here.
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
         do_action(Config::withPrefix('data_reset'));
     }
 
     /**
-     * Everything Block Style stores, including its version options and the CSS folder (uninstall).
+     * Everything Nomi Style stores, including its version options and the CSS folder (uninstall).
      */
     public static function deleteAll()
     {

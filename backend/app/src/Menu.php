@@ -16,8 +16,8 @@ final class Menu
         return [
             'Home' => [
                 'type'       => 'menu',
-                'title'      => __('Block Style', 'blockstyle'),
-                'name'       => __('Block Style', 'blockstyle'),
+                'title'      => __('Nomi Style', 'nomistyle'),
+                'name'       => __('Nomi Style', 'nomistyle'),
                 'capability' => 'manage_options',
                 'slug'       => Config::SLUG,
                 'callback'   => [$body, 'render'],

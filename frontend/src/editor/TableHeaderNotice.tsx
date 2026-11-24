@@ -23,13 +23,13 @@ export default function TableHeaderNotice({ body = [], effective, head = [], set
 
   return (
     <Notice className="gs-block-panel__notice" isDismissible={false} status="warning">
-      <p>{__('This table has no header row. Header styles apply only to a header row.', 'blockstyle')}</p>
+      <p>{__('This table has no header row. Header styles apply only to a header row.', 'nomistyle')}</p>
       {canConvert ? (
         <Button onClick={() => setAttributes(firstRowAsHeader(body))} size="compact" variant="secondary">
-          {__('Make first row the header', 'blockstyle')}
+          {__('Make first row the header', 'nomistyle')}
         </Button>
       ) : (
-        <p>{__('Turn on Header section in the Settings tab.', 'blockstyle')}</p>
+        <p>{__('Turn on Header section in the Settings tab.', 'nomistyle')}</p>
       )}
     </Notice>
   )

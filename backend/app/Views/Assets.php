@@ -54,7 +54,7 @@ final class Assets
 
         wp_enqueue_script($handle, $url . $name . '.js', self::DEPENDENCIES[$name], (string) filemtime($dir . $name . '.js'), true);
         wp_add_inline_script($handle, 'window.' . $globalName . ' = ' . wp_json_encode($data) . ';', 'before');
-        wp_set_script_translations($handle, 'blockstyle');
+        wp_set_script_translations($handle, 'nomistyle');
 
         if (file_exists($dir . $name . '.css')) {
             wp_enqueue_style($handle, $url . $name . '.css', self::STYLE_DEPENDENCIES[$name], (string) filemtime($dir . $name . '.css'));
@@ -64,8 +64,8 @@ final class Assets
     }
 
     /**
-     * Where a bundle is loaded from: Block Style's own build, or an add-on's build of the same app
-     * (GUTEN_STYLE_assets_location filter; Block Style Pro builds the app with its features).
+     * Where a bundle is loaded from: Nomi Style's own build, or an add-on's build of the same app
+     * (GUTEN_STYLE_assets_location filter; Nomi Style Pro builds the app with its features).
      *
      * @param string $name admin or editor
      *
@@ -87,7 +87,7 @@ final class Assets
     }
 
     /**
-     * Data every Block Style screen needs.
+     * Data every Nomi Style screen needs.
      */
     public static function sharedData()
     {
@@ -117,7 +117,7 @@ final class Assets
     }
 
     /**
-     * Colors that add-ons such as Block Style Pro's design system put first in every color picker
+     * Colors that add-ons such as Nomi Style Pro's design system put first in every color picker
      * (GUTEN_STYLE_brand_colors filter). Each color is a hex value or a var(--gs-c-*) variable.
      *
      * @return array<int, array{name: string, color: string}>

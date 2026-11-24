@@ -18,17 +18,17 @@ interface SettingsProps {
 
 /** Sections in both plans. */
 const CORE_SECTIONS: SettingsSection[] = [
-  { icon: ScopeIcon, id: 'scope', label: __('Where it applies', 'blockstyle'), render: props => <WhereItApplies {...props} /> },
-  { icon: ForceIcon, id: 'force', label: __('Force Style', 'blockstyle'), render: props => <ForceStyleSection {...props} /> },
-  { icon: DevicesIcon, id: 'responsive', label: __('Responsive', 'blockstyle'), render: props => <ResponsiveSection {...props} /> },
-  { icon: LayersIcon, id: 'editor', label: __('Block editor', 'blockstyle'), render: props => <BlockEditorSection {...props} /> },
-  { icon: ThemeIcon, id: 'theme', label: __('Theme', 'blockstyle'), render: props => <ThemeSection {...props} /> }
+  { icon: ScopeIcon, id: 'scope', label: __('Where it applies', 'nomistyle'), render: props => <WhereItApplies {...props} /> },
+  { icon: ForceIcon, id: 'force', label: __('Force Style', 'nomistyle'), render: props => <ForceStyleSection {...props} /> },
+  { icon: DevicesIcon, id: 'responsive', label: __('Responsive', 'nomistyle'), render: props => <ResponsiveSection {...props} /> },
+  { icon: LayersIcon, id: 'editor', label: __('Block editor', 'nomistyle'), render: props => <BlockEditorSection {...props} /> },
+  { icon: ThemeIcon, id: 'theme', label: __('Theme', 'nomistyle'), render: props => <ThemeSection {...props} /> }
 ]
 
 const ADVANCED_SECTION: SettingsSection = {
   icon: AdvancedIcon,
   id: 'advanced',
-  label: __('Advanced', 'blockstyle'),
+  label: __('Advanced', 'nomistyle'),
   render: props => <AdvancedSection {...props} />
 }
 
@@ -43,9 +43,9 @@ export default function Settings({ config, onChange }: SettingsProps) {
     <SectionPage
       basePath="settings"
       idPrefix="gs-settings"
-      navLabel={__('Settings sections', 'blockstyle')}
+      navLabel={__('Settings sections', 'nomistyle')}
       sections={SECTIONS}
-      title={__('Settings', 'blockstyle')}
+      title={__('Settings', 'nomistyle')}
     >
       {section => section.render({ config, onChange })}
     </SectionPage>

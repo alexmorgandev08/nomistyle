@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Which controls use their tablet and mobile values. Block Style allows device values for the
+ * Which controls use their tablet and mobile values. Nomi Style allows device values for the
  * controls marked "freeResponsive" in the schema; add-ons can allow more with the
  * GUTEN_STYLE_device_controls filter (Schema::deviceKeys()). Other device values stay saved but
  * are not output. frontend/src/shared/deviceValues.ts does the same for the admin and editor.
@@ -17,7 +17,7 @@ final class DeviceValues
     private const DEVICES = ['tablet', 'mobile'];
 
     /**
-     * Keys of controls whose device values Block Style outputs.
+     * Keys of controls whose device values Nomi Style outputs.
      *
      * @param array<string, mixed> $block block schema
      *

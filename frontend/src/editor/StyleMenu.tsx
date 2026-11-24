@@ -8,7 +8,7 @@ const MORE_ICON = (
   </svg>
 )
 
-/** A menu item added by a feature, e.g. Block Style Pro's "Save as preset". */
+/** A menu item added by a feature, e.g. Nomi Style Pro's "Save as preset". */
 export interface StyleMenuAction {
   disabled?: boolean
   /** Short help under the label. */
@@ -24,7 +24,7 @@ interface StyleMenuProps {
   canPaste: boolean
   /** More actions, shown before the reset action. */
   extraActions?: StyleMenuAction[]
-  /** Link to this block type in Block Style › Global Styles; none when the user cannot manage it. */
+  /** Link to this block type in Nomi Style › Global Styles; none when the user cannot manage it. */
   globalStyleUrl?: string
   onCopy: () => void
   onPaste: () => void
@@ -48,7 +48,7 @@ export default function StyleMenu({
   resetLabel
 }: StyleMenuProps) {
   return (
-    <DropdownMenu className="gs-style-menu" icon={MORE_ICON} label={__('Block Style actions', 'blockstyle')}>
+    <DropdownMenu className="gs-style-menu" icon={MORE_ICON} label={__('Nomi Style actions', 'nomistyle')}>
       {({ onClose }: { onClose: () => void }) => (
         <>
           <MenuGroup>
@@ -59,7 +59,7 @@ export default function StyleMenu({
                 onClose()
               }}
             >
-              {__('Copy style', 'blockstyle')}
+              {__('Copy style', 'nomistyle')}
             </MenuItem>
             <MenuItem
               disabled={!canPaste}
@@ -69,19 +69,19 @@ export default function StyleMenu({
                 onClose()
               }}
             >
-              {__('Paste style', 'blockstyle')}
+              {__('Paste style', 'nomistyle')}
             </MenuItem>
           </MenuGroup>
           {globalStyleUrl && (
             <MenuGroup>
               <MenuItem
-                info={__('Opens in a new tab', 'blockstyle')}
+                info={__('Opens in a new tab', 'nomistyle')}
                 onClick={() => {
                   window.open(globalStyleUrl, '_blank', 'noopener,noreferrer')
                   onClose()
                 }}
               >
-                {__('Edit global style', 'blockstyle')}
+                {__('Edit global style', 'nomistyle')}
               </MenuItem>
             </MenuGroup>
           )}

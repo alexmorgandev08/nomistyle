@@ -72,7 +72,7 @@ const SRC_ALIAS = '@gs'
 /**
  * Overlay: with GS_OVERLAY_DIR set to a folder that mirrors frontend/src, an import that resolves to
  * frontend/src/<path> uses <GS_OVERLAY_DIR>/<path> when that file exists (.ts, .tsx or .css). This is
- * how Block Style Pro builds this app with its features. Off by default: the Block Style build reads
+ * how Nomi Style Pro builds this app with its features. Off by default: the Nomi Style build reads
  * only this folder.
  */
 function overlay(dir: string | undefined): Plugin {
@@ -107,7 +107,7 @@ function selfContained(overlayDir: string | undefined): Plugin {
         for (const id of Object.keys(output.modules)) {
           const file = id.split('?')[0]
           if (path.isAbsolute(file) && !file.startsWith(ROOT + path.sep) && !file.includes(`${path.sep}node_modules${path.sep}`)) {
-            this.error(`The Block Style build must not use files outside its folder: ${id}`)
+            this.error(`The Nomi Style build must not use files outside its folder: ${id}`)
           }
         }
       }
@@ -158,7 +158,7 @@ export default defineConfig(() => {
       dedupe: ['react', 'react-dom', 'antd', '@tanstack/react-query']
     },
     test: {
-      // With an overlay, only its tests run (Block Style's own tests expect the Block Style modules).
+      // With an overlay, only its tests run (Nomi Style's own tests expect the Nomi Style modules).
       dir: overlayDir ?? path.join(ROOT, 'frontend', 'src'),
       environment: 'happy-dom',
       globals: true,

@@ -81,7 +81,7 @@
     "yoast",
     "guten",
     "gutenstyle",
-    "blockstyle",
+    "nomistyle",
     "WPCS"
   ],
   "ignoreWords": ["lorem", "ipsum"],

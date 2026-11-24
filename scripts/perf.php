@@ -1,10 +1,10 @@
 <?php
 /**
- * Measures what Block Style costs on the front end of one post.
+ * Measures what Nomi Style costs on the front end of one post.
  *
  * Usage (from the plugin folder; WP-CLI finds the WordPress root itself):
  *   pnpm perf <post_id> [iterations]
- * Compare an in-scope post with an excluded copy of it to see Block Style's share.
+ * Compare an in-scope post with an excluded copy of it to see Nomi Style's share.
  *
  * Reports: extra PHP time per page, one-time CSS generation time, CSS bytes added,
  * extra database queries, memory, autoloaded option size and shipped asset sizes.
@@ -38,7 +38,7 @@ setup_postdata($post);
 $ms    = static fn ($seconds) => round($seconds * 1000, 3);
 $bytes = static fn ($size) => $size >= 1024 ? round($size / 1024, 2) . ' KB' : $size . ' B';
 
-/** Removes Block Style's front-end hooks and returns a function that restores them. */
+/** Removes Nomi Style's front-end hooks and returns a function that restores them. */
 $detachGutenStyle = static function () {
     global $wp_filter;
     $removed = [];
@@ -67,7 +67,7 @@ $detachGutenStyle = static function () {
 
 $renderContent = static fn () => apply_filters('the_content', $post->post_content);
 
-// 1. Block Style's own one-time work per request: load the schema, read settings, scope and post meta.
+// 1. Nomi Style's own one-time work per request: load the schema, read settings, scope and post meta.
 //    The post meta cache is cleared first, so the query count is the worst case.
 global $wpdb;
 wp_cache_delete($post->ID, 'post_meta');
@@ -83,7 +83,7 @@ $setupMemory   = memory_get_usage() - $memoryBefore;
 $setupQueries  = $wpdb->num_queries - $queriesBefore;
 unset($schemaCopy);
 
-// 2. Content render with vs without Block Style. Runs alternate and the median is used, so drift and noise cancel out.
+// 2. Content render with vs without Nomi Style. Runs alternate and the median is used, so drift and noise cancel out.
 //    The first render warms caches and is kept to measure how much the added classes grow the HTML.
 $firstHtml = $renderContent();
 $median    = static function (array $samples) {
@@ -168,13 +168,13 @@ $assetSize  = static function ($file) use ($assetsDir, $bytes) {
 
 $extra = $withGutenStyle - $withoutGutenStyle;
 $rows  = [
-    ['Post', "#{$post->ID} " . get_the_title($post) . ' (' . ($inScope ? 'Block Style on' : 'Block Style off') . ')'],
+    ['Post', "#{$post->ID} " . get_the_title($post) . ' (' . ($inScope ? 'Nomi Style on' : 'Nomi Style off') . ')'],
     ['Supported blocks in post', \count($blocks)],
     ['--- PHP, per page view ---', ''],
     ['Setup (schema, settings, meta)', $ms($setupTime) . ' ms, ' . $bytes(max(0, $setupMemory)) . ' memory, ' . $setupQueries . ' queries (worst case)'],
     ['CSS generation, all levels', $ms($cssTime) . ' ms'],
-    ['Content render without Block Style', $ms($withoutGutenStyle) . ' ms (median of ' . $iterations . ')'],
-    ['Content render with Block Style', $ms($withGutenStyle) . ' ms'],
+    ['Content render without Nomi Style', $ms($withoutGutenStyle) . ' ms (median of ' . $iterations . ')'],
+    ['Content render with Nomi Style', $ms($withGutenStyle) . ' ms'],
     ['Extra render time', abs($extra) < 0.0002 ? 'under 0.2 ms (within noise)' : $ms($extra) . ' ms'],
     ['--- Sent to the browser ---', ''],
     ['CSS added to the page', $bytes(\strlen($css)) . ' (' . $bytes(\strlen(gzencode($css, 9))) . ' gzip), inline, 0 extra requests'],

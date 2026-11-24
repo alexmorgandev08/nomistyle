@@ -1,6 +1,6 @@
-# Block Style
+# Nomi Style
 
-The design system for Gutenberg content. Gutenberg handles the content; Block Style handles the styling.
+The design system for Gutenberg content. Gutenberg handles the content; Nomi Style handles the styling.
 
 Style core blocks site-wide, per post, or per block, with visual controls and no CSS.
 
@@ -13,7 +13,7 @@ Style core blocks site-wide, per post, or per block, with visual controls and no
 | Scope | Choose post types; exclude individual posts |
 | Presets | 4–7 per block (34 total), applied as a starting point; a Presets page lists them all |
 | Responsive | Tablet / mobile values for size and spacing controls, using WordPress core's breakpoints; tables can stack rows on small screens |
-| Force Style | Marks Block Style declarations `!important` when a theme wins |
+| Force Style | Marks Nomi Style declarations `!important` when a theme wins |
 | Preview | Global Styles preview renders sample blocks through the active theme |
 
 Every block in the spec's Free list is covered. Design tokens, Style Inspector, Style Health, import/export,
@@ -27,7 +27,7 @@ schema/blocks.json            single source of truth: controls, CSS targets, pre
         ├── backend/app/Styles/        PHP: sanitize values, generate CSS, settings, post meta, scope
         │     └── Frontend/StyleRenderer.php   adds classes at render time, prints CSS
         └── frontend/src/shared/       TS: same CSS generator + shared controls
-              ├── admin/                Block Style → Global Styles / Settings screen
+              ├── admin/                Nomi Style → Global Styles / Settings screen
               └── editor/               block sidebar panel, post panel, live canvas CSS
 ```
 
@@ -54,14 +54,14 @@ composer install
 pnpm install
 pnpm build        # type-check + build assets/admin.* and assets/editor.*
 pnpm dev          # rebuild on change
-pnpm zip          # production zip → dist/blockstyle-<version>.zip
+pnpm zip          # production zip → dist/nomistyle-<version>.zip
 ```
 
-`pnpm zip` builds fresh assets, copies only the runtime files (`blockstyle.php`, `backend/`, `schema/`,
+`pnpm zip` builds fresh assets, copies only the runtime files (`nomistyle.php`, `backend/`, `schema/`,
 `assets/`) into `build/`, runs `composer install --no-dev` there (your working `vendor/` is untouched),
 zips it, and fails if anything required is missing or a dev file (`.env`, `frontend/`, `tests/`, PHPUnit)
 slipped in. Use `pnpm zip --skip-build` to reuse the current `assets/`. The version comes from the plugin
-header in `blockstyle.php`.
+header in `nomistyle.php`.
 
 The editor bundle does not include React or `@wordpress/*`; it uses the copies WordPress already loads,
 because Gutenberg needs a single React. The admin bundle ships its own React 19, antd 6, React Router and
@@ -77,7 +77,7 @@ pnpm test         # Vitest: TS generator against the same fixtures
 
 ### REST API
 
-Namespace `blockstyle/v1`, `manage_options` required:
+Namespace `nomistyle/v1`, `manage_options` required:
 
 - `GET|POST /config`: global styles, post types, Force Style
 - `GET|POST /exclusions`: list posts, or `{ id, excluded }` to exclude or include one

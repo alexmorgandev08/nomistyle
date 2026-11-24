@@ -11,7 +11,7 @@ import { blockNameMap, type StyleValues } from '../shared/schema'
 import { knownValues } from '../shared/values'
 import { editorData, usePostContext } from './context'
 
-// Must not end in "-css": WordPress already uses "blockstyle-editor-css" for the editor stylesheet.
+// Must not end in "-css": WordPress already uses "nomistyle-editor-css" for the editor stylesheet.
 const STYLE_ELEMENT_ID = 'gs-editor-live-styles'
 
 /** Per-block CSS cache, keyed by clientId and invalidated when the values object changes. */
@@ -28,7 +28,7 @@ const generate = (type: string, values: StyleValues, root: string, force = false
   )
 
 /**
- * Generates Block Style CSS for the post being edited (global → post → block)
+ * Generates Nomi Style CSS for the post being edited (global → post → block)
  * and keeps it in the editor canvas, so blocks look like they will on the site.
  */
 export default function StyleSync() {

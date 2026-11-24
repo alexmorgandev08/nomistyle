@@ -10,7 +10,7 @@ interface UpgradeCardProps {
 }
 
 /**
- * Describes a Block Style Pro feature in the free plugin, with an upgrade link.
+ * Describes a Nomi Style Pro feature in the free plugin, with an upgrade link.
  * Only words and a link: the free plugin holds no Pro code (WordPress.org rules).
  */
 export default function UpgradeCard({ description, features = [], title }: UpgradeCardProps) {

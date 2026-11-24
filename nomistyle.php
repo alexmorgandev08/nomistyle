@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name:       Block Style
- * Plugin URI:        https://wordpress.org/plugins/blockstyle/
+ * Plugin Name:       Nomi Style
+ * Plugin URI:        https://wordpress.org/plugins/nomistyle/
  * Description:       Style tables, headings, lists, quotes, accordions, buttons and images across your whole site, per post or per block. No CSS needed.
  * Version:           0.0.1
  * Author:            CodeNomi
  * Author URI:        https://profiles.wordpress.org/alexmorgandev/
- * Text Domain:       blockstyle
+ * Text Domain:       nomistyle
  * Requires PHP:      8.2
  * Requires at least: 6.6
  * License:           GPLv2 or later

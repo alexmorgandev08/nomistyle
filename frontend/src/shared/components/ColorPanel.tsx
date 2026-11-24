@@ -133,7 +133,7 @@ export default function ColorPanel({ fallback, onChange, swatches, value }: Colo
   return (
     <div className="gs-picker">
       {swatches.length > 0 && (
-        <div aria-label={__('Theme colors', 'blockstyle')} className="gs-colors" role="group">
+        <div aria-label={__('Theme colors', 'nomistyle')} className="gs-colors" role="group">
           {swatches.map(item => {
             const selected = value?.toLowerCase() === item.color.toLowerCase()
             return (
@@ -178,7 +178,7 @@ export default function ColorPanel({ fallback, onChange, swatches, value }: Colo
       <div className="gs-picker__value">
         <div className="gs-picker__format">
           <select
-            aria-label={__('Color format', 'blockstyle')}
+            aria-label={__('Color format', 'nomistyle')}
             onChange={event => {
               const next = event.target.value as ColorFormat
               setFormat(next)
@@ -201,15 +201,15 @@ export default function ColorPanel({ fallback, onChange, swatches, value }: Colo
 
       <div className="gs-picker__footer">
         <span className="gs-picker__contrast">
-          <Contrast background={WHITE} color={rgba} label={__('white', 'blockstyle')} />
-          <Contrast background={BLACK} color={rgba} label={__('black', 'blockstyle')} />
+          <Contrast background={WHITE} color={rgba} label={__('white', 'nomistyle')} />
+          <Contrast background={BLACK} color={rgba} label={__('black', 'nomistyle')} />
         </span>
         <span className="gs-picker__actions">
           <button className="gs-text-btn" onClick={() => onChange('transparent')} type="button">
-            {__('Transparent', 'blockstyle')}
+            {__('Transparent', 'nomistyle')}
           </button>
           <button className="gs-text-btn is-destructive" onClick={() => onChange(undefined)} type="button">
-            {__('Clear', 'blockstyle')}
+            {__('Clear', 'nomistyle')}
           </button>
         </span>
       </div>
@@ -225,7 +225,7 @@ function Contrast({ background, color, label }: { background: typeof WHITE; colo
       className="gs-picker__ratio"
       title={sprintf(
         /* translators: 1: contrast ratio, e.g. "4.5", 2: "white" or "black" */
-        __('Contrast %1$s:1 on %2$s', 'blockstyle'),
+        __('Contrast %1$s:1 on %2$s', 'nomistyle'),
         ratio,
         label
       )}
@@ -268,10 +268,10 @@ function ColorArea({ hsva, onChange }: { hsva: Hsva; onChange: (next: Hsva) => v
 
   return (
     <div
-      aria-label={__('Saturation and brightness', 'blockstyle')}
+      aria-label={__('Saturation and brightness', 'nomistyle')}
       aria-valuetext={sprintf(
         /* translators: 1: saturation percent, 2: brightness percent */
-        __('Saturation %1$d%%, brightness %2$d%%', 'blockstyle'),
+        __('Saturation %1$d%%, brightness %2$d%%', 'nomistyle'),
         Math.round(hsva.s),
         Math.round(hsva.v)
       )}

@@ -15,9 +15,9 @@ const DEVICE_WIDTHS: Record<Device, string> = {
 };
 
 const DEVICE_OPTIONS: { label: string; value: Device }[] = [
-  { label: __("Desktop", "blockstyle"), value: "desktop" },
-  { label: __("Tablet", "blockstyle"), value: "tablet" },
-  { label: __("Mobile", "blockstyle"), value: "mobile" },
+  { label: __("Desktop", "nomistyle"), value: "desktop" },
+  { label: __("Tablet", "nomistyle"), value: "tablet" },
+  { label: __("Mobile", "nomistyle"), value: "mobile" },
 ];
 
 const STYLE_ELEMENT_ID = "gs-admin-preview-styles";
@@ -35,7 +35,7 @@ interface PreviewProps {
 
 /**
  * Shows the selected block's samples rendered by the active theme
- * (see PreviewPage.php), with the unsaved Block Style CSS injected.
+ * (see PreviewPage.php), with the unsaved Nomi Style CSS injected.
  */
 export default function Preview({
   css,
@@ -53,7 +53,7 @@ export default function Preview({
 
   const badge = sprintf(
     /* translators: %s: block name */
-    __("%s · Global", "blockstyle"),
+    __("%s · Global", "nomistyle"),
     label,
   );
 
@@ -92,15 +92,15 @@ export default function Preview({
   }, [badge, css, loaded, type]);
 
   return (
-    <section aria-label={__("Preview", "blockstyle")} className="gs-preview">
+    <section aria-label={__("Preview", "nomistyle")} className="gs-preview">
       <div className="gs-preview__toolbar">
         <p className="gs-preview__crumb">
-          {__("Global Styles", "blockstyle")}{" "}
+          {__("Global Styles", "nomistyle")}{" "}
           <span className="gs-preview__crumb-sep">/</span>{" "}
           <strong>{label}</strong>
         </p>
         <SegmentedControl
-          label={__("Preview size", "blockstyle")}
+          label={__("Preview size", "nomistyle")}
           onChange={(next) => next && onDeviceChange(next as Device)}
           options={DEVICE_OPTIONS}
           value={device}
@@ -121,7 +121,7 @@ export default function Preview({
               strokeWidth="2"
             />
           </svg>
-          {__("CSS", "blockstyle")}
+          {__("CSS", "nomistyle")}
         </button>
       </div>
       <div className="gs-preview__stage">
@@ -136,30 +136,30 @@ export default function Preview({
           ref={frame}
           src={adminData.previewUrl}
           style={{ width: DEVICE_WIDTHS[device] }}
-          title={__("Block Style preview with your theme", "blockstyle")}
+          title={__("Nomi Style preview with your theme", "nomistyle")}
         />
       </div>
       {showCss && (
         <div className="gs-preview__css">
           <div className="gs-preview__css-head">
-            <span>{__("Generated CSS · Global layer", "blockstyle")}</span>
+            <span>{__("Generated CSS · Global layer", "nomistyle")}</span>
             <span>
               {sprintf(
                 /* translators: %d: number of CSS rules */
-                _n("%d rule", "%d rules", ruleCount, "blockstyle"),
+                _n("%d rule", "%d rules", ruleCount, "nomistyle"),
                 ruleCount,
               )}
             </span>
           </div>
           <pre
-            aria-label={__("Generated CSS", "blockstyle")}
+            aria-label={__("Generated CSS", "nomistyle")}
             className="gs-preview__code"
             tabIndex={0}
           >
             {css ||
               __(
                 "/* No styles set. The theme styles this block. */",
-                "blockstyle",
+                "nomistyle",
               )}
           </pre>
         </div>

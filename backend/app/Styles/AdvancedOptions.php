@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Advanced options (Settings › Advanced): how Block Style outputs its CSS, and what uninstall deletes.
+ * Advanced options (Settings › Advanced): how Nomi Style outputs its CSS, and what uninstall deletes.
  * Pure functions, so they work without WordPress (tests). frontend/src/shared/settings.ts checks
  * the content selector with the same pattern.
  */

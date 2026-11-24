@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it } from 'vitest'
 
 import SettingRow from './SettingRow'
 
-const HELP = 'Block Style styles only these content types.'
+const HELP = 'Nomi Style styles only these content types.'
 
 afterEach(cleanup)
 

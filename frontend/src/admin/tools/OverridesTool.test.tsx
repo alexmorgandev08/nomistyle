@@ -24,7 +24,7 @@ const POST: OverridePost = {
 let OverridesTool: ComponentType
 
 beforeAll(async () => {
-  vi.stubGlobal('gutenStyleAdmin', { restNamespace: 'blockstyle/v1', upgradeUrl: 'https://example.test' })
+  vi.stubGlobal('gutenStyleAdmin', { restNamespace: 'nomistyle/v1', upgradeUrl: 'https://example.test' })
   OverridesTool = (await import('./OverridesTool')).default
 })
 
@@ -53,7 +53,7 @@ describe('OverridesTool', () => {
     expect((await screen.findByRole('link', { name: 'Pricing' })).getAttribute('href')).toBe(POST.editUrl)
     expect(screen.getByText('1 block type')).toBeTruthy()
     expect(screen.getByText('3 blocks')).toBeTruthy()
-    expect(apiFetch).toHaveBeenCalledWith({ path: '/blockstyle/v1/overrides?page=1&perPage=20' })
+    expect(apiFetch).toHaveBeenCalledWith({ path: '/nomistyle/v1/overrides?page=1&perPage=20' })
   })
 
   it('shows the empty state', async () => {
@@ -71,7 +71,7 @@ describe('OverridesTool', () => {
 
     const confirm = [...popup.closest('.ant-popover')!.querySelectorAll('button')].find(button => button.textContent === 'Remove')!
     fireEvent.click(confirm)
-    await waitFor(() => expect(apiFetch).toHaveBeenCalledWith({ method: 'DELETE', path: '/blockstyle/v1/overrides/7' }))
+    await waitFor(() => expect(apiFetch).toHaveBeenCalledWith({ method: 'DELETE', path: '/nomistyle/v1/overrides/7' }))
     expect(await screen.findByText(/restore the last revision/)).toBeTruthy()
   })
 })

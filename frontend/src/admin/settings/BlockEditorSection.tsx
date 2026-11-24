@@ -11,7 +11,7 @@ import { type SectionProps } from './types'
 /** Administrators can always edit styles (EditorOptions::userCanEdit), so nobody is locked out. */
 const ALWAYS_ALLOWED = 'administrator'
 
-/** Block editor: what the Block Style panels show, and who sees them. */
+/** Block editor: what the Nomi Style panels show, and who sees them. */
 export default function BlockEditorSection({ config, onChange }: SectionProps) {
   const set = (changes: Partial<EditorOptions>) => onChange({ ...config, editor: { ...config.editor, ...changes } })
 
@@ -22,34 +22,34 @@ export default function BlockEditorSection({ config, onChange }: SectionProps) {
     <>
       <SwitchRow
         checked={config.editor.showSource}
-        description={__('Show the Global, This post and This block choice in the block panel. When it is off, edits go to the first allowed level.', 'blockstyle')}
+        description={__('Show the Global, This post and This block choice in the block panel. When it is off, edits go to the first allowed level.', 'nomistyle')}
         icon={LayersIcon}
         onChange={showSource => set({ showSource })}
-        title={__('Show style source', 'blockstyle')}
+        title={__('Show style source', 'nomistyle')}
       />
       <SwitchRow
         checked={config.editor.allowPostStyles}
-        description={__('Let editors style all blocks of a type in one post. Existing post styles keep working when this is off.', 'blockstyle')}
+        description={__('Let editors style all blocks of a type in one post. Existing post styles keep working when this is off.', 'nomistyle')}
         icon={DocumentsIcon}
         onChange={allowPostStyles => set({ allowPostStyles })}
-        title={__('Allow post styles', 'blockstyle')}
+        title={__('Allow post styles', 'nomistyle')}
       />
       <SwitchRow
         checked={config.editor.allowBlockStyles}
-        description={__('Let editors style one single block. Existing block styles keep working when this is off.', 'blockstyle')}
+        description={__('Let editors style one single block. Existing block styles keep working when this is off.', 'nomistyle')}
         icon={BlockIcon}
         onChange={allowBlockStyles => set({ allowBlockStyles })}
-        title={__('Allow block styles', 'blockstyle')}
+        title={__('Allow block styles', 'nomistyle')}
       />
       <SettingRow
-        description={__('Users with these roles see the Block Style panels in the editor. Administrators always see them.', 'blockstyle')}
+        description={__('Users with these roles see the Nomi Style panels in the editor. Administrators always see them.', 'nomistyle')}
         icon={UsersIcon}
-        title={__('Roles that can edit styles', 'blockstyle')}
+        title={__('Roles that can edit styles', 'nomistyle')}
       >
         <div className="flex flex-wrap gap-x-6 gap-y-2.5">
           {adminData.roles.map(role =>
             role.name === ALWAYS_ALLOWED ? (
-              <Tooltip key={role.name} title={__('Administrators can always edit styles.', 'blockstyle')}>
+              <Tooltip key={role.name} title={__('Administrators can always edit styles.', 'nomistyle')}>
                 <Checkbox checked disabled>
                   {role.label}
                 </Checkbox>

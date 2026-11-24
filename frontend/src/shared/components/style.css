@@ -1,7 +1,7 @@
-/* Shared Block Style controls (admin screen + editor sidebar). */
+/* Shared Nomi Style controls (admin screen + editor sidebar). */
 
 /*
- * Archivo (SIL Open Font License, see fonts/OFL.txt), the type of the Block Style design system.
+ * Archivo (SIL Open Font License, see fonts/OFL.txt), the type of the Nomi Style design system.
  * scripts/build.mjs copies the files to assets/fonts/; the URLs resolve next to the built CSS.
  */
 @font-face {
@@ -25,7 +25,7 @@
 }
 
 /*
- * Light fallback, used by popovers that WordPress renders outside the Block Style panel.
+ * Light fallback, used by popovers that WordPress renders outside the Nomi Style panel.
  * Everything inside .gs-ui uses the dark design-system tokens below.
  */
 :root {
@@ -61,7 +61,7 @@
   --gs-section-x: 14px;
 }
 
-/* Block Style design system: dark surfaces, 8px corners, 30px controls, 12px text. */
+/* Nomi Style design system: dark surfaces, 8px corners, 30px controls, 12px text. */
 .gs-ui {
   --gs-accent: #ec3013;
   --gs-accent-soft: rgb(236 48 19 / 20%);
@@ -167,7 +167,7 @@
   width: 16px;
 }
 
-/* WordPress components inside Block Style follow the design system: red accent, Archivo, dark fields. */
+/* WordPress components inside Nomi Style follow the design system: red accent, Archivo, dark fields. */
 .gs-ui {
   --wp-admin-theme-color: #ec3013;
   --wp-admin-theme-color-darker-10: #dd2b0f;

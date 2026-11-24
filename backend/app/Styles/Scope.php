@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 use GutenStyle\Config;
 
 /**
- * Decides whether Block Style applies to a post: its post type must be enabled
+ * Decides whether Nomi Style applies to a post: its post type must be enabled
  * in settings, the post must not be excluded, and it must match add-on conditions.
  */
 final class Scope
@@ -38,7 +38,7 @@ final class Scope
     }
 
     /**
-     * Whether a post matches the conditions of add-ons, such as Block Style Pro's categories, tags and
+     * Whether a post matches the conditions of add-ons, such as Nomi Style Pro's categories, tags and
      * authors (GUTEN_STYLE_post_matches_conditions filter). True when no add-on adds conditions.
      *
      * @param int $postId post ID

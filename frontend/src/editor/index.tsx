@@ -22,15 +22,15 @@ interface BlockProps {
 }
 
 // 1. Give supported core blocks a `gutenStyle` attribute for block-level overrides.
-addFilter('blocks.registerBlockType', 'blockstyle/attribute', (settings: { attributes?: object }, name: string) => {
+addFilter('blocks.registerBlockType', 'nomistyle/attribute', (settings: { attributes?: object }, name: string) => {
   if (!blockNameMap[name]) return settings
   return { ...settings, attributes: { ...settings.attributes, gutenStyle: { type: 'object' } } }
 })
 
-// 2. Add the Block Style panel to the block's Styles tab.
+// 2. Add the Nomi Style panel to the block's Styles tab.
 addFilter(
   'editor.BlockEdit',
-  'blockstyle/panel',
+  'nomistyle/panel',
   createHigherOrderComponent(
     BlockEdit =>
       function GutenStyleBlockEdit(props: BlockProps) {
@@ -66,7 +66,7 @@ function StyledBlockListBlock({
 
 addFilter(
   'editor.BlockListBlock',
-  'blockstyle/classes',
+  'nomistyle/classes',
   createHigherOrderComponent(
     (BlockListBlock: ComponentType<BlockProps>) =>
       function GutenStyleBlockListBlock(props: BlockProps) {
@@ -79,7 +79,7 @@ addFilter(
 )
 
 // 4. Live CSS in the canvas + the post-level panel.
-registerPlugin('blockstyle', {
+registerPlugin('nomistyle', {
   render: () => (
     <>
       <StyleSync />

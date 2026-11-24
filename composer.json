@@ -1,5 +1,5 @@
 {
-  "name": "alexmorgandev/blockstyle",
+  "name": "alexmorgandev/nomistyle",
   "description": "Style core blocks across your whole site, per post or per block, without CSS.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",

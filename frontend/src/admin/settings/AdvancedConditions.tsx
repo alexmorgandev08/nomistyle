@@ -4,13 +4,13 @@ import { FilterIcon } from '../settingsIcons'
 import ProSettingRow from '../upgrade/ProSettingRow'
 import { type SectionProps } from './types'
 
-/** Block Style Pro's advanced conditions, shown in the free plugin as an upgrade. */
+/** Nomi Style Pro's advanced conditions, shown in the free plugin as an upgrade. */
 export default function AdvancedConditions(_props: SectionProps) {
   return (
     <ProSettingRow
-      description={__('Apply styles only to posts in some categories or tags, or by some authors. Custom taxonomies are supported.', 'blockstyle')}
+      description={__('Apply styles only to posts in some categories or tags, or by some authors. Custom taxonomies are supported.', 'nomistyle')}
       icon={FilterIcon}
-      title={__('Advanced conditions', 'blockstyle')}
+      title={__('Advanced conditions', 'nomistyle')}
     />
   )
 }

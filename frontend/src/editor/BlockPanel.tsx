@@ -33,7 +33,7 @@ import TableHeaderNotice from "./TableHeaderNotice";
 interface BlockPanelProps {
   attributes: {
     body?: TableRow[];
-    /** `force`: Block Style Pro's Style Inspector forced this block (its CSS is !important). */
+    /** `force`: Nomi Style Pro's Style Inspector forced this block (its CSS is !important). */
     gutenStyle?: { force?: boolean; values?: unknown };
     head?: TableRow[];
   };
@@ -58,7 +58,7 @@ export default function BlockPanel({
   const [theme] = useUiTheme();
   // Read once per mount: selecting another block remounts this panel and reads it again.
   const [copied, setCopied] = useState(() => readCopiedStyle(type));
-  // Saved presets and "Save as preset" (Block Style Pro; nothing in the free build).
+  // Saved presets and "Save as preset" (Nomi Style Pro; nothing in the free build).
   const savedPresets = useSavedPresets(type);
   const savePreset = useSavePresetAction({
     canSave: editorData.canEditStyles,
@@ -77,7 +77,7 @@ export default function BlockPanel({
     }
   };
 
-  // "Describe a style with AI" (Block Style Pro). Apply goes through the same update as presets.
+  // "Describe a style with AI" (Nomi Style Pro). Apply goes through the same update as presets.
   const describeStyle = useDescribeStyleAction({
     canApply: source !== "global",
     onApply: update,
@@ -102,7 +102,7 @@ export default function BlockPanel({
     return (
       <PanelBody
         className={`gs-block-panel ${themeClass(theme)}`}
-        title={__("Block Style", "blockstyle")}
+        title={__("Nomi Style", "nomistyle")}
       >
         <OutOfScopeNotice />
       </PanelBody>
@@ -130,10 +130,10 @@ export default function BlockPanel({
     source === "block"
       ? sprintf(
           /* translators: %s: block name */
-          __("Reset this %s", "blockstyle"),
+          __("Reset this %s", "nomistyle"),
           blockLabel,
         )
-      : __("Remove post style", "blockstyle");
+      : __("Remove post style", "nomistyle");
 
   const copyCurrent = () => {
     copyStyle(type, editing);
@@ -141,7 +141,7 @@ export default function BlockPanel({
     notify(
       sprintf(
         /* translators: 1: number of settings, 2: block name */
-        __("Copied %1$d settings from this %2$s.", "blockstyle"),
+        __("Copied %1$d settings from this %2$s.", "nomistyle"),
         countValues(editing),
         blockLabel,
       ),
@@ -151,7 +151,7 @@ export default function BlockPanel({
   const pasteCopied = () => {
     if (!copied) return;
     update(copied.values);
-    notify(__("Style pasted.", "blockstyle"));
+    notify(__("Style pasted.", "nomistyle"));
   };
 
   const resetCurrent = () => {
@@ -159,9 +159,9 @@ export default function BlockPanel({
     update({});
     notify(
       source === "block"
-        ? __("Block style reset.", "blockstyle")
-        : __("Post style removed.", "blockstyle"),
-      [{ label: __("Undo", "blockstyle"), onClick: () => update(previous) }],
+        ? __("Block style reset.", "nomistyle")
+        : __("Post style removed.", "nomistyle"),
+      [{ label: __("Undo", "nomistyle"), onClick: () => update(previous) }],
     );
   };
 
@@ -170,15 +170,15 @@ export default function BlockPanel({
       /* translators: %s: block name, e.g. "table" */
       __(
         "Edits apply to this one %s, on top of Global and this post.",
-        "blockstyle",
+        "nomistyle",
       ),
       blockLabel,
     ),
     global: sprintf(
       /* translators: %s: block name, e.g. "table" */
       __(
-        "Global styles apply to every %s where Block Style is on. Edit them in Block Style → Global Styles.",
-        "blockstyle",
+        "Global styles apply to every %s where Nomi Style is on. Edit them in Nomi Style → Global Styles.",
+        "nomistyle",
       ),
       blockLabel,
     ),
@@ -186,7 +186,7 @@ export default function BlockPanel({
       /* translators: 1: block name, 2: post type, e.g. "post" */
       __(
         "Edits apply to every %1$s in this %2$s, on top of Global.",
-        "blockstyle",
+        "nomistyle",
       ),
       blockLabel,
       context.postTypeLabel.toLowerCase(),
@@ -196,7 +196,7 @@ export default function BlockPanel({
   return (
     <PanelBody
       className={`gs-block-panel ${themeClass(theme)}`}
-      title={__("Block Style", "blockstyle")}
+      title={__("Nomi Style", "nomistyle")}
     >
       {savePreset.dialog}
       {describeStyle.dialog}
@@ -212,7 +212,7 @@ export default function BlockPanel({
       <div className="gs-panel-section">
         <div className="gs-panel-section__head">
           <span className="gs-panel-section__title">
-            {__("Style source", "blockstyle")}
+            {__("Style source", "nomistyle")}
           </span>
           <ThemeToggle />
           <StyleMenu
@@ -225,7 +225,7 @@ export default function BlockPanel({
             onReset={resetCurrent}
             pasteHint={sprintf(
               /* translators: %s: block name */
-              __("Copy a %s style first.", "blockstyle"),
+              __("Copy a %s style first.", "nomistyle"),
               blockLabel,
             )}
             resetLabel={resetLabel}
@@ -251,7 +251,7 @@ export default function BlockPanel({
           {editorData.canManage && (
             <p>
               <ExternalLink href={globalStyleUrl ?? ""}>
-                {__("Open Global Styles", "blockstyle")}
+                {__("Open Global Styles", "nomistyle")}
               </ExternalLink>
             </p>
           )}
@@ -262,11 +262,11 @@ export default function BlockPanel({
           <div className="gs-panel-section gs-rows">
             <div className="gs-row">
               <span className="gs-row__label">
-                {__("State", "blockstyle")}
+                {__("State", "nomistyle")}
               </span>
               <SegmentedControl
                 block
-                label={__("State", "blockstyle")}
+                label={__("State", "nomistyle")}
                 onChange={(next) => next && setState(next as StyleState)}
                 options={STATE_OPTIONS}
                 value={state}
@@ -310,8 +310,8 @@ export default function BlockPanel({
 
 
 const STATE_OPTIONS = [
-  { label: __("Default", "blockstyle"), value: "default" },
-  { label: __("Hover", "blockstyle"), value: "hover" },
+  { label: __("Default", "nomistyle"), value: "default" },
+  { label: __("Hover", "nomistyle"), value: "hover" },
 ];
 
 /** Which level edits are saved to, with how many settings each level has for this block. */
@@ -328,7 +328,7 @@ function SourceBar({
 }) {
   return (
     <div
-      aria-label={__("Style source", "blockstyle")}
+      aria-label={__("Style source", "nomistyle")}
       className="gs-source-bar"
       role="radiogroup"
     >
@@ -346,10 +346,10 @@ function SourceBar({
             {counts[level] > 0
               ? sprintf(
                   /* translators: %d: number of settings */
-                  __("%d set", "blockstyle"),
+                  __("%d set", "nomistyle"),
                   counts[level],
                 )
-              : __("None set", "blockstyle")}
+              : __("None set", "nomistyle")}
           </span>
         </button>
       ))}
@@ -366,12 +366,12 @@ export function OutOfScopeNotice() {
       <Notice isDismissible={false} status="info">
         {sprintf(
           /* translators: %s: post type label */
-          __("Block Style is not active for %s content.", "blockstyle"),
+          __("Nomi Style is not active for %s content.", "nomistyle"),
           postTypeLabel,
         )}{" "}
         {editorData.canManage && (
           <ExternalLink href={editorData.settingsUrl}>
-            {__("Change where it applies", "blockstyle")}
+            {__("Change where it applies", "nomistyle")}
           </ExternalLink>
         )}
       </Notice>
@@ -381,11 +381,11 @@ export function OutOfScopeNotice() {
   if (!matchesConditions) {
     return (
       <Notice isDismissible={false} status="info">
-        {__("This post does not match the conditions in Block Style settings.", "blockstyle")}{" "}
-        {__("After you change its categories, tags or author, save the post and reload the editor.", "blockstyle")}{" "}
+        {__("This post does not match the conditions in Nomi Style settings.", "nomistyle")}{" "}
+        {__("After you change its categories, tags or author, save the post and reload the editor.", "nomistyle")}{" "}
         {editorData.canManage && (
           <ExternalLink href={editorData.settingsUrl}>
-            {__("Change where it applies", "blockstyle")}
+            {__("Change where it applies", "nomistyle")}
           </ExternalLink>
         )}
       </Notice>
@@ -395,9 +395,9 @@ export function OutOfScopeNotice() {
   if (disabled) {
     return (
       <Notice isDismissible={false} status="info">
-        {__("Block Style is turned off for this post.", "blockstyle")}{" "}
+        {__("Nomi Style is turned off for this post.", "nomistyle")}{" "}
         <Button onClick={() => setDisabled(false)} variant="link">
-          {__("Turn it on", "blockstyle")}
+          {__("Turn it on", "nomistyle")}
         </Button>
       </Notice>
     );
@@ -405,7 +405,7 @@ export function OutOfScopeNotice() {
 
   return (
     <Notice isDismissible={false} status="warning">
-      {__("Save the post once to start using Block Style on it.", "blockstyle")}
+      {__("Save the post once to start using Nomi Style on it.", "nomistyle")}
     </Notice>
   );
 }

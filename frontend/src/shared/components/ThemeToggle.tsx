@@ -2,11 +2,11 @@ import { __ } from '@wordpress/i18n'
 
 import { useUiTheme } from '../theme'
 
-/** Switches the Block Style screens between the light and dark look. */
+/** Switches the Nomi Style screens between the light and dark look. */
 export default function ThemeToggle({ className }: { className?: string }) {
   const [theme, setTheme] = useUiTheme()
   const next = theme === 'dark' ? 'light' : 'dark'
-  const label = next === 'light' ? __('Use light theme', 'blockstyle') : __('Use dark theme', 'blockstyle')
+  const label = next === 'light' ? __('Use light theme', 'nomistyle') : __('Use dark theme', 'nomistyle')
 
   return (
     <button

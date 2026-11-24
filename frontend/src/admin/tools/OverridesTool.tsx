@@ -24,13 +24,13 @@ export default function OverridesTool() {
       ({ revisionId }) => {
         void message.success(
           revisionId
-            ? __('Styles removed. To get them back, restore the last revision of the post.', 'blockstyle')
-            : __('Styles removed.', 'blockstyle')
+            ? __('Styles removed. To get them back, restore the last revision of the post.', 'nomistyle')
+            : __('Styles removed.', 'nomistyle')
         )
         // The last row of a page is gone: show the page before it.
         if (overrides.data?.items.length === 1 && page > 1) setPage(page - 1)
       },
-      () => void message.error(__('The styles were not removed. Try again.', 'blockstyle'))
+      () => void message.error(__('The styles were not removed. Try again.', 'nomistyle'))
     )
 
   const columns: TableColumnsType<OverridePost> = [
@@ -39,37 +39,37 @@ export default function OverridesTool() {
       render: (_, post) => (
         <div className="flex flex-col">
           <a className="font-medium" href={post.editUrl}>
-            {post.title || __('(no title)', 'blockstyle')}
+            {post.title || __('(no title)', 'nomistyle')}
           </a>
           <small className="opacity-70">
             {post.type} · {post.status}
           </small>
         </div>
       ),
-      title: __('Post', 'blockstyle')
+      title: __('Post', 'nomistyle')
     },
     {
       dataIndex: 'postStyles',
       render: (count: number) =>
         count > 0
           ? /* translators: %d: number of block types */
-            sprintf(_n('%d block type', '%d block types', count, 'blockstyle'), count)
+            sprintf(_n('%d block type', '%d block types', count, 'nomistyle'), count)
           : NONE,
-      title: __('Post style', 'blockstyle')
+      title: __('Post style', 'nomistyle')
     },
     {
       dataIndex: 'blockStyles',
       render: (count: number) =>
         count > 0
           ? /* translators: %d: number of blocks */
-            sprintf(_n('%d block', '%d blocks', count, 'blockstyle'), count)
+            sprintf(_n('%d block', '%d blocks', count, 'nomistyle'), count)
           : NONE,
-      title: __('Block styles', 'blockstyle')
+      title: __('Block styles', 'nomistyle')
     },
     {
       dataIndex: 'modified',
       render: (modified: string) => dateFormat.format(new Date(modified)),
-      title: __('Last edited', 'blockstyle')
+      title: __('Last edited', 'nomistyle')
     },
     {
       align: 'right',
@@ -77,29 +77,29 @@ export default function OverridesTool() {
       render: (_, post) => (
         <div className="flex justify-end gap-2">
           <Button href={post.viewUrl} rel="noopener noreferrer" size="small" target="_blank">
-            {__('View', 'blockstyle')}
+            {__('View', 'nomistyle')}
           </Button>
           <Popconfirm
-            description={__('This removes the post style and all block styles of this post. A revision is saved first.', 'blockstyle')}
+            description={__('This removes the post style and all block styles of this post. A revision is saved first.', 'nomistyle')}
             okButtonProps={{ danger: true }}
-            okText={__('Remove', 'blockstyle')}
+            okText={__('Remove', 'nomistyle')}
             onConfirm={() => removePost(post)}
-            title={__('Remove the overrides?', 'blockstyle')}
+            title={__('Remove the overrides?', 'nomistyle')}
           >
             <Button color="danger" size="small" variant="outlined">
-              {__('Remove', 'blockstyle')}
+              {__('Remove', 'nomistyle')}
             </Button>
           </Popconfirm>
         </div>
       ),
-      title: <span className="sr-only">{__('Actions', 'blockstyle')}</span>
+      title: <span className="sr-only">{__('Actions', 'nomistyle')}</span>
     }
   ]
 
   return (
     <div className="flex flex-col gap-4">
       <p className="m-0">
-        {__('These posts have a post style or block styles. These styles override your global styles. Remove them to use only the global styles.', 'blockstyle')}
+        {__('These posts have a post style or block styles. These styles override your global styles. Remove them to use only the global styles.', 'nomistyle')}
       </p>
       <Table<OverridePost>
         columns={columns}
@@ -107,8 +107,8 @@ export default function OverridesTool() {
         loading={overrides.isFetching}
         locale={{
           emptyText: overrides.isError
-            ? __('The list did not load. Reload the page and try again.', 'blockstyle')
-            : __('No posts have overrides. All posts use the global styles.', 'blockstyle')
+            ? __('The list did not load. Reload the page and try again.', 'nomistyle')
+            : __('No posts have overrides. All posts use the global styles.', 'nomistyle')
         }}
         onChange={pagination => setPage(pagination.current ?? 1)}
         pagination={{ current: page, hideOnSinglePage: true, pageSize: PER_PAGE, showSizeChanger: false, total: overrides.data?.total }}

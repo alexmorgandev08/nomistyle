@@ -12,7 +12,7 @@ export interface Config {
   editor: EditorOptions
   forceStyle: boolean
   postTypes: string[]
-  /** Settings of add-ons such as Block Style Pro, cleaned by the add-on; free code passes them on. */
+  /** Settings of add-ons such as Nomi Style Pro, cleaned by the add-on; free code passes them on. */
   pro?: Record<string, unknown>
   styles: StyleMap
   /** Show the theme's colors in color pickers. */
@@ -30,7 +30,7 @@ export interface ExcludedPost {
 export interface AdminData {
   config: Config
   mediaQueries: MediaQueries
-  /** Colors from add-ons (Block Style Pro's design system), shown first in color pickers. */
+  /** Colors from add-ons (Nomi Style Pro's design system), shown first in color pickers. */
   brandColors: PaletteColor[]
   palette: PaletteColor[]
   postTypes: { label: string; name: string }[]

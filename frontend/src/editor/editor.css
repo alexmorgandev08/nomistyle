@@ -1,6 +1,6 @@
-/* Block Style panels inside the block editor sidebar. */
+/* Nomi Style panels inside the block editor sidebar. */
 
-/* The Block Style block panel uses the Block Style design system (tokens in style.css). */
+/* The Nomi Style block panel uses the Nomi Style design system (tokens in style.css). */
 .gs-block-panel {
   --gs-section-x: 16px;
 }
@@ -169,7 +169,7 @@
   margin-inline-start: 2px;
 }
 
-/* Buttons at the bottom of a Block Style dialog (e.g. Save as preset). */
+/* Buttons at the bottom of a Nomi Style dialog (e.g. Save as preset). */
 .gs-modal-actions {
   display: flex;
   gap: 8px;

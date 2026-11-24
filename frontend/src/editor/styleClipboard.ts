@@ -2,7 +2,7 @@ import { type StyleValues } from '../shared/schema'
 import { knownValues } from '../shared/values'
 
 /**
- * Copy / paste of a block's Block Style settings. Stored in localStorage so a style
+ * Copy / paste of a block's Nomi Style settings. Stored in localStorage so a style
  * can be pasted in another post; reading always re-validates against the schema.
  */
 export const STORAGE_KEY = 'gutenstyle:clipboard'

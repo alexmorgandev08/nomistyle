@@ -130,7 +130,7 @@ final class Overrides
     /**
      * Saves a revision of the post as it is now, even when the latest revision is the same.
      * Post styles are part of revisions (PostStyles registers them with revisions_enabled).
-     * Also used by Block Style Pro's Style Inspector before it changes a block.
+     * Also used by Nomi Style Pro's Style Inspector before it changes a block.
      *
      * @param WP_Post $post post
      *

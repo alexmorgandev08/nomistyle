@@ -4,16 +4,16 @@ import UpgradeCard from '../upgrade/UpgradeCard'
 import UpgradeLink from '../upgrade/UpgradeLink'
 import { type LockedBlock } from './types'
 
-/** Global Styles for a Block Style Pro block in the free plugin: what Pro styles, and an upgrade link. */
+/** Global Styles for a Nomi Style Pro block in the free plugin: what Pro styles, and an upgrade link. */
 export default function LockedBlockView({ block }: { block: LockedBlock }) {
   return (
     <>
-      <section aria-label={__('Preview', 'blockstyle')} className="gs-preview">
+      <section aria-label={__('Preview', 'nomistyle')} className="gs-preview">
         <div className="m-auto w-full max-w-xl p-6">
           <UpgradeCard
             description={sprintf(
               /* translators: %s: block name, e.g. "Paragraph" */
-              __('Style every %s block on your site with Block Style Pro.', 'blockstyle'),
+              __('Style every %s block on your site with Nomi Style Pro.', 'nomistyle'),
               block.label
             )}
             features={block.features}
@@ -21,7 +21,7 @@ export default function LockedBlockView({ block }: { block: LockedBlock }) {
           />
         </div>
       </section>
-      <aside aria-label={__('Block styles', 'blockstyle')} className="gs-global__inspector">
+      <aside aria-label={__('Block styles', 'nomistyle')} className="gs-global__inspector">
         <header className="gs-inspector__element">
           <code>
             &lt;{block.tag}&gt; <span className="gs-inspector__label">{block.label}</span>
@@ -30,12 +30,12 @@ export default function LockedBlockView({ block }: { block: LockedBlock }) {
         </header>
         <div className="gs-inspector__section gs-global__header">
           <div>
-            <h2>{__('Global style', 'blockstyle')}</h2>
+            <h2>{__('Global style', 'nomistyle')}</h2>
             <p>{block.description}</p>
           </div>
         </div>
         <div className="gs-inspector__section flex flex-col items-start gap-3">
-          <p className="m-0">{__('This block is part of Block Style Pro.', 'blockstyle')}</p>
+          <p className="m-0">{__('This block is part of Nomi Style Pro.', 'nomistyle')}</p>
           <UpgradeLink primary />
         </div>
       </aside>

@@ -49,7 +49,7 @@ export default function GlobalStyles({ config, onChange }: GlobalStylesProps) {
     adminData.postTypes
       .filter((postType) => config.postTypes.includes(postType.name))
       .map((postType) => postType.label)
-      .join(", ") || __("nothing yet", "blockstyle");
+      .join(", ") || __("nothing yet", "nomistyle");
 
   // Tablet and mobile values that apply in this build (free: heading font sizes; Pro: every size).
   const activeDeviceKeys = deviceKeys(active, config.pro);
@@ -93,7 +93,7 @@ export default function GlobalStyles({ config, onChange }: GlobalStylesProps) {
       />
 
       <aside
-        aria-label={__("Block styles", "blockstyle")}
+        aria-label={__("Block styles", "nomistyle")}
         className="gs-global__inspector"
       >
         <header className="gs-inspector__element">
@@ -106,7 +106,7 @@ export default function GlobalStyles({ config, onChange }: GlobalStylesProps) {
 
         <div className="gs-inspector__section gs-global__header">
           <div>
-            <h2>{__("Global style", "blockstyle")}</h2>
+            <h2>{__("Global style", "nomistyle")}</h2>
             <p>{block.description}</p>
           </div>
           {countValues(values) > 0 && (
@@ -117,21 +117,21 @@ export default function GlobalStyles({ config, onChange }: GlobalStylesProps) {
               size="small"
               variant="text"
             >
-              {__("Reset", "blockstyle")}
+              {__("Reset", "nomistyle")}
             </Button>
           )}
         </div>
 
         <div className="gs-inspector__section">
           <div className="gs-row">
-            <span className="gs-row__label">{__("State", "blockstyle")}</span>
+            <span className="gs-row__label">{__("State", "nomistyle")}</span>
             <SegmentedControl
               block
-              label={__("State", "blockstyle")}
+              label={__("State", "nomistyle")}
               onChange={(next) => next && setState(next as StyleState)}
               options={[
-                { label: __("Default", "blockstyle"), value: "default" },
-                { label: __("Hover", "blockstyle"), value: "hover" },
+                { label: __("Default", "nomistyle"), value: "default" },
+                { label: __("Hover", "nomistyle"), value: "hover" },
               ]}
               value={state}
             />

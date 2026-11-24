@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 use GutenStyle\Config;
 
 /**
- * Site-wide Block Style configuration: global block styles, where they apply, Force Style,
+ * Site-wide Nomi Style configuration: global block styles, where they apply, Force Style,
  * breakpoints, block editor options and theme colors. Stored as one autoloaded option.
  */
 final class StyleSettings
@@ -64,7 +64,7 @@ final class StyleSettings
         self::$_cache = $settings;
 
         /*
-         * After every save, with the new and the previous settings. Block Style Pro's Style history
+         * After every save, with the new and the previous settings. Nomi Style Pro's Style history
          * records the changes to global styles here.
          */
         // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- Config::withPrefix() adds the GUTEN_STYLE_ prefix.
@@ -74,7 +74,7 @@ final class StyleSettings
     }
 
     /**
-     * Saved styles of blocks that no active plugin adds (for example Block Style Pro is off). save()
+     * Saved styles of blocks that no active plugin adds (for example Nomi Style Pro is off). save()
      * keeps them, so turning the add-on off and saving does not lose them. They were cleaned when
      * they were saved.
      *
@@ -89,7 +89,7 @@ final class StyleSettings
     }
 
     /**
-     * Post types Block Style can be applied to: public and editable in the block editor.
+     * Post types Nomi Style can be applied to: public and editable in the block editor.
      *
      * @return array<int, array{name: string, label: string}>
      */
@@ -141,7 +141,7 @@ final class StyleSettings
     }
 
     /**
-     * Settings of add-ons such as Block Style Pro. The add-on cleans them with the
+     * Settings of add-ons such as Nomi Style Pro. The add-on cleans them with the
      * GUTEN_STYLE_pro_settings filter. Without it (add-on off), the saved settings are kept as they
      * are, so turning the add-on off and saving does not lose them; submitted ones are ignored.
      *

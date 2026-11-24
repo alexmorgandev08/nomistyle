@@ -4,13 +4,13 @@ import { HistoryIcon } from '../settingsIcons'
 import ProSettingRow from '../upgrade/ProSettingRow'
 import { type SectionProps } from './types'
 
-/** Block Style Pro's style history size, shown in the free plugin as an upgrade. */
+/** Nomi Style Pro's style history size, shown in the free plugin as an upgrade. */
 export default function StyleHistorySize(_props: SectionProps) {
   return (
     <ProSettingRow
-      description={__('Keep the last 5 to 100 changes to your global styles, and restore any of them.', 'blockstyle')}
+      description={__('Keep the last 5 to 100 changes to your global styles, and restore any of them.', 'nomistyle')}
       icon={HistoryIcon}
-      title={__('Style history size', 'blockstyle')}
+      title={__('Style history size', 'nomistyle')}
     />
   )
 }

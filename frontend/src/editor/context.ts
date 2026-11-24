@@ -24,7 +24,7 @@ export interface EditorData {
     themeColors: boolean
   }
   mediaQueries: MediaQueries
-  /** Colors from add-ons (Block Style Pro's design system), shown first in color pickers. */
+  /** Colors from add-ons (Nomi Style Pro's design system), shown first in color pickers. */
   brandColors: PaletteColor[]
   palette: PaletteColor[]
   settingsUrl: string
@@ -39,7 +39,7 @@ type PostMeta = Record<string, unknown> | undefined
 
 /**
  * Everything the editor panels need to know about the post being edited:
- * whether Block Style applies to it and its post-level overrides.
+ * whether Nomi Style applies to it and its post-level overrides.
  */
 export function usePostContext() {
   const { meta, postId, postType, postTypeLabel } = useSelect(select => {
@@ -75,7 +75,7 @@ export function usePostContext() {
   }
 }
 
-/** The device chosen in Gutenberg's preview, lower-cased to match Block Style's device names. */
+/** The device chosen in Gutenberg's preview, lower-cased to match Nomi Style's device names. */
 export function useEditorDevice(): Device {
   const deviceType = useSelect(select => select(editorStore).getDeviceType() as string, [])
   return (deviceType?.toLowerCase() ?? 'desktop') as Device

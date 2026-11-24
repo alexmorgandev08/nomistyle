@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { allDeviceKeys, filterDeviceValues, freeDeviceKeys } from './deviceValues'
 
 describe('device values', () => {
-  it('allows heading font sizes and the table layout on small screens in Block Style (free)', () => {
+  it('allows heading font sizes and the table layout on small screens in Nomi Style (free)', () => {
     expect(freeDeviceKeys('heading')).toEqual(['h2FontSize', 'h3FontSize', 'h4FontSize'])
     expect(freeDeviceKeys('table')).toEqual(['mobileLayout'])
     expect(freeDeviceKeys('list')).toEqual([])

@@ -15,11 +15,11 @@ class PluginPageActions
         return [
             [
                 'url'   => admin_url('admin.php?page=' . Config::SLUG),
-                'title' => __('Settings', 'blockstyle'),
+                'title' => __('Settings', 'nomistyle'),
             ],
             [
-                'url'   => 'https://wordpress.org/support/plugin/blockstyle/',
-                'title' => __('Support', 'blockstyle'),
+                'url'   => 'https://wordpress.org/support/plugin/nomistyle/',
+                'title' => __('Support', 'nomistyle'),
             ],
         ];
     }
